@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="VC" id="vXZ-lx-hvc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-us-aOJ" customClass="SPButton">
+                                <rect key="frame" x="4" y="14" width="100" height="56"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="cUa-sA-F1d"/>
+                                    <constraint firstAttribute="width" constant="100" id="dtt-MR-pZh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Specify Icon Size" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconMargin">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38q-ir-DAA" customClass="SPButton">
+                                <rect key="frame" x="168" y="14" width="41" height="30"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rxi-f4-s0Q"/>
+                                    <constraint firstAttribute="width" constant="41" id="wfR-tJ-pgf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Icon Top" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-32-mg0" customClass="SPButton">
+                                <rect key="frame" x="301" y="14" width="70" height="50"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7eT-J0-59b"/>
+                                    <constraint firstAttribute="width" constant="70" id="UGf-5g-URZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Specify Margin" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconMargin">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKJ-LQ-AzB" customClass="SPButton">
+                                <rect key="frame" x="4" y="281" width="61" height="18"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="cP1-L0-e3M"/>
+                                    <constraint firstAttribute="width" constant="61" id="oGm-Rc-PGv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Icon Left" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nj-4b-shy" customClass="SPButton">
+                                <rect key="frame" x="4" y="623" width="51" height="30"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="XIr-FK-pYA"/>
+                                    <constraint firstAttribute="height" constant="30" id="tJX-O6-EpK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Align Right" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSi-zg-1KL" customClass="SPButton">
+                                <rect key="frame" x="159" y="623" width="58" height="30"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="opu-u4-jMx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Icon Bottom" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Q8-gM-SxL" customClass="SPButton">
+                                <rect key="frame" x="326" y="623" width="45" height="30"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="qzk-dv-n1R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Align Left" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jw-zF-Zmx" customClass="SPButton">
+                                <rect key="frame" x="304" y="281" width="67" height="18"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="4fQ-4s-wDp"/>
+                                    <constraint firstAttribute="height" constant="18" id="RPx-KU-ilq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Icon Right" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6O-FA-u9h" customClass="SPButton">
+                                <rect key="frame" x="144" y="246" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="1xU-YV-si1"/>
+                                    <constraint firstAttribute="width" constant="88" id="ust-bZ-3X1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Icon Top" image="pageDot">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.95294117649999999" green="0.015686274510000001" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="27"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="22" height="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldRasterize" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ETa-ra-Kg2">
+                                <rect key="frame" x="100" y="111" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="B0Y-MY-Tta"/>
+                                    <constraint firstAttribute="height" constant="30" id="Q4H-qt-6dJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pO5-Du-m4t">
+                                <rect key="frame" x="168" y="79" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="dXN-Nv-PR1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="X2x-GZ-LJS"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lBy-xK-11b">
+                                <rect key="frame" x="168" y="127" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="uou-CL-KUp"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q76-Yd-LrI">
+                                <rect key="frame" x="168" y="177" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="fVX-kq-Sua"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFD-Wb-zvr" customClass="SPCircularView" customModule="SampleProject" customModuleProvider="target">
+                                <rect key="frame" x="159" y="14" width="56" height="56"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="7JS-uw-gxz"/>
+                                    <constraint firstAttribute="width" constant="56" id="sMp-Jl-Ty6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QYa-32-mg0" firstAttribute="top" secondItem="38q-ir-DAA" secondAttribute="top" id="3Fq-GI-MjF"/>
+                            <constraint firstItem="5Q8-gM-SxL" firstAttribute="baseline" secondItem="ZSi-zg-1KL" secondAttribute="baseline" id="9JE-nr-i4T"/>
+                            <constraint firstItem="e6O-FA-u9h" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="A0R-hZ-Ik6"/>
+                            <constraint firstItem="Q76-Yd-LrI" firstAttribute="trailing" secondItem="lBy-xK-11b" secondAttribute="trailing" id="AVh-u8-TPN"/>
+                            <constraint firstItem="tFD-Wb-zvr" firstAttribute="leading" secondItem="RTG-us-aOJ" secondAttribute="trailing" constant="55" id="Ex6-WQ-NcB"/>
+                            <constraint firstItem="Q76-Yd-LrI" firstAttribute="top" secondItem="lBy-xK-11b" secondAttribute="bottom" constant="20" id="GZ7-hF-50m"/>
+                            <constraint firstItem="8jw-zF-Zmx" firstAttribute="trailing" secondItem="QYa-32-mg0" secondAttribute="trailing" id="J8J-ob-1BM"/>
+                            <constraint firstItem="0nj-4b-shy" firstAttribute="top" secondItem="ZSi-zg-1KL" secondAttribute="top" id="MCA-5q-bkA"/>
+                            <constraint firstItem="pO5-Du-m4t" firstAttribute="trailing" secondItem="lBy-xK-11b" secondAttribute="trailing" id="OSI-Tw-Plt"/>
+                            <constraint firstItem="5Q8-gM-SxL" firstAttribute="trailing" secondItem="8jw-zF-Zmx" secondAttribute="trailing" id="Psi-Se-w8P"/>
+                            <constraint firstItem="ZSi-zg-1KL" firstAttribute="baseline" secondItem="5Q8-gM-SxL" secondAttribute="firstBaseline" id="U8g-wh-2XD"/>
+                            <constraint firstItem="e6O-FA-u9h" firstAttribute="centerY" secondItem="bKJ-LQ-AzB" secondAttribute="centerY" id="Uha-OL-Rw3"/>
+                            <constraint firstItem="RTG-us-aOJ" firstAttribute="top" secondItem="38q-ir-DAA" secondAttribute="top" id="VQ6-cX-ewj"/>
+                            <constraint firstItem="tFD-Wb-zvr" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="14" id="Vwz-1t-h4n"/>
+                            <constraint firstItem="ETa-ra-Kg2" firstAttribute="centerX" secondItem="38q-ir-DAA" secondAttribute="centerX" constant="-40" id="XGp-2w-BOe"/>
+                            <constraint firstItem="e6O-FA-u9h" firstAttribute="centerX" secondItem="38q-ir-DAA" secondAttribute="centerX" id="bpW-jV-hm5"/>
+                            <constraint firstItem="lBy-xK-11b" firstAttribute="leading" secondItem="Q76-Yd-LrI" secondAttribute="leading" id="cEc-ND-xh9"/>
+                            <constraint firstItem="lBy-xK-11b" firstAttribute="leading" secondItem="pO5-Du-m4t" secondAttribute="leading" id="edU-wi-KRh"/>
+                            <constraint firstItem="ETa-ra-Kg2" firstAttribute="top" secondItem="38q-ir-DAA" secondAttribute="bottom" constant="67" id="fvz-dv-peh"/>
+                            <constraint firstItem="ZSi-zg-1KL" firstAttribute="baseline" secondItem="0nj-4b-shy" secondAttribute="firstBaseline" id="hMk-1G-wC6"/>
+                            <constraint firstItem="e6O-FA-u9h" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="246" id="hkD-in-h3R"/>
+                            <constraint firstItem="e6O-FA-u9h" firstAttribute="centerX" secondItem="ZSi-zg-1KL" secondAttribute="centerX" id="io2-k4-2lb"/>
+                            <constraint firstItem="RTG-us-aOJ" firstAttribute="leading" secondItem="bKJ-LQ-AzB" secondAttribute="leading" id="iuF-eW-fXW"/>
+                            <constraint firstItem="0nj-4b-shy" firstAttribute="baseline" secondItem="ZSi-zg-1KL" secondAttribute="firstBaseline" id="jSc-dH-LJz"/>
+                            <constraint firstItem="ETa-ra-Kg2" firstAttribute="top" secondItem="pO5-Du-m4t" secondAttribute="bottom" constant="2" id="k7V-vy-UuD"/>
+                            <constraint firstItem="lBy-xK-11b" firstAttribute="top" secondItem="pO5-Du-m4t" secondAttribute="bottom" constant="18" id="lzq-5m-b5u"/>
+                            <constraint firstItem="bKJ-LQ-AzB" firstAttribute="baseline" secondItem="8jw-zF-Zmx" secondAttribute="baseline" id="mn2-oW-cVR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QYa-32-mg0" secondAttribute="trailing" constant="-12" id="pmW-Cq-wiZ"/>
+                            <constraint firstItem="5Q8-gM-SxL" firstAttribute="top" secondItem="ZSi-zg-1KL" secondAttribute="top" id="u2a-7o-iIV"/>
+                            <constraint firstItem="RTG-us-aOJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="14" id="uZH-YF-y9z"/>
+                            <constraint firstItem="RTG-us-aOJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-12" id="v1J-u4-Mq6"/>
+                            <constraint firstItem="pO5-Du-m4t" firstAttribute="leading" secondItem="38q-ir-DAA" secondAttribute="leading" id="y25-Aa-vHx"/>
+                            <constraint firstItem="bKJ-LQ-AzB" firstAttribute="leading" secondItem="0nj-4b-shy" secondAttribute="leading" id="yXF-ny-7jn"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="0nj-4b-shy" secondAttribute="bottom" constant="14" id="zlL-4J-JZz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tf1" destination="pO5-Du-m4t" id="79T-Xx-GGn"/>
+                        <outlet property="tf2" destination="lBy-xK-11b" id="Bn6-cF-d2d"/>
+                        <outlet property="tf3" destination="Q76-Yd-LrI" id="rnH-xv-eL5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261" y="141"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hwu-d5-0z9">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OWo-pH-fBP" customClass="ViewController" customModule="SampleProject" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wY3-eh-EC9"/>
+                        <viewControllerLayoutGuide type="bottom" id="rXk-kh-rQ9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zIg-Vt-Vwf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf0-Ac-tlf">
+                                <rect key="frame" x="150" y="607" width="75" height="30"/>
+                                <state key="normal" title="Pick Image"/>
+                                <connections>
+                                    <action selector="pickImage:" destination="OWo-pH-fBP" eventType="touchUpInside" id="12D-wv-OuA"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AEIOU ban in this field and length is 15" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="64Z-hn-bg8" customClass="BannedCharsTextField" customModule="SampleProject" customModuleProvider="target">
+                                <rect key="frame" x="10" y="110" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="bannedChars" value="AEIOUaeiou"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AEIOU allowed only and length is 12" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Ze-xQX" customClass="AllowedCharsTextField" customModule="SampleProject" customModuleProvider="target">
+                                <rect key="frame" x="10" y="50" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="allowedChars" value="AEIOUaeiou"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-rd-lpL">
+                                <rect key="frame" x="0.0" y="159" width="375" height="434"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NbZ-rd-lpL" secondAttribute="trailing" id="Cvl-TW-3ae"/>
+                            <constraint firstItem="NbZ-rd-lpL" firstAttribute="centerX" secondItem="zIg-Vt-Vwf" secondAttribute="centerX" id="EaF-n7-pIg"/>
+                            <constraint firstItem="trE-Ze-xQX" firstAttribute="top" secondItem="wY3-eh-EC9" secondAttribute="bottom" constant="30" id="JdV-E7-OMa"/>
+                            <constraint firstItem="trE-Ze-xQX" firstAttribute="leading" secondItem="zIg-Vt-Vwf" secondAttribute="leading" constant="10" id="KyW-xl-nHo"/>
+                            <constraint firstItem="wf0-Ac-tlf" firstAttribute="centerX" secondItem="zIg-Vt-Vwf" secondAttribute="centerX" id="Nij-45-e4s"/>
+                            <constraint firstItem="64Z-hn-bg8" firstAttribute="trailing" secondItem="trE-Ze-xQX" secondAttribute="trailing" id="R27-P5-MK9"/>
+                            <constraint firstItem="wf0-Ac-tlf" firstAttribute="top" secondItem="NbZ-rd-lpL" secondAttribute="bottom" constant="14" id="RKu-di-V5B"/>
+                            <constraint firstItem="NbZ-rd-lpL" firstAttribute="leading" secondItem="zIg-Vt-Vwf" secondAttribute="leading" id="W47-ob-TSZ"/>
+                            <constraint firstAttribute="trailing" secondItem="trE-Ze-xQX" secondAttribute="trailing" constant="10" id="aK5-l1-G9M"/>
+                            <constraint firstItem="rXk-kh-rQ9" firstAttribute="top" secondItem="wf0-Ac-tlf" secondAttribute="bottom" constant="30" id="ivn-ty-Rc9"/>
+                            <constraint firstItem="64Z-hn-bg8" firstAttribute="top" secondItem="trE-Ze-xQX" secondAttribute="bottom" constant="30" id="pmx-iy-hh4"/>
+                            <constraint firstItem="64Z-hn-bg8" firstAttribute="leading" secondItem="trE-Ze-xQX" secondAttribute="leading" id="sET-IQ-aKX"/>
+                            <constraint firstItem="NbZ-rd-lpL" firstAttribute="top" secondItem="64Z-hn-bg8" secondAttribute="bottom" constant="19" id="sTt-gp-8hp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imagesView" destination="NbZ-rd-lpL" id="vSf-lp-lOs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azG-rS-IOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920.79999999999995" y="150.67466266866569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pageDot" width="6" height="6"/>
+    </resources>
+</document>

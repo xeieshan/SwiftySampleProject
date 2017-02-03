@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/App Delegate/AppDelegate.swift"
+            timestampString = "479642729.333073"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "application(application:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479639824.332925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "saveCurrentUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479639959.934934"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "UserManager"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.currentUser.setter : __ObjC.NSObject"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.838937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.(currentUser.materializeForSet : __ObjC.NSObject).(closure #1)"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.839239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "73">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.setCurrentUser (SampleProject.UserManager.Type)(Swift.Optional&lt;__ObjC.NSObject&gt;) -&gt; ()"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.839458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479649387.142064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "saveCurrentUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479640614.754878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "UserManager"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.currentUser.setter : __ObjC.NSObject"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.84207"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "13">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.(currentUser.materializeForSet : __ObjC.NSObject).(closure #1)"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.842254"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479649726.868355"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.logOutCurrentUser (SampleProject.UserManager.Type)() -&gt; ()"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.84334"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.logOutUserAndClearToken (SampleProject.UserManager.Type)() -&gt; ()"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.843508"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SampleProject.UserManager.pathWithObjectType (SampleProject.UserManager.Type)(Swift.String) -&gt; Swift.String"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.843699"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "247">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Dead&gt; of static SampleProject.UserManager.saveCurrentUser (SampleProject.UserManager.Type)() -&gt; ()"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.843856"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "358">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Dead&gt; of static SampleProject.UserManager.currentUser.getter : __ObjC.NSObject"
+                  moduleName = "SampleProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeeshanhaider/My%20Projects/sampleproject_swift/SampleProject/Classes/Helper/UserManager/UserManager.swift"
+                  timestampString = "479641626.844025"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "356">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479649387.142064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "saveCurrentUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/Helper/UserManager/UserManager.swift"
+            timestampString = "479649387.142064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "saveCurrentUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleProject/Classes/App Delegate/AppDelegate.swift"
+            timestampString = "479642729.333073"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "application(application:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

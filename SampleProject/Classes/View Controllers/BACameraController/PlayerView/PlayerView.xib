@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlayerView" customModule="ZeitWert" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6B-oj-qhW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgp-ou-TI0">
+                            <rect key="frame" x="40" y="80" width="295" height="467"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ6-4t-87n">
+                            <rect key="frame" x="40" y="548" width="295" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vn-fF-8iZ">
+                                    <rect key="frame" x="147.5" y="0.0" width="147.5" height="60"/>
+                                    <state key="normal" title="Send">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sendVideo:" destination="iN0-l3-epB" eventType="touchUpInside" id="a8w-Cu-f8t"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jae-ur-3Jn">
+                                    <rect key="frame" x="0.0" y="0.0" width="147.5" height="60"/>
+                                    <state key="normal" title="Discard">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="discardVideo:" destination="iN0-l3-epB" eventType="touchUpInside" id="Nnc-N4-1LG"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="6vn-fF-8iZ" secondAttribute="bottom" id="300-Y2-JCM"/>
+                                <constraint firstItem="Jae-ur-3Jn" firstAttribute="top" secondItem="nZ6-4t-87n" secondAttribute="top" id="8bA-5C-ZFx"/>
+                                <constraint firstItem="Jae-ur-3Jn" firstAttribute="leading" secondItem="nZ6-4t-87n" secondAttribute="leading" id="CLS-OC-kfL"/>
+                                <constraint firstItem="6vn-fF-8iZ" firstAttribute="top" secondItem="nZ6-4t-87n" secondAttribute="top" id="NXr-B1-deS"/>
+                                <constraint firstAttribute="height" constant="60" id="fEH-tU-Kr0"/>
+                                <constraint firstItem="6vn-fF-8iZ" firstAttribute="leading" secondItem="Jae-ur-3Jn" secondAttribute="trailing" id="mfg-Fg-hnb"/>
+                                <constraint firstAttribute="bottom" secondItem="Jae-ur-3Jn" secondAttribute="bottom" id="muq-gG-cNO"/>
+                                <constraint firstAttribute="trailing" secondItem="6vn-fF-8iZ" secondAttribute="trailing" id="ph6-so-tSM"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="tGl-my-19w"/>
+                                <constraint firstItem="Jae-ur-3Jn" firstAttribute="width" secondItem="nZ6-4t-87n" secondAttribute="width" multiplier="0.5" id="vf6-Ce-bXE"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="tGl-my-19w"/>
+                                </mask>
+                            </variation>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jgp-ou-TI0" secondAttribute="trailing" constant="40" id="6Lg-Ou-CrA"/>
+                        <constraint firstItem="jgp-ou-TI0" firstAttribute="top" secondItem="R6B-oj-qhW" secondAttribute="top" constant="80" id="A6Z-LI-ZSF"/>
+                        <constraint firstItem="nZ6-4t-87n" firstAttribute="top" secondItem="jgp-ou-TI0" secondAttribute="bottom" constant="1" id="QeO-Ba-eZN"/>
+                        <constraint firstItem="jgp-ou-TI0" firstAttribute="leading" secondItem="R6B-oj-qhW" secondAttribute="leading" constant="40" id="eun-tJ-3n7"/>
+                        <constraint firstItem="nZ6-4t-87n" firstAttribute="leading" secondItem="jgp-ou-TI0" secondAttribute="leading" id="mKa-ut-wO9"/>
+                        <constraint firstAttribute="bottom" secondItem="jgp-ou-TI0" secondAttribute="bottom" constant="120" id="rcl-UU-pap"/>
+                        <constraint firstItem="nZ6-4t-87n" firstAttribute="trailing" secondItem="jgp-ou-TI0" secondAttribute="trailing" id="uS2-D7-R1H"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="R6B-oj-qhW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EkL-KN-GFg"/>
+                <constraint firstAttribute="trailing" secondItem="R6B-oj-qhW" secondAttribute="trailing" id="Wa5-9J-9BR"/>
+                <constraint firstAttribute="bottom" secondItem="R6B-oj-qhW" secondAttribute="bottom" id="XU8-aI-Urk"/>
+                <constraint firstItem="R6B-oj-qhW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="o6r-dy-zCo"/>
+            </constraints>
+            <connections>
+                <outlet property="playerView" destination="jgp-ou-TI0" id="he0-dW-Pmh"/>
+            </connections>
+            <point key="canvasLocation" x="121" y="388"/>
+        </view>
+    </objects>
+</document>
