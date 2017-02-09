@@ -1,8 +1,8 @@
 //
 //  SPImageCollageView.swift
-//  SampleProject
+//  <#Project Name#>
 //
-//  Created by Waris on 24/1/17.
+//  Created by <#Project Developer#> on 24/1/17.
 //  Copyright © 2016 Creatrixe. All rights reserved.
 //
 

@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		38CC628CB558068E49A2ABBB /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC6FD97C19746843590E83 /* Emoji.swift */; };
+		38CC6745A951CDB4CDAE8B33 /* SPBannedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC68D90BCB7705A4C91092 /* SPBannedCharsTextField.swift */; };
 		38CC69EA8536F32A2BE660C8 /* SPStrikeThroughLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC659ADF264EDC06566BBF /* SPStrikeThroughLabel.swift */; };
 		38CC6EE8333FAD8BCE350578 /* UIImage+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC6F498E4E728A595D36E4 /* UIImage+helper.m */; };
+		38CC6F5AD87DF0CC99E8EAD9 /* SPAllowedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC64AF2FF35A5F60B44301 /* SPAllowedCharsTextField.swift */; };
 		77024DC31E37B4E9008565FF /* SPImageCollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77024DC21E37B4E9008565FF /* SPImageCollageView.swift */; };
-		777CE0C81E3659B300261DFC /* AllowedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0C51E3659B300261DFC /* AllowedCharsTextField.swift */; };
-		777CE0C91E3659B300261DFC /* BannedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0C61E3659B300261DFC /* BannedCharsTextField.swift */; };
 		777CE0CA1E3659B300261DFC /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0C71E3659B300261DFC /* TextField.swift */; };
 		777CE0EC1E3666CA00261DFC /* BACameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E21E3666CA00261DFC /* BACameraController.swift */; };
 		777CE0ED1E3666CA00261DFC /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E41E3666CA00261DFC /* OverlayView.swift */; };
@@ -64,6 +64,7 @@
 		955FA9751C845F4E0020027A /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA95C1C845F4E0020027A /* UIViewController+Helper.m */; };
 		955FA9781C845F600020027A /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA9771C845F600020027A /* UtilityFunctions.m */; };
 		956973351E3779D400682650 /* SPDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956973341E3779D400682650 /* SPDropDownMenu.swift */; };
+		9581B8CE1E488441001B02AD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9581B8CD1E488441001B02AD /* README.md */; };
 		9582DD651E2518D90098B33D /* loggerswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582DD641E2518D90098B33D /* loggerswift.swift */; };
 		959FCA5F1C7F1376009114C8 /* ConstantShortcutsMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2CB51B566A6B00741E4B /* ConstantShortcutsMacros.swift */; };
 		959FCA601C7F137A009114C8 /* ConstantDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C3D5AD1BD4FD4B0009CC67 /* ConstantDevices.swift */; };
@@ -112,14 +113,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38CC64AF2FF35A5F60B44301 /* SPAllowedCharsTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAllowedCharsTextField.swift; sourceTree = "<group>"; };
 		38CC659ADF264EDC06566BBF /* SPStrikeThroughLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStrikeThroughLabel.swift; sourceTree = "<group>"; };
+		38CC68D90BCB7705A4C91092 /* SPBannedCharsTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPBannedCharsTextField.swift; sourceTree = "<group>"; };
 		38CC6A428AB49CF5094C9421 /* UIImage+helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+helper.h"; sourceTree = "<group>"; };
 		38CC6BAB6C41D5B61AC55100 /* SPLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLabel.swift; sourceTree = "<group>"; };
 		38CC6F498E4E728A595D36E4 /* UIImage+helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+helper.m"; sourceTree = "<group>"; };
 		38CC6FD97C19746843590E83 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		77024DC21E37B4E9008565FF /* SPImageCollageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPImageCollageView.swift; sourceTree = "<group>"; };
-		777CE0C51E3659B300261DFC /* AllowedCharsTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedCharsTextField.swift; sourceTree = "<group>"; };
-		777CE0C61E3659B300261DFC /* BannedCharsTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannedCharsTextField.swift; sourceTree = "<group>"; };
 		777CE0C71E3659B300261DFC /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		777CE0E21E3666CA00261DFC /* BACameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BACameraController.swift; sourceTree = "<group>"; };
 		777CE0E41E3666CA00261DFC /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		955FA9771C845F600020027A /* UtilityFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityFunctions.m; sourceTree = "<group>"; };
 		955FA9791C845FD10020027A /* SampleProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SampleProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		956973341E3779D400682650 /* SPDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPDropDownMenu.swift; sourceTree = "<group>"; };
+		9581B8CD1E488441001B02AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9582DD641E2518D90098B33D /* loggerswift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loggerswift.swift; sourceTree = "<group>"; };
 		95A5FED71C92ABA4006B8DB6 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95A8BB2C1E26547400A0F461 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -259,6 +261,15 @@
 				38CC6BAB6C41D5B61AC55100 /* SPLabel.swift */,
 			);
 			path = UILabel;
+			sourceTree = "<group>";
+		};
+		38CC6099DAA0750F4B40B3ED /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				38CC68D90BCB7705A4C91092 /* SPBannedCharsTextField.swift */,
+				38CC64AF2FF35A5F60B44301 /* SPAllowedCharsTextField.swift */,
+			);
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		38CC6133815595FF5D9B2226 /* UIImage */ = {
@@ -331,6 +342,7 @@
 		8EBD2C5A1B5667F200741E4B = {
 			isa = PBXGroup;
 			children = (
+				9581B8CD1E488441001B02AD /* README.md */,
 				8EBD2C651B5667F200741E4B /* SampleProject */,
 				8EBD2C641B5667F200741E4B /* Products */,
 			);
@@ -544,6 +556,7 @@
 				776E628B1C5F3F6C0079DE8D /* UIControl */,
 				95E8E8BF1C10743F009DD9EC /* UITableView */,
 				38CC6029B534014727627B0E /* UILabel */,
+				38CC6099DAA0750F4B40B3ED /* UITextField */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -715,8 +728,6 @@
 		955FA94F1C845F4E0020027A /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
-				777CE0C51E3659B300261DFC /* AllowedCharsTextField.swift */,
-				777CE0C61E3659B300261DFC /* BannedCharsTextField.swift */,
 				777CE0C71E3659B300261DFC /* TextField.swift */,
 				955FA9501C845F4E0020027A /* UITextField+Additions.h */,
 				955FA9511C845F4E0020027A /* UITextField+Additions.m */,
@@ -891,14 +902,12 @@
 				8EBD2CDB1B566A6B00741E4B /* AppDelegate.swift in Sources */,
 				955FA96A1C845F4E0020027A /* UIColor+Additions.m in Sources */,
 				95A8BB2F1E2654C100A0F461 /* DateExtensions.swift in Sources */,
-				777CE0C81E3659B300261DFC /* AllowedCharsTextField.swift in Sources */,
 				959FCA611C7F137D009114C8 /* ConstantStringMacros.swift in Sources */,
 				95A8BB611E2657C600A0F461 /* UITabBarExtensions.swift in Sources */,
 				955FA9641C845F4E0020027A /* NSObject+Utilities.m in Sources */,
 				951E11F41C89988A00DA6A41 /* NSDate.swift in Sources */,
 				95D0E52D1E4451AB007160C5 /* UserManager.swift in Sources */,
 				95A8BB511E2657C600A0F461 /* NSAttributedStringExtensions.swift in Sources */,
-				777CE0C91E3659B300261DFC /* BannedCharsTextField.swift in Sources */,
 				8EBD2CE71B566A6B00741E4B /* APIResponse.swift in Sources */,
 				955FA9651C845F4E0020027A /* NSString+Utilities.m in Sources */,
 				95A8BB4E1E2657C600A0F461 /* CGFloatExtensions.swift in Sources */,
@@ -938,6 +947,7 @@
 				777CE0ED1E3666CA00261DFC /* OverlayView.swift in Sources */,
 				95A8BB501E2657C600A0F461 /* CGSizeExtensions.swift in Sources */,
 				952CF37E1C85813900CB80F6 /* UIViewExtension.swift in Sources */,
+				9581B8CE1E488441001B02AD /* README.md in Sources */,
 				95A8BB551E2657C600A0F461 /* UICollectionViewExtensions.swift in Sources */,
 				959FCA631C7F1381009114C8 /* ConstantViewMacros.swift in Sources */,
 				955FA9631C845F4E0020027A /* NSDictionary+Utilities.m in Sources */,
@@ -973,6 +983,8 @@
 				38CC69EA8536F32A2BE660C8 /* SPStrikeThroughLabel.swift in Sources */,
 				38CC628CB558068E49A2ABBB /* Emoji.swift in Sources */,
 				38CC6EE8333FAD8BCE350578 /* UIImage+helper.m in Sources */,
+				38CC6745A951CDB4CDAE8B33 /* SPBannedCharsTextField.swift in Sources */,
+				38CC6F5AD87DF0CC99E8EAD9 /* SPAllowedCharsTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
