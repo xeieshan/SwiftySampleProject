@@ -840,7 +840,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = DevBatch;
+				ORGANIZATIONNAME = XYZco.;
 				TargetAttributes = {
 					8EBD2C621B5667F200741E4B = {
 						CreatedOnToolsVersion = 6.4;
