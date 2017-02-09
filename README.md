@@ -246,10 +246,6 @@ Use following steps to make a signed ipa :
 * __Terminal cd:__ Open Terminal and change your directory to current xcodeArchive folder __cd /Users/macpro/Library/Developer/Xcode/Archives/2015-07-22/__
 * __Export Archive:__ Now run this command : __xcodebuild -exportArchive -exportFormat ipa -archivePath "SampleProject.xcarchive" -exportPath "SampleProject_22July.ipa" -exportProvisioningProfile "<#Project Name#> Development Profile"__
 * __Get Exported ipa:__ If Export is succeeded then you will have an IPA in /Users/macpro/Library/Developer/Xcode/Archives/2015-07-22/ folder.
-OR
-[Use Xcode ipa export plugin][Xcode-Plugin-Export-IPA]
-[Xcode-Plugin-Export-IPA]: https://github.com/rajeshbeats/Xcode-Plugin-Export-IPA
-
 
 ### Xcode Plugins : 
 Following are the plugins that I suggest you to use :
