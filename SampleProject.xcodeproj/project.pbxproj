@@ -40,6 +40,7 @@
 		952CF3801C8581B600CB80F6 /* VideoLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF37F1C8581B600CB80F6 /* VideoLaunchScreen.swift */; };
 		952CF3881C8597C000CB80F6 /* SampleStorageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 952CF3871C8597C000CB80F6 /* SampleStorageHelper.m */; };
 		952CF38C1C85C3AF00CB80F6 /* SPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 952CF38B1C85C3AF00CB80F6 /* SPButton.m */; };
+		9543841C1E72CAF9008F453B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9543841B1E72CAF9008F453B /* SoundManager.swift */; };
 		95470E871BF5A19C00AEA056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95470E861BF5A19C00AEA056 /* ViewController.swift */; };
 		955FA9141C8431040020027A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2CB31B566A6B00741E4B /* Constants.swift */; };
 		955FA95D1C845F4E0020027A /* UIView+ParentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA91B1C845F4E0020027A /* UIView+ParentCell.m */; };
@@ -158,6 +159,7 @@
 		952CF3871C8597C000CB80F6 /* SampleStorageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleStorageHelper.m; sourceTree = "<group>"; };
 		952CF38A1C85C3AF00CB80F6 /* SPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPButton.h; sourceTree = "<group>"; };
 		952CF38B1C85C3AF00CB80F6 /* SPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPButton.m; sourceTree = "<group>"; };
+		9543841B1E72CAF9008F453B /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		95470E861BF5A19C00AEA056 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "SampleProject/Classes/View Controllers/ViewController.swift"; sourceTree = SOURCE_ROOT; };
 		955FA91A1C845F4E0020027A /* UIView+ParentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentCell.h"; sourceTree = "<group>"; };
 		955FA91B1C845F4E0020027A /* UIView+ParentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ParentCell.m"; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		7785037D1BA986380068185E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				9543841A1E72CAB5008F453B /* SoundManager */,
 				95D0E5291E4451AB007160C5 /* MOProfile.swift */,
 				95D0E52A1E4451AB007160C5 /* UserManager */,
 				9582DD641E2518D90098B33D /* loggerswift.swift */,
@@ -546,6 +549,14 @@
 				9529F4B31E30D39600E85E4A /* SPButton.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		9543841A1E72CAB5008F453B /* SoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				9543841B1E72CAF9008F453B /* SoundManager.swift */,
+			);
+			path = SoundManager;
 			sourceTree = "<group>";
 		};
 		95470E7A1BF45DB700AEA056 /* Subclasses */ = {
@@ -965,6 +976,7 @@
 				95A8BB2D1E26547400A0F461 /* ArrayExtensions.swift in Sources */,
 				95D0E5321E4457CC007160C5 /* SPSegmentControl.swift in Sources */,
 				777CE0CA1E3659B300261DFC /* TextField.swift in Sources */,
+				9543841C1E72CAF9008F453B /* SoundManager.swift in Sources */,
 				777CE0EF1E3666CA00261DFC /* OverlayViewCell.swift in Sources */,
 				955FA9691C845F4E0020027A /* UICollectionView+Helper.m in Sources */,
 				955FA96F1C845F4E0020027A /* UILabel+Helper.m in Sources */,
