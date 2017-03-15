@@ -136,8 +136,3 @@ public class UserManager {
         return finalDatabaseURL
     }
 }
-public extension String {
-    public func appendingPathComponent(_ str: String) -> String {
-        return (self as NSString).appendingPathComponent(str)
-    }
-}

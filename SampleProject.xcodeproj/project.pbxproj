@@ -33,6 +33,7 @@
 		951E11F41C89988A00DA6A41 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E11F31C89988A00DA6A41 /* NSDate.swift */; };
 		951E11F61C899D9000DA6A41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E11F51C899D9000DA6A41 /* Badge.swift */; };
 		9529F4B41E30D39600E85E4A /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529F4B31E30D39600E85E4A /* SPButton.swift */; };
+		952AB9691E790519000F6CE9 /* SPAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952AB9681E790519000F6CE9 /* SPAppHelper.swift */; };
 		952CF3771C857A9D00CB80F6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF3761C857A9D00CB80F6 /* UIColor.swift */; };
 		952CF37A1C857B1900CB80F6 /* SPCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF3791C857B1900CB80F6 /* SPCircularView.swift */; };
 		952CF37C1C857C7A00CB80F6 /* UtilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952CF37B1C857C7A00CB80F6 /* UtilityHelper.swift */; };
@@ -150,6 +151,7 @@
 		951E11F31C89988A00DA6A41 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		951E11F51C899D9000DA6A41 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		9529F4B31E30D39600E85E4A /* SPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
+		952AB9681E790519000F6CE9 /* SPAppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAppHelper.swift; sourceTree = "<group>"; };
 		952CF3761C857A9D00CB80F6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		952CF3791C857B1900CB80F6 /* SPCircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCircularView.swift; sourceTree = "<group>"; };
 		952CF37B1C857C7A00CB80F6 /* UtilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityHelper.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		7785037D1BA986380068185E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				952AB9671E7904E6000F6CE9 /* App Helper */,
 				9543841A1E72CAB5008F453B /* SoundManager */,
 				95D0E5291E4451AB007160C5 /* MOProfile.swift */,
 				95D0E52A1E4451AB007160C5 /* UserManager */,
@@ -529,6 +532,14 @@
 				955FA9791C845FD10020027A /* SampleProject-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		952AB9671E7904E6000F6CE9 /* App Helper */ = {
+			isa = PBXGroup;
+			children = (
+				952AB9681E790519000F6CE9 /* SPAppHelper.swift */,
+			);
+			path = "App Helper";
 			sourceTree = "<group>";
 		};
 		952CF3781C857B0500CB80F6 /* UIView */ = {
@@ -981,6 +992,7 @@
 				955FA9691C845F4E0020027A /* UICollectionView+Helper.m in Sources */,
 				955FA96F1C845F4E0020027A /* UILabel+Helper.m in Sources */,
 				952CF37A1C857B1900CB80F6 /* SPCircularView.swift in Sources */,
+				952AB9691E790519000F6CE9 /* SPAppHelper.swift in Sources */,
 				8EBD2CEB1B566A6B00741E4B /* BaseViewController.swift in Sources */,
 				955FA9751C845F4E0020027A /* UIViewController+Helper.m in Sources */,
 				95A8BB571E2657C600A0F461 /* UIImageExtensions.swift in Sources */,

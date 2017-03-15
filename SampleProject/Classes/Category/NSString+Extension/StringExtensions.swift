@@ -678,11 +678,10 @@ public extension String {
 		return (self as NSString).pathComponents
 	}
 	
-//	/// NSString appendingPathComponent(str: String)
-//	public func appendingPathComponent(_ str: String) -> String {
-//		return (self as NSString).appendingPathComponent(str)
-//	}
-//	
+    public func appendingPathComponent(_ str: String) -> String {
+        return (self as NSString).appendingPathComponent(str)
+    }
+    
 	/// NSString appendingPathExtension(str: String) (if applicable).
 	public func appendingPathExtension(_ str: String) -> String? {
 		return (self as NSString).appendingPathExtension(str)

@@ -57,8 +57,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "UserManager"
-            landmarkType = "3">
+            landmarkName = "setCurrentUser(newCurrentUser:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"

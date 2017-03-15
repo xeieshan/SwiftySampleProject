@@ -37,7 +37,6 @@ To keep all those hundreds of source files ending up in the same directory, it's
 * ├─── Network Manager
 * ├─── Shared Manager
 * ├─── Utility Function
-* ├─── Shared Manager
 * ├─── View Controller
 * 
 * ├─ Views
