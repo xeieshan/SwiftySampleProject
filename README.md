@@ -79,14 +79,26 @@ will update all pods to the newest versions permitted by the Podfile. You can us
 
 #### Constants
 
-Keep app-wide constants in a `Constants.h` file that is included in the prefix header.
+In my opinion the best way to deal with that type of constants is to create a Struct.
 
-Instead of preprocessor macro definitions (via `#define`), use actual constants:
+struct Constants {
+    static let someNotification = "TEST"
+}
+Then, for example, call it like this in your code:
 
-    static CGFloat const kBrandingFontSizeSmall = 12.0f;
-    static NSString * const kAwesomenessDeliveredNotificationName = @"foo";
+print(Constants.someNotification)
+Edit: If you want a better organization I advise you to use segmented sub structs
 
-Actual constants are type-safe, have more explicit scope (they’re not available in all imported/included files until undefined), cannot be redefined or undefined in later parts of the code, and are available in the debugger.
+struct K {
+    struct NotificationKey {
+        static let Welcome = "kWelcomeNotif"
+    }
+
+    struct Path {
+        static let Documents = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        static let Tmp = NSTemporaryDirectory()
+    }
+}
 
 ### “Event” Patterns
 
@@ -169,6 +181,57 @@ Typically build settings are specified in the Xcode GUI, but you can also use _c
 Find more information about this topic in [these presentation slides][xcconfig-slides].
 
 [xcconfig-slides]: https://speakerdeck.com/hasseg/xcode-configuration-files
+
+# Step 1 — Create a new configuration
+Go to the file viewer in Xcode & click on your project file.
+On the topish left of the view that just opened (underneath the back/forward arrows), check to make sure you have the project file selected.
+
+https://cdn-images-1.medium.com/max/800/1*lA3mqihAHt6AbErXfXwVAg.png
+
+Select the Info tab if it’s not already selected.
+Under the Configurations section, press the + button. Select Duplicate Debug Configuration.
+
+https://cdn-images-1.medium.com/max/800/1*ybOgk8Ma8cNZGhmHg6TuVw.png
+
+Name your new configuration Staging Debug
+Create another configuration, but this time Duplicate “Release” Configuration and name it Staging Release
+
+# Step 2 — Assign settings to the new configuration
+We’re going to create a configuration variable that will allow your configurations to have different values at run time.
+Go back to the topish left where I told you to select your project file from in step 1, but this time select your apps demo target under Targets
+Select the Build Settings tab
+
+If you scroll down to the very bottom of the build settings, there is a section called User-Defined. This is where your configuration variables will be added and set.
+Click the + towards the top of the view and add select Add User Defined Setting
+
+Name this setting SERVER_URL
+Click the arrow to the left of your newly added build setting variable and you’ll see the four configurations.
+Set the value for Staging Debug to https://www.stagingserverurl.com
+Set the value for Staging Release to https://www.stagingserverurl.com
+Yes, they’re the same.
+Leave Debug & Release blank
+
+The reason we create a Debug and Release version for the staging environment is because Debug and Release do different things at build time.
+
+# Step 3 — Create a scheme for the new configuration
+Schemes are Xcode’s way of allowing you to select the configuration you want to run by the click of a button.
+Let’s create a Staging scheme.
+Click the Scheme drop down and select Manage Schemes
+
+Click the + button to the lower left of the popup. Create a Scheme with your app’s target selected. Name it Staging.
+After it’s created, make sure to check the Shared checkbox in the right most column of your new Staging scheme. Also, if you want, you can uncheck the Show column of all of the other schemes, which won’t delete them, but will cause them to *shockingly* not show up.
+
+Close the manage schemes popup, and now when you click the scheme selection you’ll see your new Staging scheme.
+
+Now we need to assign the staging configurations to this new scheme.
+Select the staging scheme, and then open the scheme selection dropdown again. This time press Edit Scheme…
+
+Click the Run step and change the build configuration to Staging Debug
+Change the build configuration for Test & Analyze to Staging Debug
+Change the build configuration for Profile & Archive to Staging Release
+
+At this point, when you run the Staging scheme it takes a lot longer to build, and when the build finishes, your debug tools are gone! We will address this now.
+
 
 ### Targets
 
