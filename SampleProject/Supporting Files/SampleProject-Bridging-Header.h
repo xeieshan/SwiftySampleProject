@@ -15,11 +15,11 @@
 #import "NSString+Utilities.h"
 #import "NSObject+Utilities.h"
 #import "NSArray+Utilities.h"
-#import "UITableView+Helper.h"
+
 #import "UITextField+Additions.h"
 #import "UITextView+Placeholder.h"
 #import "UIViewController+Helper.h"
-#import "UILabel+Helper.h"
+
 #import "SampleStorageHelper.h"
 
 #endif /* SampleProject_Bridging_Header_h */

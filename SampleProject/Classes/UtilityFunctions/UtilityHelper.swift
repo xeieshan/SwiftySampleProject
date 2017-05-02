@@ -111,7 +111,8 @@ class UtilityHelper
     
     // MARK: - Set Up Application UI Appearance
     class func setupApplicationUIAppearance() {
-        UILabel.appearance().setSubstituteFontName(UIConfiguration.UIFONTAPP)
+//        UILabel.appearance().setSubstituteFontName(UIConfiguration.UIFONTAPP)
+        UILabel.appearance().defaultFont = UIFont(name: UIConfiguration.UIFONTAPP, size: 15)
         let titleTextAttributeTabBarItem:[String:AnyObject] = [
             NSForegroundColorAttributeName : UIColor.white,
             NSFontAttributeName : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 17)
@@ -433,7 +434,7 @@ class UtilityHelper
             {
                 let MIMEType = MIMETypeRef?.takeUnretainedValue()
                 MIMETypeRef?.release()
-                return MIMEType as? String
+                return MIMEType as String?
             }
         }
         return nil

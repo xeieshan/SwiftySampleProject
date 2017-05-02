@@ -16,6 +16,8 @@ class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tf3: UITextField?
     @IBOutlet weak var imagesView : UIView!
     
+    var arrayProfiles : [MOProfile] = []
+    
     weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -50,6 +52,7 @@ class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSo
 //        let nibName = UINib(nibName: "ReUse", bundle:nil)
 //        tableView.registerNib(nibName, forCellReuseIdentifier: "ReUse")
 //        tf1.delegate = self
+        
         UtilityHelper.performOn(QueueType.Main) { () -> Void in
             
         }
@@ -138,7 +141,7 @@ extension ViewController : BACameraControllerDelegate{
                     self.imagesView.addSubview(collageView)
                 }
             }
-            else if videos.count > 0{
+            else if videos.count > 0 {
                 
             }
         }

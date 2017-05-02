@@ -90,10 +90,3 @@ struct AppConstants {
     let kSearchFieldFontName: String = "HelveticaNeue"
     let kBrainTreeDemoToken: String = "=="
 }
-//
-//  AppConstants.m
-//  
-//
-//  Created by <#Project Developer#> on 08/06/2015.
-//  Copyright (c) 2015 <#Project Name#>. All rights reserved.
-//

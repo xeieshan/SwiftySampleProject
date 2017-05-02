@@ -9,12 +9,11 @@
 #import "UtilityFunctions.h"
 
 #import <CommonCrypto/CommonDigest.h>
-#import "UILabel+Helper.h"
+
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
 //#import "SVProgressHUD.h"
 
-#import "SampleProject-Swift.h"
 
 @implementation UtilityFunctions
 @synthesize disableSpinnerWhenLoadinImage=_disableSpinnerWhenLoadinImage;
@@ -45,7 +44,7 @@
 }
 +(BOOL)isValidateNumber:(NSString*)checkString
 {
-    NSCharacterSet* numcharacters = [NSCharacterSet characterSetWithCharactersInString:[Constants getValidate_Numeric]];
+    NSCharacterSet* numcharacters = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
     int characterCount = 0;
     
     NSUInteger i;
@@ -801,14 +800,7 @@
         
         (size.height>200)?[button setFrame:CGRectMake(button.frame.origin.x, button.frame.origin.y, 200, button.frame.size.height)]:[button setFrame:CGRectMake(button.frame.origin.x, button.frame.origin.y, size.width, button.frame.size.height)];
         
-        if (![ConstantDevices isIS_IOS7_AND_UP])
-        {
-            [button setImageEdgeInsets:UIEdgeInsetsMake(2,button.frame.size.width+23, 0,0)];
-        }
-        else
-        {
-            [button setImageEdgeInsets:UIEdgeInsetsMake(2,button.frame.size.width+23, 0, 0)];
-        }
+        [button setImageEdgeInsets:UIEdgeInsetsMake(2,button.frame.size.width+23, 0, 0)];
         
     }
     

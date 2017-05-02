@@ -274,7 +274,7 @@ extension UIView {
             scaleY = 2*force
         case .fall:
             animateFromInitialState = false
-            rotate = 15 * CGFloat(M_PI/180)
+            rotate = 15 * CGFloat(Double.pi/180)
             y = distance*force
         case .shake:
             let animation = CAKeyframeAnimation()
@@ -310,7 +310,7 @@ extension UIView {
             animation.fromValue = NSValue(caTransform3D:
                 CATransform3DMakeRotation(0, 0, 0, 0))
             animation.toValue = NSValue(caTransform3D:
-                CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)))
+                CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(Double.pi), 0, 1, 0)))
             animation.duration = CFTimeInterval(duration)
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             animation.timingFunction = curve.timingFunction
@@ -324,7 +324,7 @@ extension UIView {
             animation.fromValue = NSValue(caTransform3D:
                 CATransform3DMakeRotation(0, 0, 0, 0))
             animation.toValue = NSValue(caTransform3D:
-                CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
+                CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(Double.pi), 1, 0, 0)))
             animation.duration = CFTimeInterval(duration)
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             animation.timingFunction = curve.timingFunction
