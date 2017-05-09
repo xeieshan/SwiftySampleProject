@@ -114,7 +114,6 @@
 		95A8BB561E2657C600A0F461 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB3D1E2657C600A0F461 /* UIColorExtensions.swift */; };
 		95A8BB571E2657C600A0F461 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB3E1E2657C600A0F461 /* UIImageExtensions.swift */; };
 		95A8BB581E2657C600A0F461 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB3F1E2657C600A0F461 /* UIImageViewExtensions.swift */; };
-		95A8BB591E2657C600A0F461 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB401E2657C600A0F461 /* UILabelExtensions.swift */; };
 		95A8BB5A1E2657C600A0F461 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB411E2657C600A0F461 /* UINavigationBarExtensions.swift */; };
 		95A8BB5B1E2657C600A0F461 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB421E2657C600A0F461 /* UINavigationControllerExtensions.swift */; };
 		95A8BB5C1E2657C600A0F461 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB431E2657C600A0F461 /* UINavigationItemExtensions.swift */; };
@@ -271,7 +270,6 @@
 		95A8BB3D1E2657C600A0F461 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		95A8BB3E1E2657C600A0F461 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		95A8BB3F1E2657C600A0F461 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
-		95A8BB401E2657C600A0F461 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 		95A8BB411E2657C600A0F461 /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensions.swift; sourceTree = "<group>"; };
 		95A8BB421E2657C600A0F461 /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		95A8BB431E2657C600A0F461 /* UINavigationItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtensions.swift; sourceTree = "<group>"; };
@@ -908,7 +906,6 @@
 				95A8BB3D1E2657C600A0F461 /* UIColorExtensions.swift */,
 				95A8BB3E1E2657C600A0F461 /* UIImageExtensions.swift */,
 				95A8BB3F1E2657C600A0F461 /* UIImageViewExtensions.swift */,
-				95A8BB401E2657C600A0F461 /* UILabelExtensions.swift */,
 				95A8BB411E2657C600A0F461 /* UINavigationBarExtensions.swift */,
 				95A8BB421E2657C600A0F461 /* UINavigationControllerExtensions.swift */,
 				95A8BB431E2657C600A0F461 /* UINavigationItemExtensions.swift */,
@@ -1193,7 +1190,6 @@
 				953E5CF31EB84A7700CAC08A /* MOLegs.swift in Sources */,
 				8EBD2CEB1B566A6B00741E4B /* BaseViewController.swift in Sources */,
 				95A8BB571E2657C600A0F461 /* UIImageExtensions.swift in Sources */,
-				95A8BB591E2657C600A0F461 /* UILabelExtensions.swift in Sources */,
 				953E5CF61EB84A7700CAC08A /* MORoutes.swift in Sources */,
 				777CE0F11E3666CA00261DFC /* PlayerView.swift in Sources */,
 				95A8BB651E2657C600A0F461 /* UIViewControllerExtensions.swift in Sources */,
