@@ -14,6 +14,19 @@ import UIKit
 // MARK: - Properties
 public extension UITableView {
 	
+    func removeCellSeparatorOffset() {
+        self.separatorInset = .zero
+        
+        self.preservesSuperviewLayoutMargins = false
+        
+        self.layoutMargins = .zero
+        
+    }
+    
+    func removeSeperateIndicatorsForEmptyCells() {
+        self.tableFooterView = UIView()
+    }
+    
 	/// Index path of last row in tableView.
 	public var indexPathForLastRow: IndexPath? {
 		return indexPathForLastRow(inSection: lastSection)

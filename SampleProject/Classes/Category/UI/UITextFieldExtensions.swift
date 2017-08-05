@@ -10,10 +10,11 @@
 
 import UIKit
 
-	
+
 // MARK: - Properties
 public extension UITextField {
-	
+
+
 	/// Check if text field is empty.
 	public var isEmpty: Bool {
 		if let text = self.text {

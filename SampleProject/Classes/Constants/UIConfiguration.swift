@@ -211,6 +211,12 @@ import Foundation
     static let BookingRoundedViewBorder = UIColor(red: 204.0 / 255.0, green: 204.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
     static let IMAGE_HUD_TICK = UIImage(named: "Success")
     static let IMAGE_HUD_CROSS = UIImage(named: "Fail")
-    
+    struct Shadow {
+        static let shadowOpacity: Float = 0.9
+        static let shadowRadius: CGFloat = 1.0
+        static let shadowOffset: CGSize = CGSize(width: 0.5, height: 0.5)
+        static let cornerRadius: CGFloat = 8.0
+        static let shadowColor: UIColor = UIColor.lightGray.withAlphaComponent(0.4)
+    }
 }
 

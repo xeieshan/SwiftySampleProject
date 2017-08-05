@@ -14,7 +14,6 @@
 		38CC6EE8333FAD8BCE350578 /* UIImage+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC6F498E4E728A595D36E4 /* UIImage+helper.m */; };
 		38CC6F5AD87DF0CC99E8EAD9 /* SPAllowedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC64AF2FF35A5F60B44301 /* SPAllowedCharsTextField.swift */; };
 		77024DC31E37B4E9008565FF /* SPImageCollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77024DC21E37B4E9008565FF /* SPImageCollageView.swift */; };
-		777CE0CA1E3659B300261DFC /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0C71E3659B300261DFC /* TextField.swift */; };
 		777CE0EC1E3666CA00261DFC /* BACameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E21E3666CA00261DFC /* BACameraController.swift */; };
 		777CE0ED1E3666CA00261DFC /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E41E3666CA00261DFC /* OverlayView.swift */; };
 		777CE0EE1E3666CA00261DFC /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777CE0E51E3666CA00261DFC /* OverlayView.xib */; };
@@ -70,6 +69,9 @@
 		953E5D001EB84A7700CAC08A /* MOViewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E5CE61EB84A7700CAC08A /* MOViewport.swift */; };
 		9543841C1E72CAF9008F453B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9543841B1E72CAF9008F453B /* SoundManager.swift */; };
 		95470E871BF5A19C00AEA056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95470E861BF5A19C00AEA056 /* ViewController.swift */; };
+		95481E8D1F3604CA0076FDC6 /* SPShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95481E8C1F3604CA0076FDC6 /* SPShadowView.swift */; };
+		95481E901F36051F0076FDC6 /* SPBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95481E8F1F36051F0076FDC6 /* SPBottomBorderView.swift */; };
+		95481E931F3605790076FDC6 /* SPOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95481E921F3605790076FDC6 /* SPOvalButton.swift */; };
 		955A7CCF1EB646F900B79CA0 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A7CCE1EB646F900B79CA0 /* UILabelExtension.swift */; };
 		955FA9141C8431040020027A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2CB31B566A6B00741E4B /* Constants.swift */; };
 		955FA95D1C845F4E0020027A /* UIView+ParentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA91B1C845F4E0020027A /* UIView+ParentCell.m */; };
@@ -127,7 +129,6 @@
 		95A8BB641E2657C600A0F461 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB4B1E2657C600A0F461 /* UITextViewExtensions.swift */; };
 		95A8BB651E2657C600A0F461 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB4C1E2657C600A0F461 /* UIViewControllerExtensions.swift */; };
 		95A8BB661E2657C600A0F461 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8BB4D1E2657C600A0F461 /* UIViewExtensions.swift */; };
-		95CAA78E1EB5F4CF0085CAAE /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAA78D1EB5F4CF0085CAAE /* UITableViewExtension.swift */; };
 		95D0E52C1E4451AB007160C5 /* MOProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0E5291E4451AB007160C5 /* MOProfile.swift */; };
 		95D0E52D1E4451AB007160C5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0E52B1E4451AB007160C5 /* UserManager.swift */; };
 		95D0E5321E4457CC007160C5 /* SPSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0E5301E4457CC007160C5 /* SPSegmentControl.swift */; };
@@ -149,7 +150,6 @@
 		39B8D0D5CFCC0E104C53620D /* Pods_SampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9BA21B009844E2FCC63D0A /* Pods-SampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		77024DC21E37B4E9008565FF /* SPImageCollageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPImageCollageView.swift; sourceTree = "<group>"; };
-		777CE0C71E3659B300261DFC /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		777CE0E21E3666CA00261DFC /* BACameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BACameraController.swift; sourceTree = "<group>"; };
 		777CE0E41E3666CA00261DFC /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		777CE0E51E3666CA00261DFC /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
@@ -215,6 +215,9 @@
 		953E5CE61EB84A7700CAC08A /* MOViewport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOViewport.swift; sourceTree = "<group>"; };
 		9543841B1E72CAF9008F453B /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		95470E861BF5A19C00AEA056 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "SampleProject/Classes/View Controllers/ViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95481E8C1F3604CA0076FDC6 /* SPShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPShadowView.swift; sourceTree = "<group>"; };
+		95481E8F1F36051F0076FDC6 /* SPBottomBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPBottomBorderView.swift; sourceTree = "<group>"; };
+		95481E921F3605790076FDC6 /* SPOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOvalButton.swift; sourceTree = "<group>"; };
 		955A7CC81EB62CDB00B79CA0 /* SampleProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SampleProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		955A7CCE1EB646F900B79CA0 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		955FA91A1C845F4E0020027A /* UIView+ParentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentCell.h"; sourceTree = "<group>"; };
@@ -285,7 +288,6 @@
 		95A8BB4D1E2657C600A0F461 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		95B29C7C1C87148C00323BF1 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		95C3D5AD1BD4FD4B0009CC67 /* ConstantDevices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantDevices.swift; sourceTree = "<group>"; };
-		95CAA78D1EB5F4CF0085CAAE /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		95D0E5291E4451AB007160C5 /* MOProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOProfile.swift; sourceTree = "<group>"; };
 		95D0E52B1E4451AB007160C5 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		95D0E5301E4457CC007160C5 /* SPSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPSegmentControl.swift; sourceTree = "<group>"; };
@@ -597,6 +599,8 @@
 		952CF3781C857B0500CB80F6 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				95481E8E1F3605110076FDC6 /* Bottom Border View */,
+				95481E8B1F3604BA0076FDC6 /* Shadow View */,
 				77024DC21E37B4E9008565FF /* SPImageCollageView.swift */,
 				952CF3791C857B1900CB80F6 /* SPCircularView.swift */,
 			);
@@ -606,6 +610,7 @@
 		952CF3891C85C3AF00CB80F6 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
+				95481E911F3605660076FDC6 /* Oval Button */,
 				956973341E3779D400682650 /* SPDropDownMenu.swift */,
 				952CF38A1C85C3AF00CB80F6 /* SPButton.h */,
 				952CF38B1C85C3AF00CB80F6 /* SPButton.m */,
@@ -693,6 +698,30 @@
 			path = Subclasses;
 			sourceTree = "<group>";
 		};
+		95481E8B1F3604BA0076FDC6 /* Shadow View */ = {
+			isa = PBXGroup;
+			children = (
+				95481E8C1F3604CA0076FDC6 /* SPShadowView.swift */,
+			);
+			path = "Shadow View";
+			sourceTree = "<group>";
+		};
+		95481E8E1F3605110076FDC6 /* Bottom Border View */ = {
+			isa = PBXGroup;
+			children = (
+				95481E8F1F36051F0076FDC6 /* SPBottomBorderView.swift */,
+			);
+			path = "Bottom Border View";
+			sourceTree = "<group>";
+		};
+		95481E911F3605660076FDC6 /* Oval Button */ = {
+			isa = PBXGroup;
+			children = (
+				95481E921F3605790076FDC6 /* SPOvalButton.swift */,
+			);
+			path = "Oval Button";
+			sourceTree = "<group>";
+		};
 		955FA9181C845F4E0020027A /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,7 +739,6 @@
 				955FA9411C845F4E0020027A /* UIFont */,
 				955FA9461C845F4E0020027A /* UIImageView */,
 				955FA9491C845F4E0020027A /* UILabel */,
-				955FA94C1C845F4E0020027A /* UITableView */,
 				955FA94F1C845F4E0020027A /* UITextField */,
 				955FA9521C845F4E0020027A /* UITextView */,
 				955FA9551C845F4E0020027A /* UIView */,
@@ -847,18 +875,9 @@
 			path = UILabel;
 			sourceTree = "<group>";
 		};
-		955FA94C1C845F4E0020027A /* UITableView */ = {
-			isa = PBXGroup;
-			children = (
-				95CAA78D1EB5F4CF0085CAAE /* UITableViewExtension.swift */,
-			);
-			path = UITableView;
-			sourceTree = "<group>";
-		};
 		955FA94F1C845F4E0020027A /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
-				777CE0C71E3659B300261DFC /* TextField.swift */,
 				955FA9501C845F4E0020027A /* UITextField+Additions.h */,
 				955FA9511C845F4E0020027A /* UITextField+Additions.m */,
 			);
@@ -1117,7 +1136,6 @@
 				95D0E52C1E4451AB007160C5 /* MOProfile.swift in Sources */,
 				953E5CF01EB84A7700CAC08A /* MOEndLocation.swift in Sources */,
 				95A8BB5E1E2657C600A0F461 /* UISegmentedControlExtensions.swift in Sources */,
-				95CAA78E1EB5F4CF0085CAAE /* UITableViewExtension.swift in Sources */,
 				95A8BB621E2657C600A0F461 /* UITableViewExtensions.swift in Sources */,
 				953E5CFD1EB84A7700CAC08A /* MONortheast.swift in Sources */,
 				8EBD2CE81B566A6B00741E4B /* SPError.swift in Sources */,
@@ -1146,6 +1164,7 @@
 				95D0E5351E449B22007160C5 /* String.swift in Sources */,
 				955FA96E1C845F4E0020027A /* UIImageView+Helper.m in Sources */,
 				95A8BB5A1E2657C600A0F461 /* UINavigationBarExtensions.swift in Sources */,
+				95481E8D1F3604CA0076FDC6 /* SPShadowView.swift in Sources */,
 				953E5CF71EB84A7700CAC08A /* MOStartLocation.swift in Sources */,
 				955FA9671C845F4E0020027A /* UIButton+Helpers.m in Sources */,
 				95A8BB531E2657C600A0F461 /* UIBarButtonItemExtensions.swift in Sources */,
@@ -1171,6 +1190,7 @@
 				953E5CED1EB84A7700CAC08A /* MOBounds.swift in Sources */,
 				953E5CEE1EB84A7700CAC08A /* MODistance.swift in Sources */,
 				952CF38C1C85C3AF00CB80F6 /* SPButton.m in Sources */,
+				95481E901F36051F0076FDC6 /* SPBottomBorderView.swift in Sources */,
 				777CE0EC1E3666CA00261DFC /* BACameraController.swift in Sources */,
 				95A8BB331E2654F400A0F461 /* StringExtensions.swift in Sources */,
 				955FA9781C845F600020027A /* UtilityFunctions.m in Sources */,
@@ -1180,7 +1200,6 @@
 				95A8BB2D1E26547400A0F461 /* ArrayExtensions.swift in Sources */,
 				95D0E5321E4457CC007160C5 /* SPSegmentControl.swift in Sources */,
 				953E5CFA1EB84A7700CAC08A /* MOGeometry.swift in Sources */,
-				777CE0CA1E3659B300261DFC /* TextField.swift in Sources */,
 				9543841C1E72CAF9008F453B /* SoundManager.swift in Sources */,
 				953E5CEA1EB84A7700CAC08A /* MOPredictions.swift in Sources */,
 				777CE0EF1E3666CA00261DFC /* OverlayViewCell.swift in Sources */,
@@ -1196,6 +1215,7 @@
 				95A8BB581E2657C600A0F461 /* UIImageViewExtensions.swift in Sources */,
 				95A8BB5B1E2657C600A0F461 /* UINavigationControllerExtensions.swift in Sources */,
 				955FA9711C845F4E0020027A /* UITextField+Additions.m in Sources */,
+				95481E931F3605790076FDC6 /* SPOvalButton.swift in Sources */,
 				95A8BB4F1E2657C600A0F461 /* CGPointExtensions.swift in Sources */,
 				959FCA5F1C7F1376009114C8 /* ConstantShortcutsMacros.swift in Sources */,
 				38CC69EA8536F32A2BE660C8 /* SPStrikeThroughLabel.swift in Sources */,
@@ -1330,7 +1350,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/**",
+					"$(SRCROOT)",
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
@@ -1347,8 +1367,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1369,6 +1390,7 @@
 					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -1383,8 +1405,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
