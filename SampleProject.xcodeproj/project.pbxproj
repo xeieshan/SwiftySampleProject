@@ -255,6 +255,7 @@
 		955FA9761C845F600020027A /* UtilityFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityFunctions.h; sourceTree = "<group>"; };
 		955FA9771C845F600020027A /* UtilityFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityFunctions.m; sourceTree = "<group>"; };
 		956973341E3779D400682650 /* SPDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPDropDownMenu.swift; sourceTree = "<group>"; };
+		957E126E1F91FE85003544AF /* Optional+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+.swift"; sourceTree = "<group>"; };
 		9581B8CD1E488441001B02AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9582DD641E2518D90098B33D /* loggerswift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loggerswift.swift; sourceTree = "<group>"; };
 		95A5FED71C92ABA4006B8DB6 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -725,6 +726,7 @@
 		955FA9181C845F4E0020027A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				957E126D1F91FE85003544AF /* Optional */,
 				95A8BB341E2657C600A0F461 /* UI */,
 				955FA9191C845F4E0020027A /* CustomViews */,
 				955FA91F1C845F4E0020027A /* NSArray */,
@@ -909,6 +911,14 @@
 				95A5FED71C92ABA4006B8DB6 /* UIViewController.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		957E126D1F91FE85003544AF /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				957E126E1F91FE85003544AF /* Optional+.swift */,
+			);
+			path = Optional;
 			sourceTree = "<group>";
 		};
 		95A8BB341E2657C600A0F461 /* UI */ = {
@@ -1347,6 +1357,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1384,6 +1395,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (

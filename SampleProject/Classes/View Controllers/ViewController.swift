@@ -153,6 +153,7 @@ extension ViewController : BACameraControllerDelegate{
 }
 
 extension ViewController : SPImageCollageViewDelegate{
+    
     func viewAll(images: [Any], fromView: SPImageCollageView) {
         
     }
