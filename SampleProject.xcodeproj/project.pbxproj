@@ -94,6 +94,7 @@
 		955FA9781C845F600020027A /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 955FA9771C845F600020027A /* UtilityFunctions.m */; };
 		956973351E3779D400682650 /* SPDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956973341E3779D400682650 /* SPDropDownMenu.swift */; };
 		9582DD651E2518D90098B33D /* loggerswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582DD641E2518D90098B33D /* loggerswift.swift */; };
+		9584C3671FAD2EA4004C927F /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9584C3661FAD2EA4004C927F /* CameraHandler.swift */; };
 		959FCA5F1C7F1376009114C8 /* ConstantShortcutsMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2CB51B566A6B00741E4B /* ConstantShortcutsMacros.swift */; };
 		959FCA601C7F137A009114C8 /* ConstantDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C3D5AD1BD4FD4B0009CC67 /* ConstantDevices.swift */; };
 		959FCA611C7F137D009114C8 /* ConstantStringMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2CB61B566A6B00741E4B /* ConstantStringMacros.swift */; };
@@ -258,6 +259,7 @@
 		957E126E1F91FE85003544AF /* Optional+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+.swift"; sourceTree = "<group>"; };
 		9581B8CD1E488441001B02AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9582DD641E2518D90098B33D /* loggerswift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loggerswift.swift; sourceTree = "<group>"; };
+		9584C3661FAD2EA4004C927F /* CameraHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		95A5FED71C92ABA4006B8DB6 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95A8BB2C1E26547400A0F461 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		95A8BB2E1E2654C100A0F461 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 		7785037D1BA986380068185E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				9584C3651FAD2EA4004C927F /* CameraHelper */,
 				953E5CC91EB84A7700CAC08A /* GoogleMapsHelper */,
 				952AB9671E7904E6000F6CE9 /* App Helper */,
 				9543841A1E72CAB5008F453B /* SoundManager */,
@@ -921,6 +924,14 @@
 			path = Optional;
 			sourceTree = "<group>";
 		};
+		9584C3651FAD2EA4004C927F /* CameraHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9584C3661FAD2EA4004C927F /* CameraHandler.swift */,
+			);
+			path = CameraHelper;
+			sourceTree = "<group>";
+		};
 		95A8BB341E2657C600A0F461 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,8 +1031,9 @@
 				TargetAttributes = {
 					8EBD2C621B5667F200741E4B = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = s;
+						DevelopmentTeam = V3DD8M3EUV;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1141,6 +1153,7 @@
 				95A8BB311E2654D200A0F461 /* DictionaryExtensions.swift in Sources */,
 				953E5CEF1EB84A7700CAC08A /* MODuration.swift in Sources */,
 				95A8BB5C1E2657C600A0F461 /* UINavigationItemExtensions.swift in Sources */,
+				9584C3671FAD2EA4004C927F /* CameraHandler.swift in Sources */,
 				959FCA601C7F137A009114C8 /* ConstantDevices.swift in Sources */,
 				955FA95D1C845F4E0020027A /* UIView+ParentCell.m in Sources */,
 				95D0E52C1E4451AB007160C5 /* MOProfile.swift in Sources */,
@@ -1357,9 +1370,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V3DD8M3EUV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
@@ -1374,8 +1388,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0f99e2a7-fd5e-4a9a-9e93-b1654d9dad29";
+				PROVISIONING_PROFILE_SPECIFIER = PP_TechSamurai_WildCard;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1395,9 +1409,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V3DD8M3EUV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)",
@@ -1413,8 +1428,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0f99e2a7-fd5e-4a9a-9e93-b1654d9dad29";
+				PROVISIONING_PROFILE_SPECIFIER = PP_TechSamurai_WildCard;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
