@@ -6,7 +6,7 @@
 //  Copyright © 2016 <#Project Name#>. All rights reserved.
 //
 import Foundation
-class SPError: AnyObject {
+class SPError : NSObject {
     var errorCode: String = ""
     var message: String = ""
     

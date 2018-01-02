@@ -153,26 +153,23 @@ class UtilityHelper
     class func setupApplicationUIAppearance() {
 //        UILabel.appearance().setSubstituteFontName(UIConfiguration.UIFONTAPP)
         UILabel.appearance().defaultFont = UIFont(name: UIConfiguration.UIFONTAPP, size: 15)
-        let titleTextAttributeTabBarItem:[String:AnyObject] = [
-            NSForegroundColorAttributeName : UIColor.white,
-            NSFontAttributeName : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 17)
-        ]
-        UITabBarItem.appearance().setTitleTextAttributes(titleTextAttributeTabBarItem, for: UIControlState())
+        
+            UITabBarItem.appearance().setTitleTextAttributes([
+                NSAttributedStringKey.foregroundColor : UIColor.white,
+                NSAttributedStringKey.font : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 17)
+                ], for: UIControlState())
         UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIConfiguration.getUIFONTBOLD(sizeFont: 17)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIConfiguration.getUIFONTBOLD(sizeFont: 17)]
         
-        
-        
-        let titleTextAttributeBarButtonItem:[String:AnyObject] = [
-            NSForegroundColorAttributeName : UIColor.white,
-            NSFontAttributeName : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)
-        ]
         if #available(iOS 9.0, *) {
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes(titleTextAttributeBarButtonItem, for: UIControlState())
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([
+                NSAttributedStringKey.foregroundColor : UIColor.white,
+                NSAttributedStringKey.font : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)
+                ], for: UIControlState())
         } else {
             // Fallback on earlier versions
         }
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([NSTextEffectAttributeName: UIColor.white, NSFontAttributeName: UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)], for: .normal)
         
         let rect:CGRect! = CGRect(x: 0 ,y: 0, width: Constants.getApplicationDelegate().window!.frame.size.width, height: 64)
         UIGraphicsBeginImageContext(rect.size)
@@ -305,7 +302,7 @@ class UtilityHelper
         let maxSize: CGSize = CGSize(width: frame.size.width, height: 999999.0)
         var height: CGFloat = 0
         
-        let frame1: CGRect = text.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let frame1: CGRect = text.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         height = frame1.size.height
         return height+5
     }
@@ -315,7 +312,7 @@ class UtilityHelper
         var height: CGFloat = 0
         let font: UIFont = label.font
         
-        let frame: CGRect = label.text!.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let frame: CGRect = label.text!.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         height = frame.size.height
         label.numberOfLines = 0
         return height+5
@@ -324,7 +321,7 @@ class UtilityHelper
     class func getStringHeightWithConstrainedWidth(_ text: String, width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
-        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context: nil)
         
         return boundingBox.height
     }
@@ -453,7 +450,7 @@ class UtilityHelper
         
         exportSession!.outputURL = outputURL
         
-        exportSession!.outputFileType = AVFileTypeMPEG4 //AVFileTypeMPEG4, AVFileTypeQuickTimeMovie
+        exportSession!.outputFileType = AVFileType.mp4 //AVFileTypeMPEG4, AVFileTypeQuickTimeMovie
         
         exportSession!.shouldOptimizeForNetworkUse = true
         
@@ -1045,10 +1042,10 @@ extension UtilityHelper {
     ///
     /// - Parameter object: Any object to find its class name.
     /// - Returns: Class name for given object.
-    public static func typeName(for object: Any) -> String {
-        let type = type(of: object.self)
-        return String.init(describing: type)
-    }
+//    public static func typeName(for object: Any) -> String {
+//        let type = type(of: object.self)
+//        return String.init(describing: type)
+//    }
     
     
 }

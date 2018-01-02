@@ -196,7 +196,7 @@ public extension UIButton {
     private func positionLabelRespectToImage(title: NSString, position: UIViewContentMode, spacing: CGFloat) {
         let imageSize = self.imageRect(forContentRect: self.frame)
         let titleFont = self.titleLabel?.font!
-        let titleSize = title.size(attributes: [NSFontAttributeName: titleFont!])
+        let titleSize = title.size(withAttributes: [NSAttributedStringKey.font: titleFont!])
         
         var titleInsets: UIEdgeInsets
         var imageInsets: UIEdgeInsets

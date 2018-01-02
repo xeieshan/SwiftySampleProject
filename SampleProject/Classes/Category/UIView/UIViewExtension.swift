@@ -1590,7 +1590,7 @@ extension UIView {
                 commonSuperview = commonSuperview?.superview
             }
         } else {
-            constraint.firstItem.removeConstraint(constraint)
+            constraint.firstItem?.removeConstraint(constraint)
         }
         return self
     }

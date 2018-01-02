@@ -43,15 +43,15 @@ public extension Collection where Iterator.Element == Int, Index == Int {
 
 
 // MARK: - Properties (Integer)
-public extension Array where Element: Integer {
-	
-	/// Sum of all elements in array.
-	public var sum: Element {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return reduce(0, +)
-	}
-	
-}
+//public extension Array where Element: Integer {
+//    
+//    /// Sum of all elements in array.
+//    public var sum: Element {
+//        // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
+//        return reduce(0, +)
+//    }
+//    
+//}
 
 
 // MARK: - Properties (FloatingPoint)

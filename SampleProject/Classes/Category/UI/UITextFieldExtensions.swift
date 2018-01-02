@@ -73,7 +73,7 @@ public extension UITextField {
 	///
 	/// - Parameter color: placeholder text color.
 	public func setPlaceHolderTextColor(_ color: UIColor) {
-		self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: color])
+        self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: color])
 	}
 	
 }

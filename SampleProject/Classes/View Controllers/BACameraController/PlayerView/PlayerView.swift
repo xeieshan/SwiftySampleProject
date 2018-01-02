@@ -40,7 +40,7 @@ class PlayerView: UIView {
     
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
-        videoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        videoLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill;
         videoLayer?.frame = self.playerView.bounds
     }
     

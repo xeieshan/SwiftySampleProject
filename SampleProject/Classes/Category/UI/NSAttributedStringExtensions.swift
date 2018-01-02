@@ -19,7 +19,7 @@ public extension NSAttributedString {
 			return self
 		}
 		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
+        copy.addAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
 		return copy
 	}
 	#endif
@@ -30,7 +30,7 @@ public extension NSAttributedString {
 			return self
 		}
 		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue], range: range)
+        copy.addAttributes([NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue], range: range)
 		return copy
 	}
 	
@@ -41,7 +41,7 @@ public extension NSAttributedString {
 			return self
 		}
 		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
+        copy.addAttributes([NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
 		return copy
 	}
 	#endif
@@ -53,7 +53,7 @@ public extension NSAttributedString {
 		}
 		let range = (self.string as NSString).range(of: self.string)
 		let attributes = [
-			NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
+            NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
 		copy.addAttributes(attributes, range: range)
 		return copy
 	}
@@ -73,7 +73,7 @@ public extension NSAttributedString {
 			return self
 		}
 		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSForegroundColorAttributeName: color], range: range)
+        copy.addAttributes([NSAttributedStringKey.foregroundColor: color], range: range)
 		return copy
 	}
 	

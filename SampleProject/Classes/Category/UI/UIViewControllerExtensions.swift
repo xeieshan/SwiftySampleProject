@@ -21,9 +21,9 @@ public extension UIViewController {
 	}
 	
 	/// NavigationBar in a ViewController.
-	public var navigationBar: UINavigationBar? {
-		return navigationController?.navigationBar
-	}
+//    public var navigationBar: UINavigationBar? {
+//        return navigationController?.navigationBar
+//    }
 	
 }
 

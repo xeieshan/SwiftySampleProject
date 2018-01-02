@@ -21,9 +21,9 @@ public extension String {
      */
     func detectLanguage() -> String? {
         if self.length > 4 {
-            let tagger = NSLinguisticTagger(tagSchemes:[NSLinguisticTagSchemeLanguage], options: 0)
+            let tagger = NSLinguisticTagger(tagSchemes:[NSLinguisticTagScheme.language], options: 0)
             tagger.string = self
-            return tagger.tag(at: 0, scheme: NSLinguisticTagSchemeLanguage, tokenRange: nil, sentenceRange: nil)
+            return tagger.tag(at: 0, scheme: NSLinguisticTagScheme.language, tokenRange: nil, sentenceRange: nil).map { $0.rawValue }
         }
         return nil
     }
@@ -35,9 +35,9 @@ public extension String {
      */
     func detectScript() -> String? {
         if self.length > 1 {
-            let tagger = NSLinguisticTagger(tagSchemes:[NSLinguisticTagSchemeScript], options: 0)
+            let tagger = NSLinguisticTagger(tagSchemes:[NSLinguisticTagScheme.script], options: 0)
             tagger.string = self
-            return tagger.tag(at: 0, scheme: NSLinguisticTagSchemeScript, tokenRange: nil, sentenceRange: nil)
+            return tagger.tag(at: 0, scheme: NSLinguisticTagScheme.script, tokenRange: nil, sentenceRange: nil).map { $0.rawValue }
         }
         return nil
     }
@@ -165,7 +165,7 @@ public extension String {
         let results = hashtagDetector?.matches(in: self, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: NSMakeRange(0, self.utf16.count)).map { $0 }
         
         return results?.map({
-            (self as NSString).substring(with: $0.rangeAt(1))
+            (self as NSString).substring(with: $0.range(at: 1))
         })
     }
     
@@ -190,7 +190,7 @@ public extension String {
         let results = hashtagDetector?.matches(in: self, options: NSRegularExpression.MatchingOptions.withoutAnchoringBounds, range: NSMakeRange(0, self.utf16.count)).map { $0 }
         
         return results?.map({
-            (self as NSString).substring(with: $0.rangeAt(1))
+            (self as NSString).substring(with: $0.range(at: 1))
         })
     }
     
@@ -258,7 +258,7 @@ public extension String {
             let leftRange = range(of: left), let rightRange = range(of: right, options: .backwards), left != right && leftRange.upperBound != rightRange.lowerBound
             else { return nil }
         
-        return self[leftRange.upperBound...index(before: rightRange.lowerBound)]
+        return String(self[leftRange.upperBound...index(before: rightRange.lowerBound)])
         
     }
     
@@ -288,9 +288,9 @@ public extension String {
     func chompLeft(_ prefix: String) -> String {
         if let prefixRange = range(of: prefix) {
             if prefixRange.upperBound >= endIndex {
-                return self[startIndex..<prefixRange.lowerBound]
+                return String(self[startIndex..<prefixRange.lowerBound])
             } else {
-                return self[prefixRange.upperBound..<endIndex]
+                return String(self[prefixRange.upperBound..<endIndex])
             }
         }
         return self
@@ -299,9 +299,9 @@ public extension String {
     func chompRight(_ suffix: String) -> String {
         if let suffixRange = range(of: suffix, options: .backwards) {
             if suffixRange.upperBound >= endIndex {
-                return self[startIndex..<suffixRange.lowerBound]
+                return String(self[startIndex..<suffixRange.lowerBound])
             } else {
-                return self[suffixRange.upperBound..<endIndex]
+                return String(self[suffixRange.upperBound..<endIndex])
             }
         }
         return self
@@ -398,28 +398,22 @@ public extension String {
 //    func lines() -> [String] {
 //        return characters.split{$0 == "\n"}.map(String.init)
 //    }
-    
-    //    var length: Int {
-    //        get {
-    //            return self.characters.count
-    //        }
-    //    }
-    
+
     var length: Int {
-        return characters.count
+        return count
     }
     
-    func pad(_ n: Int, _ string: String = " ") -> String {
-        return "".join([string.times(n), self, string.times(n)])
-    }
-    
-    func padLeft(_ n: Int, _ string: String = " ") -> String {
-        return "".join([string.times(n), self])
-    }
-    
-    func padRight(_ n: Int, _ string: String = " ") -> String {
-        return "".join([self, string.times(n)])
-    }
+//    func pad(_ n: Int, _ string: String = " ") -> String {
+//        return "".join([string.times(n), self, string.times(n)])
+//    }
+//
+//    func padLeft(_ n: Int, _ string: String = " ") -> String {
+//        return "".join([string.times(n), self])
+//    }
+//
+//    func padRight(_ n: Int, _ string: String = " ") -> String {
+//        return "".join([self, string.times(n)])
+//    }
     
     func slugify() -> String {
         let slugCharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-")
@@ -444,10 +438,10 @@ public extension String {
             .filter { $0 != "" }
             .joined(separator: " ")
     }
-    
-    func times(_ n: Int) -> String {
-        return (0..<n).reduce("") { $0.0 + self }
-    }
+//
+//    func times(_ n: Int) -> String {
+//        return (0..<n).reduce("") { $0.0 + self }
+//    }
     
     func toFloat() -> Float? {
         if let number = NumberFormatter().number(from: self) {
@@ -492,7 +486,7 @@ public extension String {
     
     func trimmedLeft() -> String {
         if let range = rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines.inverted) {
-            return self[range.lowerBound..<endIndex]
+            return String(self[range.lowerBound..<endIndex])
         }
         
         return self
@@ -500,7 +494,7 @@ public extension String {
     
     func trimmedRight() -> String {
         if let range = rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines.inverted, options: NSString.CompareOptions.backwards) {
-            return self[startIndex..<range.upperBound]
+            return String(self[startIndex..<range.upperBound])
         }
         
         return self
@@ -515,14 +509,14 @@ public extension String {
             let startIndex = self.characters.index(self.startIndex, offsetBy: r.lowerBound)
             let endIndex = self.characters.index(self.startIndex, offsetBy: r.upperBound - r.lowerBound)
             
-            return self[startIndex..<endIndex]
+            return String(self[startIndex..<endIndex])
         }
     }
     
     func substring(_ startIndex: Int, length: Int) -> String {
         let start = self.characters.index(self.startIndex, offsetBy: startIndex)
         let end = self.characters.index(self.startIndex, offsetBy: startIndex + length)
-        return self[start..<end]
+        return String(self[start..<end])
     }
     
     subscript(i: Int) -> Character {
@@ -823,36 +817,36 @@ public extension String {
     /// Returns a new string made by replacing in the `String`
     /// all HTML character entity references with the corresponding
     /// character.
-    func decodeHTML() -> String {
-        var result = ""
-        var position = startIndex
-        
-        // Find the next '&' and copy the characters preceding it to `result`:
-        while let ampRange = self.range(of: "&", range: position ..< endIndex) {
-            result.append(self[position ..< ampRange.lowerBound])
-            position = ampRange.lowerBound
-            
-            // Find the next ';' and copy everything from '&' to ';' into `entity`
-            if let semiRange = self.range(of: ";", range: position ..< endIndex) {
-                let entity = self[position ..< semiRange.upperBound]
-                position = semiRange.upperBound
-                
-                if let decoded = decode(entity) {
-                    // Replace by decoded character:
-                    result.append(decoded)
-                } else {
-                    // Invalid entity, copy verbatim:
-                    result.append(entity)
-                }
-            } else {
-                // No matching ';'.
-                break
-            }
-        }
-        // Copy remaining characters to `result`:
-        result.append(self[position ..< endIndex])
-        return result
-    }
+//    func decodeHTML() -> String {
+//        var result = ""
+//        var position = startIndex
+//        
+//        // Find the next '&' and copy the characters preceding it to `result`:
+//        while let ampRange = self.range(of: "&", range: position ..< endIndex) {
+//            result.append(String(self[position ..< ampRange.lowerBound]))
+//            position = ampRange.lowerBound
+//            
+//            // Find the next ';' and copy everything from '&' to ';' into `entity`
+//            if let semiRange = self.range(of: ";", range: position ..< endIndex) {
+//                let entity = self[position ..< semiRange.upperBound]
+//                position = semiRange.upperBound
+//                
+//                if let decoded = decode(String(entity)) {
+//                    // Replace by decoded character:
+//                    result.append(decoded)
+//                } else {
+//                    // Invalid entity, copy verbatim:
+//                    result.append(entity)
+//                }
+//            } else {
+//                // No matching ';'.
+//                break
+//            }
+//        }
+//        // Copy remaining characters to `result`:
+//        result.append(String(self[position ..< endIndex]))
+//        return result
+//    }
     
 }
 /*

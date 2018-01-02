@@ -134,7 +134,7 @@ class OverlayView: UIView , UICollectionViewDelegate, UICollectionViewDataSource
         
     }
     
-    func captureButtonLongPressed(_ gesture:UILongPressGestureRecognizer) {
+    @objc func captureButtonLongPressed(_ gesture:UILongPressGestureRecognizer) {
         if gesture.state == .began && !isVideoCaturing {
             self.bottomBar.isUserInteractionEnabled = false;
             print("longPressed: Began");
@@ -211,7 +211,7 @@ class OverlayView: UIView , UICollectionViewDelegate, UICollectionViewDataSource
         let result = PHAssetCollection.fetchMoments(with: nil);
         
         result.enumerateObjects({ (object:AnyObject, idx:Int, stop:UnsafeMutablePointer<ObjCBool>) in
-            let assetsCollection = object as? PHAssetCollection;
+            let assetsCollection = object as? PHAssetCollection
             let assests = PHAsset.fetchAssets(in: assetsCollection!, options: nil);
             assests.enumerateObjects({ (object:AnyObject, idx:Int, stop:UnsafeMutablePointer<ObjCBool>) in
                 if object.mediaType == .image {
@@ -219,7 +219,6 @@ class OverlayView: UIView , UICollectionViewDelegate, UICollectionViewDataSource
                     tempAssets.append(object as! PHAsset);
                     tempThumbnails.append(BAMedia(media: thumbnail, mediaType: .image, mediaURL: nil));
                 }
-                    
                 else if object.mediaType == .video {
                     let thumbnail = self.getAssetThumbnail(object as! PHAsset);
                     tempAssets.append(object as! PHAsset);
@@ -242,7 +241,7 @@ class OverlayView: UIView , UICollectionViewDelegate, UICollectionViewDataSource
     //MARK: - CollectionView
     
     
-    func reloadAssestsArray() {
+    @objc func reloadAssestsArray() {
         
         var tempAssets = [PHAsset]();
         
@@ -252,9 +251,9 @@ class OverlayView: UIView , UICollectionViewDelegate, UICollectionViewDataSource
             let assetsCollection = object as? PHAssetCollection;
             let assests = PHAsset.fetchAssets(in: assetsCollection!, options: nil);
             assests.enumerateObjects({ (object:AnyObject, idx:Int, stop:UnsafeMutablePointer<ObjCBool>) in
-                if object.mediaType == .image || object.mediaType == .video {
+//>>                if object.mediaType == .image || object.mediaType == .video {
                     tempAssets.append(object as! PHAsset);
-                }
+//>>                }
             });
         })
         

@@ -20,10 +20,7 @@ public extension UINavigationBar {
 	///   - font: title font
 	///   - color: title text color (default is .black).
 	public func setTitleFont(_ font: UIFont, color: UIColor = UIColor.black) {
-		var attrs = [String: AnyObject]()
-		attrs[NSFontAttributeName] = font
-		attrs[NSForegroundColorAttributeName] = color
-		titleTextAttributes = attrs
+        titleTextAttributes = [NSAttributedStringKey.font : font ,NSAttributedStringKey.foregroundColor : color ]
 	}
 	
 	/// Make navigation bar transparent.
@@ -34,7 +31,7 @@ public extension UINavigationBar {
 		shadowImage = UIImage()
 		isTranslucent = true
 		tintColor = withTint
-		titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+        titleTextAttributes = [NSAttributedStringKey.foregroundColor: withTint]
 	}
 	
 	/// Set navigationBar background and text colors
@@ -48,7 +45,7 @@ public extension UINavigationBar {
 		self.barTintColor = background
 		self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 		self.tintColor = text
-		self.titleTextAttributes = [NSForegroundColorAttributeName: text]
+        self.titleTextAttributes = [NSAttributedStringKey.foregroundColor: text]
 	}
 }
 

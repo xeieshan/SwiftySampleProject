@@ -30,7 +30,7 @@ public class UserManager {
     
     class public var currentUser: MOProfile? {
         set {
-            UserManager.setCurrentUser(newCurrentUser: currentUser)
+            UserManager.setCurrentUser(currentUser)
         }
         get {
             if (_currentUser != nil) {
@@ -54,13 +54,15 @@ public class UserManager {
     // MARK: - User
     
     
-    class public func setCurrentUser(newCurrentUser: MOProfile?) {
-        assert(newCurrentUser != nil, "Trying to set current user to nil! Use [UserManager logOutCurrentUser] instead!")
+    class public func setCurrentUser(_ newCurrentUser: MOProfile?) {
+        //        assert(newCurrentUser != nil, "Trying to set current user to nil! Use [UserManager logOutCurrentUser] instead!")
         _currentUser = newCurrentUser
-        UserManager.saveCurrentUser()
+        if newCurrentUser != nil {
+            UserManager.saveCurrentUser()
+        }
     }
     
-    class internal func saveCurrentUser() {
+    class func saveCurrentUser() {
         if _currentUser == nil {
             assert(_currentUser != nil, "Error! Save current user: currentUser == nil!!")
             return
@@ -90,26 +92,30 @@ public class UserManager {
     
     class public func logOutCurrentUser() {
         let path:String = UserManager.pathWithObjectType(objectType: UserManager.kUserType)
-        do {
-            try FileManager.default.removeItem(atPath: path)
-            if FileManager.default.fileExists(atPath: path) {
+        
+        if FileManager.default.fileExists(atPath: path) {
+            do {
+                try FileManager.default.removeItem(atPath: path)
                 print("Deleting previous user entry")
             }
+            catch {
+                print("Failed to Delete user File")
+            }
         }
-        catch {
-            print("Failed to Delete user File")
-        }
-        UserManager.setCurrentUser(newCurrentUser: nil)
+        UserManager.setCurrentUser(nil)
     }
     
     class public func logOutUserAndClearToken() {
         UserManager.logOutCurrentUser()
-        UserManager.setCurrentUser(newCurrentUser: nil)
+        UserManager.setCurrentUser(nil)
         UserManager.setToken(token: "")
     }
     
     class public func isLoggedIn() -> Bool {
-        return _currentUser != nil && (_token?.characters.count)!>0
+        if _token != nil {
+            return _currentUser != nil && (_token?.count)!>0
+        }
+        return _currentUser != nil
     }
     
     

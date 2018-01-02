@@ -10,6 +10,13 @@ import Foundation
 
 
 class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSource
+    let a: Double? = 1.0
+    let b: Double? = 2.0
+    let c: Double? = 3.0
+    let d: Double? = 4.0
+    let e: Double? = 5.0
+    let f: Double? = 6.0
+    let g: Double? = 7.0
     
     @IBOutlet weak var tf1: UITextField?
     @IBOutlet weak var tf2: UITextField?
@@ -75,6 +82,11 @@ class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSo
         print(width)
         print(height)
         print(widthF)
+        
+        let result = a.or(b).or(c).or(d).or(e).or(f).or(g).or(1.0)  // <--- This will not
+        print(result)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,24 +99,16 @@ class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSo
     
     
     @IBAction func pickImage(_ sender : UIButton){
-        let cameraVC = BACameraController.init(nibName: nil, bundle: nil);
-        cameraVC.delegate = self;
-        self.present(cameraVC, animated: true, completion: nil);
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            /* get your image here */
+        }
+        
+//        let cameraVC = BACameraController.init(nibName: nil, bundle: nil);
+//        cameraVC.delegate = self;
+//        self.present(cameraVC, animated: true, completion: nil);
     }
     
-    func getImagesDataFromMedia(_ mediaArray : [BAMedia], completion: @escaping (_ images : [UIImage], _ videos : [URL]) -> Void) {
-        var mediaDictArray = [UIImage]()
-        var videoDict = [URL]()
-        for media in mediaArray { //if let media = mediaArray.first
-            if media.mediaType == .image {
-                mediaDictArray.append(media.media as! UIImage)
-            }
-            else{
-                videoDict.append(media.mediaURL!)
-            }
-        }
-        completion(mediaDictArray, videoDict)
-    }
 
     //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     //
@@ -129,36 +133,4 @@ class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSo
     //        
     //    }
 }
-    
-extension ViewController : BACameraControllerDelegate{
-    func mediaSelected(_ mediaArray:[BAMedia]){
-        
-        getImagesDataFromMedia(mediaArray) { (images, videos) in
-            if images.count > 0{
-                DispatchQueue.main.async {
-                    let collageView = SPImageCollageView.init(frame: self.imagesView.bounds, images: images)
-                    collageView.delegate = self
-                    self.imagesView.addSubview(collageView)
-                }
-            }
-            else if videos.count > 0 {
-                
-            }
-        }
-    }
-    
-    func controllerCancelled(){
-        
-    }
-}
 
-extension ViewController : SPImageCollageViewDelegate{
-    
-    func viewAll(images: [Any], fromView: SPImageCollageView) {
-        
-    }
-    
-    func imageSelected(fromImages images: [UIImageView], image:UIImageView){
-        
-    }
-}

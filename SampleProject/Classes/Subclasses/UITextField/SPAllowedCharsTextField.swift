@@ -44,7 +44,7 @@ class SPAllowedCharsTextField: UITextField, UITextFieldDelegate {
         }
     }
     
-    func limitLength(_ textField: UITextField) {
+    @objc func limitLength(_ textField: UITextField) {
         guard let prospectiveText = textField.text, prospectiveText.characters.count > maxLength else {
             return
         }

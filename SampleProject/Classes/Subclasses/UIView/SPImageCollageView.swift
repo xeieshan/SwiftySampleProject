@@ -409,14 +409,14 @@ class SPImageCollageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func imageViewTapped(_ sender:UITapGestureRecognizer) {
+    @objc func imageViewTapped(_ sender:UITapGestureRecognizer) {
         print("\(#file) : \(#function)");
         if delegate != nil{
             delegate?.imageSelected(fromImages: self.cellImageViews, image: (sender.view as! UIImageView))
         }
     }
     
-    func viewAll(_ sender: UIButton) {
+    @objc func viewAll(_ sender: UIButton) {
         print("\(#file) : \(#function)");
         self.delegate?.viewAll(images: self.cellImagesURLs!, fromView: self)
     }

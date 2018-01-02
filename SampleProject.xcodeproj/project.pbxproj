@@ -14,13 +14,6 @@
 		38CC6EE8333FAD8BCE350578 /* UIImage+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC6F498E4E728A595D36E4 /* UIImage+helper.m */; };
 		38CC6F5AD87DF0CC99E8EAD9 /* SPAllowedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC64AF2FF35A5F60B44301 /* SPAllowedCharsTextField.swift */; };
 		77024DC31E37B4E9008565FF /* SPImageCollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77024DC21E37B4E9008565FF /* SPImageCollageView.swift */; };
-		777CE0EC1E3666CA00261DFC /* BACameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E21E3666CA00261DFC /* BACameraController.swift */; };
-		777CE0ED1E3666CA00261DFC /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E41E3666CA00261DFC /* OverlayView.swift */; };
-		777CE0EE1E3666CA00261DFC /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777CE0E51E3666CA00261DFC /* OverlayView.xib */; };
-		777CE0EF1E3666CA00261DFC /* OverlayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0E71E3666CA00261DFC /* OverlayViewCell.swift */; };
-		777CE0F01E3666CA00261DFC /* OverlayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777CE0E81E3666CA00261DFC /* OverlayViewCell.xib */; };
-		777CE0F11E3666CA00261DFC /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777CE0EA1E3666CA00261DFC /* PlayerView.swift */; };
-		777CE0F21E3666CA00261DFC /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777CE0EB1E3666CA00261DFC /* PlayerView.xib */; };
 		778503851BA987290068185E /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 778503841BA987290068185E /* Icons.xcassets */; };
 		8EBD2CDB1B566A6B00741E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2C8F1B566A6B00741E4B /* AppDelegate.swift */; };
 		8EBD2CE71B566A6B00741E4B /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2CBD1B566A6B00741E4B /* APIResponse.swift */; };
@@ -30,6 +23,7 @@
 		8EBD2CEE1B566A6B00741E4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD2CD41B566A6B00741E4B /* Images.xcassets */; };
 		8EBD2CEF1B566A6B00741E4B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD2CD71B566A6B00741E4B /* LaunchScreen.xib */; };
 		8EBD2CF01B566A6B00741E4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD2CD91B566A6B00741E4B /* Main.storyboard */; };
+		951AEE831FCBEA0E009EAD9A /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E126E1F91FE85003544AF /* Optional+.swift */; };
 		951E11F41C89988A00DA6A41 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E11F31C89988A00DA6A41 /* NSDate.swift */; };
 		951E11F61C899D9000DA6A41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E11F51C899D9000DA6A41 /* Badge.swift */; };
 		9529F4B41E30D39600E85E4A /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529F4B31E30D39600E85E4A /* SPButton.swift */; };
@@ -151,13 +145,6 @@
 		39B8D0D5CFCC0E104C53620D /* Pods_SampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9BA21B009844E2FCC63D0A /* Pods-SampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		77024DC21E37B4E9008565FF /* SPImageCollageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPImageCollageView.swift; sourceTree = "<group>"; };
-		777CE0E21E3666CA00261DFC /* BACameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BACameraController.swift; sourceTree = "<group>"; };
-		777CE0E41E3666CA00261DFC /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
-		777CE0E51E3666CA00261DFC /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
-		777CE0E71E3666CA00261DFC /* OverlayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewCell.swift; sourceTree = "<group>"; };
-		777CE0E81E3666CA00261DFC /* OverlayViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewCell.xib; sourceTree = "<group>"; };
-		777CE0EA1E3666CA00261DFC /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		777CE0EB1E3666CA00261DFC /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		778503841BA987290068185E /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		8EBD2C631B5667F200741E4B /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EBD2C8F1B566A6B00741E4B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,44 +335,6 @@
 			path = UIControl;
 			sourceTree = "<group>";
 		};
-		777CE0E11E3666CA00261DFC /* BACameraController */ = {
-			isa = PBXGroup;
-			children = (
-				777CE0E21E3666CA00261DFC /* BACameraController.swift */,
-				777CE0E31E3666CA00261DFC /* OverlayView */,
-				777CE0E61E3666CA00261DFC /* OverlayViewCell */,
-				777CE0E91E3666CA00261DFC /* PlayerView */,
-			);
-			path = BACameraController;
-			sourceTree = "<group>";
-		};
-		777CE0E31E3666CA00261DFC /* OverlayView */ = {
-			isa = PBXGroup;
-			children = (
-				777CE0E41E3666CA00261DFC /* OverlayView.swift */,
-				777CE0E51E3666CA00261DFC /* OverlayView.xib */,
-			);
-			path = OverlayView;
-			sourceTree = "<group>";
-		};
-		777CE0E61E3666CA00261DFC /* OverlayViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				777CE0E71E3666CA00261DFC /* OverlayViewCell.swift */,
-				777CE0E81E3666CA00261DFC /* OverlayViewCell.xib */,
-			);
-			path = OverlayViewCell;
-			sourceTree = "<group>";
-		};
-		777CE0E91E3666CA00261DFC /* PlayerView */ = {
-			isa = PBXGroup;
-			children = (
-				777CE0EA1E3666CA00261DFC /* PlayerView.swift */,
-				777CE0EB1E3666CA00261DFC /* PlayerView.xib */,
-			);
-			path = PlayerView;
-			sourceTree = "<group>";
-		};
 		7785037D1BA986380068185E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,7 +458,6 @@
 		8EBD2CC71B566A6B00741E4B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				777CE0E11E3666CA00261DFC /* BACameraController */,
 				95470E861BF5A19C00AEA056 /* ViewController.swift */,
 				8EBD2CC81B566A6B00741E4B /* BABaseViewController */,
 			);
@@ -1060,9 +1008,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777CE0EE1E3666CA00261DFC /* OverlayView.xib in Resources */,
-				777CE0F01E3666CA00261DFC /* OverlayViewCell.xib in Resources */,
-				777CE0F21E3666CA00261DFC /* PlayerView.xib in Resources */,
 				8EBD2CEF1B566A6B00741E4B /* LaunchScreen.xib in Resources */,
 				8EBD2CEE1B566A6B00741E4B /* Images.xcassets in Resources */,
 				8EBD2CF01B566A6B00741E4B /* Main.storyboard in Resources */,
@@ -1081,9 +1026,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1096,13 +1044,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SampleProject-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBC00EAF228A9E1B7AA6072D /* [CP] Copy Pods Resources */ = {
@@ -1194,9 +1145,9 @@
 				953E5CF91EB84A7700CAC08A /* MOAddressComponents.swift in Sources */,
 				955FA95F1C845F4E0020027A /* NSArray+Utilities.m in Sources */,
 				8EBD2CE91B566A6B00741E4B /* SharedManager.swift in Sources */,
+				951AEE831FCBEA0E009EAD9A /* Optional+.swift in Sources */,
 				952CF37C1C857C7A00CB80F6 /* UtilityHelper.swift in Sources */,
 				95F002541D360A0A00909E5B /* AppConstants.swift in Sources */,
-				777CE0ED1E3666CA00261DFC /* OverlayView.swift in Sources */,
 				953E5CE91EB84A7700CAC08A /* MOMatchedSubstrings.swift in Sources */,
 				95A8BB501E2657C600A0F461 /* CGSizeExtensions.swift in Sources */,
 				952CF37E1C85813900CB80F6 /* UIViewExtension.swift in Sources */,
@@ -1214,7 +1165,6 @@
 				953E5CEE1EB84A7700CAC08A /* MODistance.swift in Sources */,
 				952CF38C1C85C3AF00CB80F6 /* SPButton.m in Sources */,
 				95481E901F36051F0076FDC6 /* SPBottomBorderView.swift in Sources */,
-				777CE0EC1E3666CA00261DFC /* BACameraController.swift in Sources */,
 				95A8BB331E2654F400A0F461 /* StringExtensions.swift in Sources */,
 				955FA9781C845F600020027A /* UtilityFunctions.m in Sources */,
 				952CF3801C8581B600CB80F6 /* VideoLaunchScreen.swift in Sources */,
@@ -1225,7 +1175,6 @@
 				953E5CFA1EB84A7700CAC08A /* MOGeometry.swift in Sources */,
 				9543841C1E72CAF9008F453B /* SoundManager.swift in Sources */,
 				953E5CEA1EB84A7700CAC08A /* MOPredictions.swift in Sources */,
-				777CE0EF1E3666CA00261DFC /* OverlayViewCell.swift in Sources */,
 				955FA9691C845F4E0020027A /* UICollectionView+Helper.m in Sources */,
 				952CF37A1C857B1900CB80F6 /* SPCircularView.swift in Sources */,
 				952AB9691E790519000F6CE9 /* SPAppHelper.swift in Sources */,
@@ -1233,7 +1182,6 @@
 				8EBD2CEB1B566A6B00741E4B /* BaseViewController.swift in Sources */,
 				95A8BB571E2657C600A0F461 /* UIImageExtensions.swift in Sources */,
 				953E5CF61EB84A7700CAC08A /* MORoutes.swift in Sources */,
-				777CE0F11E3666CA00261DFC /* PlayerView.swift in Sources */,
 				95A8BB651E2657C600A0F461 /* UIViewControllerExtensions.swift in Sources */,
 				95A8BB581E2657C600A0F461 /* UIImageViewExtensions.swift in Sources */,
 				95A8BB5B1E2657C600A0F461 /* UINavigationControllerExtensions.swift in Sources */,
@@ -1369,17 +1317,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: bernardo bicalho (LETGA362C2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: bernardo bicalho (LETGA362C2)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V3DD8M3EUV;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(inherited)",
+					"$(SRCROOT)/**",
+					"$(inherited)/**",
 				);
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/**",
 				);
@@ -1393,7 +1342,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1408,18 +1357,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: bernardo bicalho (LETGA362C2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: bernardo bicalho (LETGA362C2)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V3DD8M3EUV;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
-					"$(inherited)",
+					"$(inherited)/**",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/**",
 				);
@@ -1433,7 +1383,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

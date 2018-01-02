@@ -57,11 +57,11 @@ class BACameraController: UIViewController, UIImagePickerControllerDelegate,UINa
         let _ = self.prefersStatusBarHidden
         let _ = cameraView?.prefersStatusBarHidden
         
-        let video = AVMediaTypeVideo;
-        let audio = AVMediaTypeAudio;
+        let video = AVMediaType.video
+        let audio = AVMediaType.audio
         
-        let authStatus = AVCaptureDevice.authorizationStatus(forMediaType: video);
-        let authStatus2 = AVCaptureDevice.authorizationStatus(forMediaType: audio);
+        let authStatus = AVCaptureDevice.authorizationStatus(for: video);
+        let authStatus2 = AVCaptureDevice.authorizationStatus(for: audio);
         
         
         if (authStatus == .authorized && authStatus2 == .authorized) {
@@ -74,10 +74,10 @@ class BACameraController: UIViewController, UIImagePickerControllerDelegate,UINa
         } else if (authStatus == .notDetermined || authStatus2 == .notDetermined){
             // not determined?!
             
-            AVCaptureDevice.requestAccess(forMediaType: video, completionHandler: { (granted:Bool) in
+            AVCaptureDevice.requestAccess(for: video, completionHandler: { (granted:Bool) in
                 if(granted){
                     
-                    AVCaptureDevice.requestAccess(forMediaType: audio, completionHandler: { (granted:Bool) in
+                    AVCaptureDevice.requestAccess(for: audio, completionHandler: { (granted:Bool) in
                         if(granted){
                             
                             DispatchQueue.main.async(execute: {
@@ -85,18 +85,18 @@ class BACameraController: UIViewController, UIImagePickerControllerDelegate,UINa
                             })
                             
                             
-                            NSLog("Granted access to %@", video);
+//                            NSLog("Granted access to %@", video);
                         } else {
-                            NSLog("Not granted access to %@", video);
+//                            NSLog("Not granted access to %@", video);
                             self.dismiss(animated: true, completion: nil);
                             
                         }
                         
                     });
                     
-                    NSLog("Granted access to %@", video);
+//                    NSLog("Granted access to %@", video);
                 } else {
-                    NSLog("Not granted access to %@", video);
+//                    NSLog("Not granted access to %@", video);
                 }
                 
             });
@@ -249,7 +249,7 @@ class BACameraController: UIViewController, UIImagePickerControllerDelegate,UINa
         
     }
     
-    func image(image Image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+    @objc func image(image Image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         print("\(#function)");
         
         if error == nil {

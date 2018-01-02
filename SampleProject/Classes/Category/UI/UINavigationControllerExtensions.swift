@@ -46,7 +46,7 @@ public extension UINavigationController {
 		navigationBar.shadowImage = UIImage()
 		navigationBar.isTranslucent = true
 		navigationBar.tintColor = withTint
-		navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: withTint]
 	}
 	
 }

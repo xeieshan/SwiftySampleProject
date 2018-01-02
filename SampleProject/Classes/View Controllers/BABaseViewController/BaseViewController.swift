@@ -158,12 +158,12 @@ class BaseViewController: UIViewController {
     }
     //
     
-    func rightNavigationButtonClicked(_ sender: AnyObject) {
+    @objc func rightNavigationButtonClicked(_ sender: AnyObject) {
         NSLog("Right Navigation Button Clicked")
         self.baseDelegate?.rightNavigationBarButtonClicked()
     }
     
-    func leftNavigationButtonClicked(_ sender: AnyObject) {
+    @objc func leftNavigationButtonClicked(_ sender: AnyObject) {
         NSLog("Left Navigation Button Clicked")
         self.baseDelegate?.leftNavigationBarButtonClicked()
     }

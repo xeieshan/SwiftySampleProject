@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let obj : MOProfile? = MOProfile.init()
-        UserManager.setCurrentUser(newCurrentUser: obj)
+        UserManager.setCurrentUser( obj)
         
         if UserManager.isLoggedIn(){
             print ("YES")

@@ -293,7 +293,7 @@ public extension String {
 		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else {
 			return nil
 		}
-		return self[lowerIndex..<upperIndex]
+        return String(self[lowerIndex..<upperIndex])
 	}
 	
 	/// Subscript string within a closed range.
@@ -306,7 +306,7 @@ public extension String {
 		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else {
 			return nil
 		}
-		return self[lowerIndex..<upperIndex]
+        return String(self[lowerIndex..<upperIndex])
 	}
 	
 	#if os(iOS)
@@ -613,24 +613,24 @@ public extension String {
 	#if os(iOS)
 	/// Bold string.
 	public var bold: NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        return NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
 	/// Underlined string
 	public var underline: NSAttributedString {
-		return NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+        return NSAttributedString(string: self, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
 	}
 	
 	/// Strikethrough string.
 	public var strikethrough: NSAttributedString {
-		return NSAttributedString(string: self, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+        return NSAttributedString(string: self, attributes: [NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
 	
 	#if os(iOS)
 	/// Italic string.
 	public var italic: NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        return NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -639,7 +639,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+        return NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.foregroundColor: color])
 	}
 	
 }
