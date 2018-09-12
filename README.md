@@ -3,8 +3,13 @@
 _Just like software, this document will rot unless we take care of it. We encourage everyone to help us on that – just open an issue or send a pull request!_
 
 ## Why?
+Swift has had a meteoric rise in popularity since its inception in 2014. In 2015, Swift was rated the most loved programming language on Stack Overflow, and it’s currently ranked 17 in the programming language [rankings guide of June 2016](http://redmonk.com/sogrady/2016/07/20/language-rankings-6-16/), according to Redmonk who wrote `“there is no debate that Swift is growing faster than anything else we track.”`. 
 
-Getting on board with iOS can be intimidating. Neither Swift nor Objective-C are widely used elsewhere, the platform has its own names for almost everything, and it's a bumpy road for your code to actually make it onto a physical device. This living document is here to help you, whether you're taking your first steps in Cocoaland or you're curious about doing things "the right way". Everything below is just suggestions, so if you have a good reason to do something differently, by all means go for it!
+A common question for a new iOS developer is — `should I be learning Swift or Objective-C?` There have been mixed messages from the iOS developer community. 
+
+Learning iOS development with Swift doesn’t prevent you from also learning Objective-C at some point in the future. Regardless of the language you’re programming in, the underlying frameworks are mostly identical, with tweaks to syntax. Learning iOS development with Swift isn’t necessarily setting your flag firmly in the Swift camp. `You can use Objective C code in your Swift project, or vice versa`. Learning Swift is a good place to start, and you’ll find exploring Objective-C easier with iOS experience behind you. For comparison, the following demonstrates the same code in Swift and Objective-C.
+
+Follow this link for [8 Reasons Why You Should Learn Swift.](https://medium.com/make-school/8-reasons-why-you-should-learn-swift-1b0c79ccaf13)
 
 ### Project Setup
 
@@ -15,38 +20,49 @@ Please follow the url [macbook-for-developers]
 [macbook-for-developers]:http://martiancraft.com/blog/2015/08/macbook-for-developers/
 
 #### Why code?
+*With no GUI tools, handling all custom positioning, animation, etc. programmatically.*
+
 * Storyboards are more prone to version conflicts due to their complex XML structure. This makes merging much harder than with code.
-* It's easier to structure and reuse views in code, thereby keeping your codebase [DRY][dry].
+* It's easier to structure and reuse views in code, thereby keeping your codebase [**DRY**][dry]. We can **reuse** these codes throughout our project.
+* Coding all of your UI elements will give you a sense of **control**.
+* One of the main reason why I dislike using Storyboard is when it becomes **cluttered**. In Storyboard’s initial phase, this might not seem to be a problem, but once it’s filled with UI elements and controllers, it is very **difficult to navigate**.
+* **Merge conflicts** is main reason why I refused to use Storyboard. 
 
 [dry]: http://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 
 #### Why Storyboards?
+*A visual tool for laying out multiple application views and the transitions between them.*
+
 * For the less technically inclined, Storyboards can be a great way to contribute to the project directly, e.g. by tweaking colors or layout constraints. However, this requires a working project setup and some time to learn the basics.
 * Iteration is often faster since you can preview certain changes without building the project.
 * In Xcode 6, custom fonts and UI elements are finally represented visually in Storyboards, giving you a much better idea of the final appearance while designing.
+* Ease of use
+
+`A classic beginner’s mistake is to create one massive project-wide Storyboard. A Storyboard is a board with a story to tell. It shouldn't be used to mix unrelated stories into one big volume.`
+
 
 ### Project Structure 
 
 To keep all those hundreds of source files ending up in the same directory, it's a good idea to set up some folder structure depending on your architecture. For instance, you can use the following:
 
-* ├─ Classes
-* ├─── Application Delegate
-* ├─── Category
-* ├─── Constant
-* ├─── Models
-* ├─── Network Manager
-* ├─── Shared Manager
-* ├─── Utility Function
-* ├─── View Controller
-* 
-* ├─ Views
-* ├─── StoryBoard.storyboard
-* ├─── LaunchScreen.xib
-* 
-* ├─ Resources
-* ├─── Slices
-* ├─── Fonts
-* ├─── Sounds
+> Classes
+>> Application Delegate
+>> Category
+>> Constant
+>> Models
+>> Network Manager
+>> Shared Manager
+>> Utility Function
+>> View Controller
+
+> Views
+>> StoryBoard.storyboard
+>> LaunchScreen.xib
+
+> Resources
+>> Slices
+>> Fonts
+>> Sounds
 
 
 First, create them as groups (little yellow "folders") within the group with your project's name in Xcode's Project Navigator. Then, for each of the groups, link them to an actual directory in your project path by opening their File Inspector on the right, hitting the little gray folder icon, and creating a new subfolder with the name of the group in your project directory.
@@ -78,17 +94,39 @@ will update all pods to the newest versions permitted by the Podfile. You can us
 [committing-pods]: https://www.dzombak.com/blog/2014/03/including-pods-in-source-control.html
 
 #### Constants
+The two most common ways of storing constants in Swift are:
 
-In my opinion the best way to deal with that type of constants is to create a Struct.
+##### Global constant
 
+```swift
+let someStringConstant = "someStringConstant"
+// OR static
+static let someStaticStringConstant = "someStaticStringConstant"
+```
+This has the advantage of being short. It’s just called in code like: 
+```swift
+print(someStringConstant).
+```
+
+`*Quick note: Globals are lazy — a.k.a. they will only be initialized when accessed the first time.`
+
+##### Struct (my former preferred method)
+In my opinion the best way to deal with global constants is to create a Struct.
+
+```swift
 struct Constants {
     static let someNotification = "TEST"
 }
+```
 Then, for example, call it like this in your code:
 
+```
 print(Constants.someNotification)
-Edit: If you want a better organization I advise you to use segmented sub structs
+```
 
+If you want a better organization I advise you to use segmented sub structs.
+
+```swift
 struct K {
     struct NotificationKey {
         static let Welcome = "kWelcomeNotif"
@@ -99,8 +137,14 @@ struct K {
         static let Tmp = NSTemporaryDirectory()
     }
 }
+```
 
-### “Event” Patterns
+This method has the advantage of readability. 
+The disadvantage of this method (and my personal hangup) is that these calls can get quite long.
+
+`When and where use constants : If a stored value in your code won’t change, always declare it as a constant with the let keyword. Use variables only for storing values that need to be able to change.`
+
+### Event Patterns
 
 These are the idiomatic ways for components to notify others about things:
 
@@ -111,26 +155,62 @@ These are the idiomatic ways for components to notify others about things:
 
 ## Assets
 
-[Asset catalogs][asset-catalogs] are the best way to manage all your project's visual assets. They can hold both universal and device-specific (iPhone 4-inch, iPhone Retina, iPad, etc.) assets and will automatically serve the correct ones for a given name. Teaching your designer(s) how to add and commit things there (Xcode has its own built-in Git client) can save a lot of time that would otherwise be spent copying stuff from emails or other channels to the codebase. It also allows them to instantly try out their changes and iterate if needed.
+[Asset catalogs][asset-catalogs] are the best way to manage all your project's visual assets. They can hold both universal and device-specific (iPhone 4-inch, iPhone 4.7-inch, iPhone 5.8-inch, iPhone Retina, iPad, etc.) assets and will automatically serve the correct ones for a given name. Teaching your designer(s) how to add and commit things there (Xcode has its own built-in Git client) can save a lot of time that would otherwise be spent copying stuff from emails or other channels to the codebase. It also allows them to instantly try out their changes and iterate if needed.
 
 [asset-catalogs]: https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html
+
+An asset catalog can contain four types of images:
+
+* App icons
+* Launch images
+* Images
+* OS X icons
+
+**Asset catalog colors on Xcode 9** 
+One of most exciting features on Xcode 9 is being able to add colors to an asset catalog, or as known as the `.xcassets` directory, alongside your images. This feature helps developers save time and avoid mistakes, by organizing project colors in a single location. Much cleaner! 
+
+* Adding colors to an asset catalog : 
+Adding colors to an asset catalog might be hard to discover. After selecting your `.xcassets` directory in Xcode, press the plus button on the bottom left and select “New Color Set”.
+
+![Adding colors to an asset catalog](https://cdn-images-1.medium.com/max/1600/1*if7CS8qg-qDXt6vYM1uU4w.gif)
+Courtesy of : [Zeplin Blog](https://blog.zeplin.io/@zeplin_io?source=post_header_lockup)
+
+* Using asset catalog colors in Storyboards : 
+Using asset catalog colors in a Storyboard or an Interface Builder file is pretty straightforward. All color fields, including view background colors, label text colors, should display the colors you defined in the asset catalog under the “Named Colors” section.
+
+![Using asset catalog colors in Storyboards](https://cdn-images-1.medium.com/max/1600/1*avEjn_XLtR7m3wVDRnkrgw@2x.png)
+
+* Using asset catalog colors in code : 
+Using asset catalog colors in code is not so obvious, yet simple. Both `UIColor` on iOS and `NSColor` on macOS now have a convenience initializer in Swift to access these colors by name:
+
+```swift
+// iOS
+let color = UIColor(named: "SillyBlue")
+
+// macOS
+let color = NSColor(named: "SillyBlue")
+```
+
+`These methods are only available if you’re targeting iOS 11+ or macOS 10.13+, so you might need to stick to your existing color constants for a while.`
 
 ### Using Bitmap Images
 
 Asset catalogs expose only the names of image sets, abstracting away the actual file names within the set. This nicely prevents asset name conflicts, as files such as `button_large@2x.png` are now namespaced inside their image sets. However, some discipline when naming assets can make life easier:
 
-<!--```objective-c-->
-<!--IconCheckmarkHighlighted.png // Universal, non-Retina-->
-<!--IconCheckmarkHighlighted@2x.png // Universal @2x, Retina-->
-<!--IconCheckmarkHighlighted@3x.png // Universal @3x, Retina (@3x is only on iPhone as of now!)-->
-<!--IconCheckmarkHighlighted~iphone.png // iPhone, non-Retina-->
-<!--IconCheckmarkHighlighted@2x~iphone.png // iPhone, Retina-->
-<!--IconCheckmarkHighlighted-568h@2x~iphone.png // iPhone, Retina, 4-inch-->
-<!--IconCheckmarkHighlighted~ipad.png // iPad, non-Retina-->
-<!--IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina-->
-<!--```-->
+```objective-c
+IconCheckmarkHighlighted.png // Universal, non-Retina
+IconCheckmarkHighlighted@2x.png // Universal @2x, Retina
+IconCheckmarkHighlighted@3x.png // Universal @3x, Retina (@3x is only on iPhone as of now!)
+IconCheckmarkHighlighted~iphone.png // iPhone, non-Retina
+IconCheckmarkHighlighted@2x~iphone.png // iPhone, Retina
+IconCheckmarkHighlighted-568h@2x~iphone.png // iPhone, Retina, 4-inch
+IconCheckmarkHighlighted~ipad.png // iPad, non-Retina
+IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
+```
 
 The modifiers `-568h`, `@2x`, `~iphone` and `~ipad` are not required per se, but having them in the file name when dragging the file to an image set will automatically place them in the right "slot", thereby preventing assignment mistakes that can be hard to hunt down.
+
+`Developers work with point values, so it is important to understand the difference with pixels. When the iPhone was first introduced, the two units were the same: 1pt equals 1px. Then when retina screens came along, 1pt became 2px. So think of points as the values in the original iPhone, and pixels as the real values depending on the pixel density (iPhone 4,5,6 = @2x, iPhone 6 Plus, iPhoneX = @3x).`
 
 ### Using Vector Images
 
@@ -146,17 +226,162 @@ Apple pays great attention to keeping naming consistent, if sometimes a bit verb
 
 [cocoa-coding-guidelines]: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html
 
-Here are some basic takeaways you can start using right away:
+Descriptive and consistent naming makes software easier to read and understand. Use the Swift naming conventions described in the [API Design Guidelines](https://swift.org/documentation/api-design-guidelines/). Some key takeaways include:
 
-A method beginning with a _verb_ indicates that it performs some side effects, but won't return anything:
-`- (void)loadView;`
-`- (void)startAnimating;`
+- striving for clarity at the call site
+- prioritizing clarity over brevity
+- using camel case (not snake case)
+- using uppercase for types (and protocols), lowercase for everything else
+- including all needed words while omitting needless words
+- using names based on roles, not types
+- sometimes compensating for weak type information
+- striving for fluent usage
+- beginning factory methods with `make`
+- naming methods for their side effects
+  - verb methods follow the -ed, -ing rule for the non-mutating version
+  - noun methods follow the formX rule for the mutating version
+  - boolean types should read like assertions
+  - protocols that describe _what something is_ should read as nouns
+  - protocols that describe _a capability_ should end in _-able_ or _-ible_
+- using terms that don't surprise experts or confuse beginners
+- generally avoiding abbreviations
+- using precedent for names
+- preferring methods and properties to free functions
+- casing acronyms and initialisms uniformly up or down
+- giving the same base name to methods that share the same meaning
+- avoiding overloads on return type
+- choosing good parameter names that serve as documentation
+- labeling closure and tuple parameters
+- taking advantage of default parameters
 
-Any method starting with a _noun_, however, returns that object and should do so without side effects:
-`- (UINavigationItem *)navigationItem;`
-`+ (UILabel *)labelWithText:(NSString *)text;`
+#### Prose
 
-It pays off to keep these two as separated as possible, i.e. not perform side effects when you transform data, and vice versa. That will keep your side effects contained to smaller sections of the code, which makes it more understandable and facilitates debugging.
+When referring to methods in prose, being unambiguous is critical. To refer to a method name, use the simplest form possible.
+
+1. Write the method name with no parameters.  **Example:** Next, you need to call the method `addTarget`.
+2. Write the method name with argument labels.  **Example:** Next, you need to call the method `addTarget(_:action:)`.
+3. Write the full method name with argument labels and types. **Example:** Next, you need to call the method `addTarget(_: Any?, action: Selector?)`.
+
+For the above example using `UIGestureRecognizer`, 1 is unambiguous and preferred.
+
+**Pro Tip:** You can use Xcode's jump bar to lookup methods with argument labels.
+
+![Methods in Xcode jump bar](https://github.com/raywenderlich/swift-style-guide/blob/master/screens/xcode-jump-bar.png)
+
+
+#### Class Prefixes
+
+Swift types are automatically namespaced by the module that contains them and you should not add a class prefix such as RW. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is possibility for confusion which should be rare.
+
+```swift
+import SomeModule
+
+let myClass = MyModule.UsefulClass()
+```
+
+#### Delegates
+
+When creating custom delegate methods, an unnamed first parameter should be the delegate source. (UIKit contains numerous examples of this.)
+
+Preferred:
+```swift
+func namePickerView(_ namePickerView: NamePickerView, didSelectName name: String)
+func namePickerViewShouldReload(_ namePickerView: NamePickerView) -> Bool
+```
+
+Not Preferred:
+```swift
+func didSelectName(namePicker: NamePickerViewController, name: String)
+func namePickerShouldReload() -> Bool
+```
+
+#### Use Type Inferred Context
+
+Use compiler inferred context to write shorter, clear code.  (Also see [Type Inference](#type-inference).)
+
+Preferred:
+```swift
+let selector = #selector(viewDidLoad)
+view.backgroundColor = .red
+let toView = context.view(forKey: .to)
+let view = UIView(frame: .zero)
+```
+
+Not Preferred:
+```swift
+let selector = #selector(ViewController.viewDidLoad)
+view.backgroundColor = UIColor.red
+let toView = context.view(forKey: UITransitionContextViewKey.to)
+let view = UIView(frame: CGRect.zero)
+```
+
+#### Generics
+
+Generic type parameters should be descriptive, upper camel case names. When a type name doesn't have a meaningful relationship or role, use a traditional single uppercase letter such as `T`, `U`, or `V`.
+
+Preferred:
+```swift
+struct Stack<Element> { ... }
+func write<Target: OutputStream>(to target: inout Target)
+func swap<T>(_ a: inout T, _ b: inout T)
+```
+
+Not Preferred:
+```swift
+struct Stack<T> { ... }
+func write<target: OutputStream>(to target: inout target)
+func swap<Thing>(_ a: inout Thing, _ b: inout Thing)
+```
+
+#### Language
+
+Use US English spelling to match Apple's API.
+
+Preferred:
+```swift
+let color = "red"
+```
+
+Not Preferred:
+```swift
+let colour = "red"
+```
+
+### Code Organization
+
+Use extensions to organize your code into logical blocks of functionality. Each extension should be set off with a `// MARK: -` comment to keep things well-organized.
+
+#### Protocol Conformance
+
+In particular, when adding protocol conformance to a model, prefer adding a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class with its associated methods.
+
+Preferred:
+```swift
+class MyViewController: UIViewController {
+  // class stuff here
+}
+
+// MARK: - UITableViewDataSource
+extension MyViewController: UITableViewDataSource {
+  // table view data source methods
+}
+
+// MARK: - UIScrollViewDelegate
+extension MyViewController: UIScrollViewDelegate {
+  // scroll view delegate methods
+}
+```
+
+Not Preferred:
+```swift
+class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate {
+  // all methods
+}
+```
+
+Since the compiler does not allow you to re-declare protocol conformance in a derived class, it is not always required to replicate the extension groups of the base class. This is especially true if the derived class is a terminal class and a small number of methods are being overridden. When to preserve the extension groups is left to the discretion of the author.
+
+For UIKit view controllers, consider grouping lifecycle, custom accessors, and IBAction in separate class extensions.
 
 ## Building
 
@@ -352,15 +577,14 @@ println("Hi there!")
 * Change it and clean rebuild, your new app name should be changed by now.
 
 ### Integrate GoogleMapsHelper
-> https://github.com/xeieshan/GoogleMapsHelper
-### GoogleMapsHelper
->> Read Me in Russian : http://gargo.of.by/googlemapshelper/
+https://github.com/xeieshan/GoogleMapsHelper
+> Read Me in Russian : http://gargo.of.by/googlemapshelper/
 
 A GOOGLE MAPS Helper that help you do multiple tasks like
 
 #### HOW TO USE
 >    //    using AFNetworking
-    
+    ```objective-c
     [[AFGoogleMapsHelper sharedAFGoogleMapsHelper] geocodeAddressString:@"Arsenal Emirates" components:@{} completionHandler:^(MOGoogleGeocodeList *googleGeoCodeList, SPGoogleGeoCoderResponse responseCode, NSString *message) {
         
     }];
@@ -402,16 +626,20 @@ A GOOGLE MAPS Helper that help you do multiple tasks like
     } andPlaceMarks:^(MKPolyline *polyLine, NSString *distance, NSString *duration, NSString *startAddress, NSString *endAddress, NSMutableArray *polyLineSetArray, NSMutableArray *directionsSetArray, NSMutableArray *distanceSetArray) {
         
     }];
+    ```
+
 
 ##### 1- Geocode
 It returns all these items : 
-- MOGoogleGeocodeList *googleGeoCodeList, 
-- SPGoogleGeoCoderResponse responseCode, 
-- NSString *message
+
+* MOGoogleGeocodeList *googleGeoCodeList
+* SPGoogleGeoCoderResponse responseCode
+* NSString *message
 
 I Geocode @"Arsenal Emirates" and I got
 Printing description of googleGeoCodeList->_results->[0]:
-> {   "formatted_address" = "Hornsey Rd, London N7 7AJ, UK";
+```json
+{   "formatted_address" = "Hornsey Rd, London N7 7AJ, UK";
     geometry =     {
         bounds =         {
         };
@@ -485,17 +713,19 @@ Printing description of googleGeoCodeList->_results->[0]:
     );
     "place_id" = "ChIJO14pRXYbdkgRkM-CgzxxADY";
 }
+```
 
 
 ##### 2- Reverse Geocode
 It returns all these items : 
-- MOGoogleGeocodeList *googleGeoCodeList, 
-- SPGoogleGeoCoderResponse responseCode, 
-- NSString *message
+
+* MOGoogleGeocodeList *googleGeoCodeList 
+* SPGoogleGeoCoderResponse responseCode
+* NSString *message
 
 Printing description for first item : 
-> <__NSArrayI 0x6080000b1b20>(
-> {
+```json
+({
     "formatted_address" = "Emirates Stadium, London, UK";
     geometry =     {
         bounds =         {
@@ -578,17 +808,19 @@ Printing description for first item :
     "place_id" = ChIJuaX4rXcbdkgRX7nJ4iCVzT0;
 }}
 )
+```
 
 
 ##### 3- Autocomplete
 It Returns all of these items : 
-- MOGoogleAutoCompleteList *googleAutocompleteList, 
-- SPGoogleGeoCoderResponse responseCode, 
-- NSString *message
-- 
+* MOGoogleAutoCompleteList *googleAutocompleteList 
+* SPGoogleGeoCoderResponse responseCode
+* NSString *message
+
 I wanted to search @"Arsenal Emirates Stadium, london"  and I got following 2 results, I am showing first item
-> Printing description of ((MOPredictions *)0x0000600000282b70):
-> {
+Printing description of ((MOPredictions *)0x0000600000282b70):
+```json 
+{
     description = "Arsenal Football Club, Emirates Stadium, Hornsey Road, London, United Kingdom";
     id = 695fdbc199ef136a3674dc5c3946d0901be24cf2;
     kMOPredictionsMatchedSubstrings =     (
@@ -633,59 +865,68 @@ I wanted to search @"Arsenal Emirates Stadium, london"  and I got following 2 re
     "place_id" = ChIJq3Y4mXYbdkgRinA5RgGR5tA;
     reference = "CmRcAAAA3_03PcjmlvYYAMB56q1NSPHAa6o4s5OZlZzmqKWVzl6m8wQu8kIAHqSFzY8M_fJC6tbdt5vQSOylmlp6vu8hMJ0areyjFCiETtOb2e1qkM9a8TbnHRoIGK83-h0iy9EaEhCgUDC5ODRWWeKhZZmXh3wHGhRRAUwm4UFKR6a689AJXsADrqKFNA";
 }
+```
 
 ##### 4- Directions 
 It Returns All these Items : 
-- MKPolyline *polyLine, 
-- NSString *distance, 
-- NSString *duration, 
-- NSString *startAddress, 
-- NSString *endAddress, 
-- NSMutableArray *polyLineSetArray, 
-- NSMutableArray *directionsSetArray, 
-- NSMutableArray *distanceSetArray 
+
+* MKPolyline *polyLine 
+* NSString *distance 
+* NSString *duration 
+* NSString *startAddress
+* NSString *endAddress
+* NSMutableArray *polyLineSetArray
+* NSMutableArray *directionsSetArray
+* NSMutableArray *distanceSetArray 
+
 in a block.
-> I found directions between following CLLocationCoordinate2D's
+I found directions between following CLLocationCoordinate2D's
+
+```
 CLLocationCoordinate2D emiratesStadium = { 51.555747, -0.108309};
 CLLocationCoordinate2D stamfordBridge = { 51.481690, -0.190999 };
+```
 
-> ###### Printing description of duration:
-> 42 mins
+###### Printing description of duration:
+42 mins
 ###### Printing description of distance:
-> 16.6 km
+16.6 km
 ###### Printing description of startAddress:
-> Citizen Rd, London N7, UK
+Citizen Rd, London N7, UK
 ###### Printing description of endAddress:
-> 19 Billing Pl, London SW10 9UN, UK
+19 Billing Pl, London SW10 9UN, UK
 ###### Plus Polyline object to be used in MKMapView
-> It also tells you Guidance strings which you can use :
-> - Head southwest on Citizen Rd toward Hornsey Rd/A103,
-> - Turn right onto Hornsey Rd/A103,
-> - Turn left onto Tollington Rd/A503Continue to follow A503,
-> - Continue straight onto Camden Rd/A503,
-> - Turn left onto Camden St/A400Continue to follow A400,
-> - Turn left onto Hampstead Rd/A400Continue to follow A400,
-> - Turn right onto Euston Rd,
-> - Merge onto Euston Rd/A501 via the ramp to Ring Road/A41/A40/KilburnContinue to follow A501,
-> - Keep right to continue on Marylebone Flyover/A40Continue to follow A40,
-> - Take the A3220 ramp to Hammersmith/Shepherd's Bush/White City/Earls Court,
-> - At the roundabout, take the 1st exit onto W Cross Rte/A3220,
-> - At the roundabout, take the 2nd exit onto Holland Rd/A3220Continue to follow A3220,
-> - Keep right to continue on Warwick Gardens/A3220,
-> - Turn left onto Pembroke Rd/A3220Continue to follow A3220,
-> - Continue straight onto Earls Ct Rd/A3220Continue to follow A3220,
-> - Turn right onto Fulham Rd/A308Continue to follow Fulham Rd,
-> - Turn right,
-> - Turn right,
-> - Turn left
-> - Destination will be on the left
+It also tells you Guidance strings which you can use :
+
+* Head southwest on Citizen Rd toward Hornsey Rd/A103,
+* Turn right onto Hornsey Rd/A103,
+* Turn left onto Tollington Rd/A503Continue to follow A503,
+* Continue straight onto Camden Rd/A503,
+* Turn left onto Camden St/A400Continue to follow A400,
+* Turn left onto Hampstead Rd/A400Continue to follow A400,
+* Turn right onto Euston Rd,
+* Merge onto Euston Rd/A501 via the ramp to Ring Road/A41/A40/KilburnContinue to follow A501,
+* Keep right to continue on Marylebone Flyover/A40Continue to follow A40,
+* Take the A3220 ramp to Hammersmith/Shepherd's Bush/White City/Earls Court,
+* At the roundabout, take the 1st exit onto W Cross Rte/A3220,
+* At the roundabout, take the 2nd exit onto Holland Rd/A3220Continue to follow A3220,
+* Keep right to continue on Warwick Gardens/A3220,
+* Turn left onto Pembroke Rd/A3220Continue to follow A3220,
+* Continue straight onto Earls Ct Rd/A3220Continue to follow A3220,
+* Turn right onto Fulham Rd/A308Continue to follow Fulham Rd,
+* Turn right,
+* Turn right,
+* Turn left
+* Destination will be on the left
 
 ##### Make sure you integrate AFNetworking, SVProgressHUD, SVHTTPClient
-I was using CocoaPods so I used
-> - pod 'SVHTTPRequest', '~> 0.5'
-> - pod 'AFNetworking', '~> 3.0'
-> - pod 'SVProgressHUD'
+I was using CocoaPods so I used : 
 
-Dont forget to add condition in info.plist
-- App Transport > Arbitrary loads allow : YES
+* pod 'SVHTTPRequest', '~> 0.5'
+* pod 'AFNetworking', '~> 3.0'
+* pod 'SVProgressHUD'
+
+Dont forget to add condition in info.plist : 
+
+* App Transport > Arbitrary loads allow : YES
 
