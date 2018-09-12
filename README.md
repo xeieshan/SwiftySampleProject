@@ -638,7 +638,7 @@ It returns all these items :
 
 I Geocode @"Arsenal Emirates" and I got
 Printing description of googleGeoCodeList->_results->[0]:
-```json
+```
 {   "formatted_address" = "Hornsey Rd, London N7 7AJ, UK";
     geometry =     {
         bounds =         {
@@ -724,7 +724,7 @@ It returns all these items :
 * NSString *message
 
 Printing description for first item : 
-```json
+```
 ({
     "formatted_address" = "Emirates Stadium, London, UK";
     geometry =     {
@@ -819,7 +819,7 @@ It Returns all of these items :
 
 I wanted to search @"Arsenal Emirates Stadium, london"  and I got following 2 results, I am showing first item
 Printing description of ((MOPredictions *)0x0000600000282b70):
-```json 
+``` 
 {
     description = "Arsenal Football Club, Emirates Stadium, Hornsey Road, London, United Kingdom";
     id = 695fdbc199ef136a3674dc5c3946d0901be24cf2;
