@@ -13,7 +13,7 @@ class SPLabel: UILabel {
 
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let insets: UIEdgeInsets = self.textInsets
-        var rect: CGRect = super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets), limitedToNumberOfLines: numberOfLines)
+        var rect: CGRect = super.textRect(forBounds: bounds.inset(by: insets), limitedToNumberOfLines: numberOfLines)
         rect.origin.x -= insets.left
         rect.origin.y -= insets.top
         rect.size.width += (insets.left + insets.right)
@@ -22,7 +22,7 @@ class SPLabel: UILabel {
     }
 
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.textInsets))
+        super.drawText(in: rect.inset(by: self.textInsets))
     }
 
     required init?(coder aDecoder: NSCoder) {

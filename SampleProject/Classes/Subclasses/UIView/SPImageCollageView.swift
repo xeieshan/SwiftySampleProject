@@ -209,7 +209,7 @@ class SPImageCollageView: UIView {
                 if imagesURLs.count > 5 {
                     let button = UIButton(frame: CGRect(x: frame.size.width/2,y: 2 * frame.size.height/3,width: frame.size.width/2,height: frame.size.height/3));
                     button.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7);
-                    button.setTitle("View All (\(String(imagesURLs.count)))", for: UIControlState());
+                    button.setTitle("View All (\(String(imagesURLs.count)))", for: UIControl.State());
                     button.addTarget(self, action: #selector(self.viewAll(_:)), for: .touchUpInside)
                     self.addSubview(button);
                 }
@@ -397,7 +397,7 @@ class SPImageCollageView: UIView {
                 if images.count > 5 {
                     let button = UIButton(frame: CGRect(x: frame.size.width/2,y: 2 * frame.size.height/3,width: frame.size.width/2,height: frame.size.height/3));
                     button.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7);
-                    button.setTitle("View All (\(String(images.count)))", for: UIControlState());
+                    button.setTitle("View All (\(String(images.count)))", for: UIControl.State());
                     button.addTarget(self, action: #selector(self.viewAll(_:)), for: .touchUpInside)
                     self.addSubview(button);
                 }

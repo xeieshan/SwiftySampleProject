@@ -17,14 +17,14 @@ extension UIViewController {
     
     func showAlertViewWithTitle(title:String,message : String)
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
     
     func showAlertViewWithTitle(title:String,message : String, dismissCompletion:@escaping (AlertViewDismissHandler))
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action -> Void in
             //Do some other stuff
              dismissCompletion()
@@ -34,7 +34,7 @@ extension UIViewController {
     
     func showConfirmationAlertViewWithTitle(title:String,message : String, dismissCompletion:@escaping (AlertViewDismissHandler))
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "YES", style: .default, handler: { action -> Void in
             //Do some other stuff
             dismissCompletion()
@@ -67,7 +67,7 @@ extension UIViewController {
             textField.placeholder = "Current Password"
             textField.isSecureTextEntry = true
             textField.textColor = UIColor.blue
-            textField.addTarget(self, action: Selector(("alertTextFieldDidChange:")), for: UIControlEvents.editingChanged)
+            textField.addTarget(self, action: Selector(("alertTextFieldDidChange:")), for: UIControl.Event.editingChanged)
         }
         present(alertController, animated: true, completion:nil)
 

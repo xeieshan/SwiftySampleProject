@@ -24,7 +24,7 @@ class SPCentredTableView: UITableView {
             //If we have less content than our table frame then we can center
         let contentCanBeCentered: Bool = contentHeight < totalHeight
         if contentCanBeCentered {
-            self.contentInset = UIEdgeInsetsMake(ceil(totalHeight / 2.0 - contentHeight / 2.0), 0, 0, 0)
+            self.contentInset = UIEdgeInsets(top: ceil(totalHeight / 2.0 - contentHeight / 2.0), left: 0, bottom: 0, right: 0)
         }
         else {
             self.contentInset = UIEdgeInsets.zero

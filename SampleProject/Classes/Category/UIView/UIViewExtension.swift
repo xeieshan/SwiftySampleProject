@@ -53,7 +53,7 @@ extension UIView {
     func moveView(_ duration:TimeInterval,x:CGFloat,y:CGFloat){
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(duration)
-        UIView.setAnimationCurve(UIViewAnimationCurve.easeOut)
+        UIView.setAnimationCurve(UIView.AnimationCurve.easeOut)
         UIView.setAnimationBeginsFromCurrentState(true)
         let transform = CGAffineTransform(translationX: x, y: y)
         self.transform = transform
@@ -140,10 +140,10 @@ enum AnimationEasingCurve {
     static let allValues = [easeIn, easeOut, easeInOut, linear, easeInSine, easeOutSine, easeInOutSine, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic, easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint, easeOutQuint, easeInOutQuint, easeInExpo, easeOutExpo, easeInOutExpo, easeInCirc, easeOutCirc, easeInOutCirc, easeInBack, easeOutBack, easeInOutBack, spring]
     var timingFunction:CAMediaTimingFunction {
         switch self {
-        case .easeIn: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        case .easeOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        case .easeInOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        case .linear: return CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        case .easeIn: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        case .easeOut: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        case .easeInOut: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        case .linear: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         case .easeInSine: return CAMediaTimingFunction(controlPoints: 0.47, 0, 0.745, 0.715)
         case .easeOutSine: return CAMediaTimingFunction(controlPoints: 0.39, 0.575, 0.565, 1)
         case .easeInOutSine: return CAMediaTimingFunction(controlPoints: 0.445, 0.05, 0.55, 0.95)
@@ -171,12 +171,12 @@ enum AnimationEasingCurve {
         case .spring: return CAMediaTimingFunction(controlPoints: 0.5, 1.1+Float(1/3), 1, 1)
         }
     }
-    var animationOption:UIViewAnimationOptions {
+    var animationOption:UIView.AnimationOptions {
         switch self {
-        case .easeIn: return UIViewAnimationOptions.curveEaseIn
-        case .easeOut: return UIViewAnimationOptions.curveEaseOut
-        case .easeInOut: return UIViewAnimationOptions()
-        default: return UIViewAnimationOptions.curveLinear
+        case .easeIn: return UIView.AnimationOptions.curveEaseIn
+        case .easeOut: return UIView.AnimationOptions.curveEaseOut
+        case .easeInOut: return UIView.AnimationOptions()
+        default: return UIView.AnimationOptions.curveLinear
         }
     }
 }
@@ -423,7 +423,7 @@ extension UIView {
                         delay: TimeInterval(delay),
                         usingSpringWithDamping: damping,
                         initialSpringVelocity: velocity,
-                        options: [curve.animationOption, UIViewAnimationOptions.allowUserInteraction],
+                        options: [curve.animationOption, UIView.AnimationOptions.allowUserInteraction],
                         animations: { [weak self] in
                             if let _self = self {
                                 if animateFromInitialState {
@@ -734,7 +734,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func left(to:AnyObject, attribute: NSLayoutAttribute = .left, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func left(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .left, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.left, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -767,7 +767,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func leading(to:AnyObject, attribute: NSLayoutAttribute = .leading, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func leading(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .leading, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.leading, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -799,7 +799,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func right(to:AnyObject, attribute: NSLayoutAttribute = .right, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func right(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .right, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.right, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -832,7 +832,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func trailing(to:AnyObject, attribute: NSLayoutAttribute = .trailing, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func trailing(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .trailing, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.trailing, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -866,7 +866,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func top(to:AnyObject, attribute: NSLayoutAttribute = .top, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func top(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .top, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.top, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -898,7 +898,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func bottom(to:AnyObject, attribute: NSLayoutAttribute = .bottom, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func bottom(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .bottom, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.bottom, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -967,7 +967,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func centerX(to:AnyObject, attribute: NSLayoutAttribute = .centerX, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func centerX(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .centerX, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.centerX, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         return self
     }
@@ -1001,7 +1001,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func centerY(to:AnyObject, attribute: NSLayoutAttribute = .centerY, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func centerY(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .centerY, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         _ = pin(.centerY, to: superview!, attribute: attribute, constant: constant)
         return self
     }
@@ -1142,7 +1142,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func width(to:AnyObject, attribute: NSLayoutAttribute = .width, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func width(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .width, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         if !translatesAutoresizingMaskIntoConstraints {
             _ = pin(.width, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         }
@@ -1174,7 +1174,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func height(to:AnyObject, attribute: NSLayoutAttribute = .height, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func height(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .height, constant: CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         if !translatesAutoresizingMaskIntoConstraints {
             _ = pin(.height, to: to, attribute: attribute, constant: constant, multiplier: multiplier)
         }
@@ -1266,7 +1266,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func minWidth(to:AnyObject, attribute: NSLayoutAttribute = .width, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func minWidth(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .width, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         if !translatesAutoresizingMaskIntoConstraints {
             _ = pin(.width, to: to, attribute: attribute, constant: constant, multiplier: multiplier, relation: .greaterThanOrEqual)
         }
@@ -1309,7 +1309,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func minHeight(to:AnyObject, attribute: NSLayoutAttribute = .height, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func minHeight(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .height, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         if !translatesAutoresizingMaskIntoConstraints {
             _ = pin(.height, to: to, attribute: attribute, constant: constant, multiplier: multiplier, relation: .greaterThanOrEqual)
         }
@@ -1401,7 +1401,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func maxWidth(to:AnyObject, attribute: NSLayoutAttribute = .width, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func maxWidth(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .width, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         if !translatesAutoresizingMaskIntoConstraints {
             _ = pin(.width, to: to, attribute: attribute, constant: constant, multiplier: multiplier, relation: .lessThanOrEqual)
         }
@@ -1444,7 +1444,7 @@ extension UIView {
      - Parameter multiplier: The multiplier to use, i.e. 0.5 is half.
      - Returns: self
      */
-    func maxHeight(to:AnyObject, attribute: NSLayoutAttribute = .height, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
+    func maxHeight(to:AnyObject, attribute: NSLayoutConstraint.Attribute = .height, constant:CGFloat = 0, multiplier:CGFloat = 1) -> UIView {
         if !translatesAutoresizingMaskIntoConstraints {
             _ = pin(.height, to: to, attribute: attribute, constant: constant, multiplier: multiplier, relation: .lessThanOrEqual)
         }
@@ -1510,7 +1510,7 @@ extension UIView {
      - Parameter relation: The Relation to use
      - Returns: NSLayoutConstraint
      */
-    func pin(_ pinAttribute:NSLayoutAttribute, to:AnyObject? = nil, attribute:NSLayoutAttribute, constant:CGFloat = 0, multiplier:CGFloat = 1, relation:NSLayoutRelation = .equal) -> NSLayoutConstraint? {
+    func pin(_ pinAttribute: NSLayoutConstraint.Attribute, to:AnyObject? = nil, attribute: NSLayoutConstraint.Attribute, constant:CGFloat = 0, multiplier:CGFloat = 1, relation:NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint? {
         if !translatesAutoresizingMaskIntoConstraints {
             if self.superview == nil {
                 print("WARNING: No superview found for pinning")
@@ -1538,7 +1538,7 @@ extension UIView {
      - Parameter relation: The Relation to use
      - Returns: NSLayoutConstraint
      */
-    func applyAttribute(_ attribute:NSLayoutAttribute, constant:CGFloat = 0, multiplier: CGFloat = 1, relation:NSLayoutRelation = .equal) -> NSLayoutConstraint  {
+    func applyAttribute(_ attribute: NSLayoutConstraint.Attribute, constant:CGFloat = 0, multiplier: CGFloat = 1, relation:NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint  {
         let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relation, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: constant)
         addConstraint(constraint)
         return constraint

@@ -151,7 +151,7 @@
 //    
 //    [[UILabel appearance] setSubstituteFontName:[UIConfiguration getUIFONTAPP]];
 //    
-//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIConfiguration getUIFONTAPPREGULAR:13], NSFontAttributeName, nil] forState:UIControlStateNormal];
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIConfiguration getUIFONTAPPREGULAR:13], NSFontAttributeName, nil] forState:UIControl.StateNormal];
 //    
 //    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
 //    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIConfiguration getUIFONTAPPREGULAR:17]}];
@@ -159,9 +159,9 @@
 //    //Back
 //    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:
 //     @{NSTextEffectAttributeName:[UIColor whiteColor],
-//       NSFontAttributeName:[UIConfiguration getUIFONTAPPREGULAR:16]} forState:UIControlStateNormal];
+//       NSFontAttributeName:[UIConfiguration getUIFONTAPPREGULAR:16]} forState:UIControl.StateNormal];
 //    
-//    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"Nav_Back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"Nav_Back"] forState:UIControl.StateNormal barMetrics:UIBarMetricsDefault];
 //    
 //    //    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"Nav_Back"]];
 //    //    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"Nav_Back"]];

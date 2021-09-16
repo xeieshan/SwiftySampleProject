@@ -155,21 +155,21 @@ class UtilityHelper
         UILabel.appearance().defaultFont = UIFont(name: UIConfiguration.UIFONTAPP, size: 15)
         
             UITabBarItem.appearance().setTitleTextAttributes([
-                NSAttributedStringKey.foregroundColor : UIColor.white,
-                NSAttributedStringKey.font : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 17)
-                ], for: UIControlState())
+                NSAttributedString.Key.foregroundColor : UIColor.white,
+                NSAttributedString.Key.font : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 17)
+            ], for: UIControl.State())
         UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIConfiguration.getUIFONTBOLD(sizeFont: 17)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIConfiguration.getUIFONTBOLD(sizeFont: 17)]
         
         if #available(iOS 9.0, *) {
             UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([
-                NSAttributedStringKey.foregroundColor : UIColor.white,
-                NSAttributedStringKey.font : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)
-                ], for: UIControlState())
+                NSAttributedString.Key.foregroundColor : UIColor.white,
+                NSAttributedString.Key.font : UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)
+            ], for: UIControl.State())
         } else {
             // Fallback on earlier versions
         }
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIConfiguration.getUIFONTAPPREGULAR(sizeFont: 16)], for: .normal)
         
         let rect:CGRect! = CGRect(x: 0 ,y: 0, width: Constants.getApplicationDelegate().window!.frame.size.width, height: 64)
         UIGraphicsBeginImageContext(rect.size)
@@ -302,7 +302,7 @@ class UtilityHelper
         let maxSize: CGSize = CGSize(width: frame.size.width, height: 999999.0)
         var height: CGFloat = 0
         
-        let frame1: CGRect = text.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let frame1: CGRect = text.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         height = frame1.size.height
         return height+5
     }
@@ -312,7 +312,7 @@ class UtilityHelper
         var height: CGFloat = 0
         let font: UIFont = label.font
         
-        let frame: CGRect = label.text!.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let frame: CGRect = label.text!.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         height = frame.size.height
         label.numberOfLines = 0
         return height+5
@@ -321,7 +321,7 @@ class UtilityHelper
     class func getStringHeightWithConstrainedWidth(_ text: String, width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
-        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context: nil)
+        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font], context: nil)
         
         return boundingBox.height
     }
@@ -435,7 +435,7 @@ class UtilityHelper
         UIGraphicsBeginImageContext(rect.size);
         image.draw(in: rect)
         let img = UIGraphicsGetImageFromCurrentImageContext();
-        let imageData = UIImageJPEGRepresentation(img!, compressionQuality);
+        let imageData = img!.jpegData(compressionQuality: compressionQuality);
         UIGraphicsEndImageContext();
         
         return imageData!;
@@ -510,7 +510,7 @@ class UtilityHelper
     }
     
     class func setDropShadowOnTextField(_ view: UITextField, shadowOffset: CGSize) {
-        view.borderStyle = UITextBorderStyle.none
+        view.borderStyle = UITextField.BorderStyle.none
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
@@ -624,7 +624,7 @@ class UtilityHelper
         if text != nil{
             let tmpLabel = UILabel(frame: CGRect.zero)
             tmpLabel.font = font
-            tmpLabel.text = text as String!
+            tmpLabel.text = text as String?
             let size = tmpLabel.intrinsicContentSize.width
             return size
         }
@@ -951,7 +951,7 @@ extension UtilityHelper {
     public static func didTakeScreenShot(_ action: @escaping () -> ()) {
         // http://stackoverflow.com/questions/13484516/ios-detection-of-screenshot
         let mainQueue = OperationQueue.main
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { notification in
+        NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: mainQueue) { notification in
             action()
         }
     }

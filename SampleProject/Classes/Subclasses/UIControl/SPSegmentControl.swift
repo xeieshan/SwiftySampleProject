@@ -315,8 +315,8 @@ public class SPSegmentControl: UIControl {
                 layerText.font = CGFont(NSString(string:font.fontName))
                 layerText.fontSize = font.pointSize
                 layerText.frame = content_frame
-                layerText.alignmentMode = kCAAlignmentCenter
-                layerText.truncationMode = kCATruncationEnd
+                layerText.alignmentMode = CATextLayerAlignmentMode.center
+                layerText.truncationMode = CATextLayerTruncationMode.end
                 layerText.contentsScale = UIScreen.main.scale
                 layerText.foregroundColor = index == self.selectedIndex ? self.segmentTextForegroundColorSelected.cgColor : self.segmentTextForegroundColor.cgColor
                 layerContainer.addSublayer(layerText)
@@ -444,7 +444,7 @@ public class SPSegmentControl: UIControl {
         if self.enableAnimation && validIndex(oldIndex) {
             CATransaction.begin()
             CATransaction.setAnimationDuration(self.animationDuration)
-            CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
+            CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear))
             CATransaction.setCompletionBlock({ [unowned self] in
                 switch self.style {
                 case .rainbow:
@@ -547,7 +547,7 @@ public class SPSegmentControl: UIControl {
         switch segment.content.type {
         case let .text(text):
             size = (text as NSString).size(withAttributes: [
-                NSAttributedStringKey.font: segmentTextBold ? UIFont.boldSystemFont(ofSize: self.segmentTextFontSize) : UIFont.systemFont(ofSize: self.segmentTextFontSize)
+                NSAttributedString.Key.font: segmentTextBold ? UIFont.boldSystemFont(ofSize: self.segmentTextFontSize) : UIFont.systemFont(ofSize: self.segmentTextFontSize)
                 ])
         case let .icon(icon):
             size = icon.size

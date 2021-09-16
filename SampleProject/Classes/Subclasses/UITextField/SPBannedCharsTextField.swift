@@ -20,7 +20,7 @@ class SPBannedCharsTextField: UITextField, UITextFieldDelegate {
   }
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    guard string.characters.count > 0 else {
+    guard string.count > 0 else {
       return true
     }
     

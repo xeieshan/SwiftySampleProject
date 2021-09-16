@@ -72,12 +72,12 @@ public extension String {
      
      - returns: Bool
      */
-//    var isEmail: Bool {
-//        let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-//        let firstMatch = dataDetector?.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSMakeRange(0, length))
-//        
-//        return (firstMatch?.range.location != NSNotFound && firstMatch?.url?.scheme == "mailto")
-//    }
+    //    var isEmail: Bool {
+    //        let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+    //        let firstMatch = dataDetector?.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSMakeRange(0, length))
+    //
+    //        return (firstMatch?.range.location != NSNotFound && firstMatch?.url?.scheme == "mailto")
+    //    }
     
     /**
      Check that a String is 'tweetable' can be used in a tweet.
@@ -86,9 +86,9 @@ public extension String {
      */
     func isTweetable() -> Bool {
         let tweetLength = 140,
-        // Each link takes 23 characters in a tweet (assuming all links are https).
-        linksLength = self.getLinks().count * 23,
-        remaining = tweetLength - linksLength
+            // Each link takes 23 characters in a tweet (assuming all links are https).
+            linksLength = self.getLinks().count * 23,
+            remaining = tweetLength - linksLength
         
         if linksLength != 0 {
             return remaining < 0
@@ -109,8 +109,8 @@ public extension String {
         
         return links!.filter { link in
             return link.url != nil
-            }.map { link -> String in
-                return link.url!.absoluteString
+        }.map { link -> String in
+            return link.url!.absoluteString
         }
     }
     
@@ -126,8 +126,8 @@ public extension String {
         
         return links!.filter { link in
             return link.url != nil
-            }.map { link -> URL in
-                return link.url!
+        }.map { link -> URL in
+            return link.url!
         }
     }
     
@@ -150,8 +150,8 @@ public extension String {
         
         return dates!.filter { date in
             return date.date != nil
-            }.map { link -> Date in
-                return link.date!
+        }.map { link -> Date in
+            return link.date!
         }
     }
     
@@ -256,25 +256,31 @@ public extension String {
     func between(_ left: String, _ right: String) -> String? {
         guard
             let leftRange = range(of: left), let rightRange = range(of: right, options: .backwards), left != right && leftRange.upperBound != rightRange.lowerBound
-            else { return nil }
+        else { return nil }
         
         return String(self[leftRange.upperBound...index(before: rightRange.lowerBound)])
         
     }
+    var uppercasingFirst: String {
+        return prefix(1).uppercased() + dropFirst()
+    }
     
-    // https://gist.github.com/stevenschobert/540dd33e828461916c11
-    func camelize() -> String {
-        let source = clean(" ", allOf: "-", "_")
-        if source.characters.contains(" ") {
-            let first = source.substring(to: source.characters.index(source.startIndex, offsetBy: 1))
-            let cammel = NSString(format: "%@", (source as NSString).capitalized.replacingOccurrences(of: " ", with: "", options: [], range: nil)) as String
-            let rest = String(cammel.characters.dropFirst())
-            return "\(first)\(rest)"
-        } else {
-            let first = (source as NSString).lowercased.substring(to: source.characters.index(source.startIndex, offsetBy: 1))
-            let rest = String(source.characters.dropFirst())
-            return "\(first)\(rest)"
+    var lowercasingFirst: String {
+        return prefix(1).lowercased() + dropFirst()
+    }
+    
+    //https://gist.github.com/reitzig/67b41e75176ddfd432cb09392a270218
+    var camelized: String {
+        guard !isEmpty else {
+            return ""
         }
+        
+        let parts = self.components(separatedBy: CharacterSet.alphanumerics.inverted)
+        
+        let first = String(describing: parts.first!).lowercasingFirst
+        let rest = parts.dropFirst().map({String($0).uppercasingFirst})
+        
+        return ([first] + rest).joined(separator: "")
     }
     
     func capitalize() -> String {
@@ -346,7 +352,7 @@ public extension String {
     
     func indexOf(_ substring: String) -> Int? {
         if let range = range(of: substring) {
-            return characters.distance(from: startIndex, to: range.lowerBound)
+            return distance(from: startIndex, to: range.lowerBound)
         }
         return nil
     }
@@ -361,31 +367,34 @@ public extension String {
     //        return words.reduce("") { ($0 == "" ? "" : $0[0...0]) + $1[0...0]}
     //    }
     
-    func isAlpha() -> Bool {
-        for chr in characters {
-            if (!(chr >= "a" && chr <= "z") && !(chr >= "A" && chr <= "Z") ) {
-                return false
-            }
+    func isAlpha(char: Character) -> Bool {
+        switch char {
+        case "a"..."z":
+            return true
+        case "A"..."Z":
+            return true
+        default:
+            return false
         }
-        return true
     }
+
     
-//    func isAlphaNumeric() -> Bool {
-//        let alphaNumeric = CharacterSet.alphanumerics
-//        return components(separatedBy: alphaNumeric).joined(separator: "").length == 0
-//    }
+    //    func isAlphaNumeric() -> Bool {
+    //        let alphaNumeric = CharacterSet.alphanumerics
+    //        return components(separatedBy: alphaNumeric).joined(separator: "").length == 0
+    //    }
     
     func isEmpty() -> Bool {
         let nonWhitespaceSet = CharacterSet.whitespacesAndNewlines.inverted
         return components(separatedBy: nonWhitespaceSet).joined(separator: "").length != 0
     }
     
-//    func isNumeric() -> Bool {
-//        if let _ = NumberFormatter().number(from: self) {
-//            return true
-//        }
-//        return false
-//    }
+    //    func isNumeric() -> Bool {
+    //        if let _ = NumberFormatter().number(from: self) {
+    //            return true
+    //        }
+    //        return false
+    //    }
     
     func join<S : Sequence>(_ elements: S) -> String {
         return elements.map{String(describing: $0)}.joined(separator: self)
@@ -395,25 +404,25 @@ public extension String {
         return self.folding(options: .diacriticInsensitive, locale: Locale.current)
     }
     
-//    func lines() -> [String] {
-//        return characters.split{$0 == "\n"}.map(String.init)
-//    }
-
+    //    func lines() -> [String] {
+    //        return characters.split{$0 == "\n"}.map(String.init)
+    //    }
+    
     var length: Int {
         return count
     }
     
-//    func pad(_ n: Int, _ string: String = " ") -> String {
-//        return "".join([string.times(n), self, string.times(n)])
-//    }
-//
-//    func padLeft(_ n: Int, _ string: String = " ") -> String {
-//        return "".join([string.times(n), self])
-//    }
-//
-//    func padRight(_ n: Int, _ string: String = " ") -> String {
-//        return "".join([self, string.times(n)])
-//    }
+    //    func pad(_ n: Int, _ string: String = " ") -> String {
+    //        return "".join([string.times(n), self, string.times(n)])
+    //    }
+    //
+    //    func padLeft(_ n: Int, _ string: String = " ") -> String {
+    //        return "".join([string.times(n), self])
+    //    }
+    //
+    //    func padRight(_ n: Int, _ string: String = " ") -> String {
+    //        return "".join([self, string.times(n)])
+    //    }
     
     func slugify() -> String {
         let slugCharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-")
@@ -424,7 +433,7 @@ public extension String {
     }
     
     func split(_ separator: Character) -> [String] {
-        return characters.split{$0 == separator}.map(String.init)
+        return split{$0 == separator}.map(String.init)
     }
     
     func startsWith(_ prefix: String) -> Bool {
@@ -438,10 +447,10 @@ public extension String {
             .filter { $0 != "" }
             .joined(separator: " ")
     }
-//
-//    func times(_ n: Int) -> String {
-//        return (0..<n).reduce("") { $0.0 + self }
-//    }
+    //
+    //    func times(_ n: Int) -> String {
+    //        return (0..<n).reduce("") { $0.0 + self }
+    //    }
     
     func toFloat() -> Float? {
         if let number = NumberFormatter().number(from: self) {
@@ -500,28 +509,28 @@ public extension String {
         return self
     }
     
-//    func trimmed() -> String {
-//        return trimmedLeft().trimmedRight()
-//    }
+    //    func trimmed() -> String {
+    //        return trimmedLeft().trimmedRight()
+    //    }
     
     subscript(r: Range<Int>) -> String {
         get {
-            let startIndex = self.characters.index(self.startIndex, offsetBy: r.lowerBound)
-            let endIndex = self.characters.index(self.startIndex, offsetBy: r.upperBound - r.lowerBound)
+            let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+            let endIndex = self.index(self.startIndex, offsetBy: r.upperBound - r.lowerBound)
             
             return String(self[startIndex..<endIndex])
         }
     }
     
     func substring(_ startIndex: Int, length: Int) -> String {
-        let start = self.characters.index(self.startIndex, offsetBy: startIndex)
-        let end = self.characters.index(self.startIndex, offsetBy: startIndex + length)
+        let start = self.index(self.startIndex, offsetBy: startIndex)
+        let end = self.index(self.startIndex, offsetBy: startIndex + length)
         return String(self[start..<end])
     }
     
     subscript(i: Int) -> Character {
         get {
-            let index = self.characters.index(self.startIndex, offsetBy: i)
+            let index = self.index(self.startIndex, offsetBy: i)
             return self[index]
         }
     }
@@ -785,7 +794,7 @@ public extension String {
             "&clubs;"    : "\u{2663}",
             "&hearts;"   : "\u{2665}",
             "&diams;"    : "\u{2666}",
-            ]
+        ]
     }
     
     // Convert the number in the string to the corresponding
@@ -805,9 +814,9 @@ public extension String {
     //     decode("&foo;")    --> nil
     fileprivate func decode(_ entity : String) -> Character? {
         if entity.hasPrefix("&#x") || entity.hasPrefix("&#X"){
-            return decodeNumeric(entity.substring(from: entity.characters.index(entity.startIndex, offsetBy: 3)), base: 16)
+            return decodeNumeric(entity.substring(from: entity.index(entity.startIndex, offsetBy: 3)), base: 16)
         } else if entity.hasPrefix("&#") {
-            return decodeNumeric(entity.substring(from: entity.characters.index(entity.startIndex, offsetBy: 2)), base: 10)
+            return decodeNumeric(entity.substring(from: entity.index(entity.startIndex, offsetBy: 2)), base: 10)
         } else {
             return HTMLEntities.characterEntities[entity]
         }
@@ -817,232 +826,235 @@ public extension String {
     /// Returns a new string made by replacing in the `String`
     /// all HTML character entity references with the corresponding
     /// character.
-//    func decodeHTML() -> String {
-//        var result = ""
-//        var position = startIndex
-//        
-//        // Find the next '&' and copy the characters preceding it to `result`:
-//        while let ampRange = self.range(of: "&", range: position ..< endIndex) {
-//            result.append(String(self[position ..< ampRange.lowerBound]))
-//            position = ampRange.lowerBound
-//            
-//            // Find the next ';' and copy everything from '&' to ';' into `entity`
-//            if let semiRange = self.range(of: ";", range: position ..< endIndex) {
-//                let entity = self[position ..< semiRange.upperBound]
-//                position = semiRange.upperBound
-//                
-//                if let decoded = decode(String(entity)) {
-//                    // Replace by decoded character:
-//                    result.append(decoded)
-//                } else {
-//                    // Invalid entity, copy verbatim:
-//                    result.append(entity)
-//                }
-//            } else {
-//                // No matching ';'.
-//                break
-//            }
-//        }
-//        // Copy remaining characters to `result`:
-//        result.append(String(self[position ..< endIndex]))
-//        return result
-//    }
+    //    func decodeHTML() -> String {
+    //        var result = ""
+    //        var position = startIndex
+    //
+    //        // Find the next '&' and copy the characters preceding it to `result`:
+    //        while let ampRange = self.range(of: "&", range: position ..< endIndex) {
+    //            result.append(String(self[position ..< ampRange.lowerBound]))
+    //            position = ampRange.lowerBound
+    //
+    //            // Find the next ';' and copy everything from '&' to ';' into `entity`
+    //            if let semiRange = self.range(of: ";", range: position ..< endIndex) {
+    //                let entity = self[position ..< semiRange.upperBound]
+    //                position = semiRange.upperBound
+    //
+    //                if let decoded = decode(String(entity)) {
+    //                    // Replace by decoded character:
+    //                    result.append(decoded)
+    //                } else {
+    //                    // Invalid entity, copy verbatim:
+    //                    result.append(entity)
+    //                }
+    //            } else {
+    //                // No matching ';'.
+    //                break
+    //            }
+    //        }
+    //        // Copy remaining characters to `result`:
+    //        result.append(String(self[position ..< endIndex]))
+    //        return result
+    //    }
     
 }
 /*
-Usage
-
-import SwiftString
-Methods
-
-between(left, right)
-
-"<a>foo</a>".between("<a>", "</a>") // "foo"
-"<a><a>foo</a></a>".between("<a>", "</a>") // "<a>foo</a>"
-"<a>foo".between("<a>", "</a>") // nil
-"Some strings } are very {weird}, dont you think?".between("{", "}") // "weird"
-"<a></a>".between("<a>", "</a>") // nil
-"<a>foo</a>".between("<a>", "<a>") // nil
-camelize()
-
-"os version".camelize() // "osVersion"
-"HelloWorld".camelize() // "helloWorld"
-"someword With Characters".camelize() // "somewordWithCharacters"
-"data_rate".camelize() // "dataRate"
-"background-color".camelize() // "backgroundColor"
-capitalize()
-
-"hello world".capitalize() // "Hello World"
-chompLeft(string)
-
-"foobar".chompLeft("foo") // "bar"
-"foobar".chompLeft("bar") // "foo"
-chompRight(string)
-
-"foobar".chompRight("bar") // "foo"
-"foobar".chompRight("foo") // "bar"
-collapseWhitespace()
-
-"  String   \t libraries are   \n\n\t fun\n!  ".collapseWhitespace() // "String libraries are fun !")
-contains(substring)
-
-"foobar".contains("foo") // true
-"foobar".contains("bar") // true
-"foobar".contains("something") // false
-count(string)
-
-"hi hi ho hey hihey".count("hi") // 3
-decodeHTML()
-
-"The Weekend &#8216;King Of The Fall&#8217;".decodeHTML() // "The Weekend ‘King Of The Fall’"
-"<strong> 4 &lt; 5 &amp; 3 &gt; 2 .</strong> Price: 12 &#x20ac;.  &#64; ".decodeHTML() // "<strong> 4 < 5 & 3 > 2 .</strong> Price: 12 €.  @ "
-"this is so &quot;good&quot;".decodeHTML() // "this is so \"good\""
-endsWith(suffix)
-
-"hello world".endsWith("world") // true
-"hello world".endsWith("foo") // false
-ensureLeft(prefix)
-
-"/subdir".ensureLeft("/") // "/subdir"
-"subdir".ensureLeft("/") // "/subdir"
-ensureRight(suffix)
-
-"subdir/".ensureRight("/") // "subdir/"
-"subdir".ensureRight("/") // "subdir/"
-indexOf(substring)
-
-"hello".indexOf("hell"), // 0
-"hello".indexOf("lo"), // 3
-"hello".indexOf("world") // nil
-initials()
-
-"First".initials(), // "F"
-"First Last".initials(), // "FL"
-"First Middle1 Middle2 Middle3 Last".initials() // "FMMML"
-initialsFirstAndLast()
-
-"First Last".initialsFirstAndLast(), // "FL"
-"First Middle1 Middle2 Middle3 Last".initialsFirstAndLast() // "FL"
-isAlpha()
-
-"fdafaf3".isAlpha() // false
-"afaf".isAlpha() // true
-"dfdf--dfd".isAlpha() // false
-isAlphaNumeric()
-
-"afaf35353afaf".isAlphaNumeric() // true
-"FFFF99fff".isAlphaNumeric() // true
-"99".isAlphaNumeric() // true
-"afff".isAlphaNumeric() // true
-"-33".isAlphaNumeric() // false
-"aaff..".isAlphaNumeric() // false
-isEmpty()
-
-" ".isEmpty() // true
-"\t\t\t ".isEmpty() // true
-"\n\n".isEmpty() // true
-"helo".isEmpty() // false
-isNumeric()
-
-"abc".isNumeric() // false
-"123a".isNumeric() // false
-"1".isNumeric() // true
-"22".isNumeric() // true
-"33.0".isNumeric() // true
-"-63.0".isNumeric() // true
-join(sequence)
-
-",".join([1,2,3]) // "1,2,3"
-",".join([]) // ""
-",".join(["a","b","c"]) // "a,b,c"
-"! ".join(["hey","who are you?"]) // "hey! who are you?"
-latinize()
-
-"šÜįéïöç".latinize() // "sUieioc"
-"crème brûlée".latinize() // "creme brulee"
-lines()
-
-"test".lines() // ["test"]
-"test\nsentence".lines() // ["test", "sentence"]
-"test \nsentence".lines() // ["test ", "sentence"]
-pad(n, string)
-
-"hello".pad(2) // "  hello  "
-"hello".pad(1, "\t") // "\thello\t"
-padLeft(n, string)
-
-"hello".padLeft(10) // "          hello"
-"what?".padLeft(2, "!") // "!!what?"
-padRight(n, string)
-
-"hello".padRight(10) // "hello          "
-"hello".padRight(2, "!") // "hello!!"
-startsWith(prefix)
-
-"hello world".startsWith("hello") // true
-"hello world".startsWith("foo") // false
-split(separator)
-
-"hello world".split(" ")[0] // "hello"
-"hello world".split(" ")[1] // "world"
-"helloworld".split(" ")[0] // "helloworld"
-times(n)
-
-"hi".times(3) // "hihihi"
-" ".times(10) // "          "
-toBool()
-
-"asdwads".toBool() // nil
-"true".toBool() // true
-"false".toBool() // false
-toFloat()
-
-"asdwads".toFloat() // nil
-"2.00".toFloat() // 2.0
-"2".toFloat() // 2.0
-toInt()
-
-"asdwads".toInt() // nil
-"2.00".toInt() // 2
-"2".toInt() // 2
-toDate()
-
-"asdwads".toDate() // nil
-"2014-06-03".toDate() // NSDate
-toDateTime()
-
-"asdwads".toDateTime() // nil
-"2014-06-03 13:15:01".toDateTime() // NSDate
-toDouble()
-
-"asdwads".toDouble() // nil
-"2.00".toDouble() // 2.0
-"2".toDouble() // 2.0
-trimmedLeft()
-
-"        How are you? ".trimmedLeft() // "How are you? "
-trimmedRight()
-
-" How are you?   ".trimmedRight() // " How are you?"
-trimmed()
-
-"    How are you?   ".trimmed() // "How are you?"
-slugify()
-
-"Global Thermonuclear Warfare".slugify() // "global-thermonuclear-warfare"
-"Crème brûlée".slugify() // "creme-brulee"
-stripPunctuation()
-
-"My, st[ring] *full* of %punct)".stripPunctuation() // "My string full of punct"
-substring(startIndex, length)
-
-"hello world".substring(0, length: 1) // "h"
-"hello world".substring(0, length: 11) // "hello world"
-[subscript]
-
-"hello world"[0...1] // "he"
-"hello world"[0..<1] // "h"
-"hello world"[0] // "h"
-"hello world"[0...10] // "hello world"
-
-*/
+ Usage
+ 
+ import SwiftString
+ Methods
+ 
+ between(left, right)
+ 
+ "<a>foo</a>".between("<a>", "</a>") // "foo"
+ "<a><a>foo</a></a>".between("<a>", "</a>") // "<a>foo</a>"
+ "<a>foo".between("<a>", "</a>") // nil
+ "Some strings } are very {weird}, dont you think?".between("{", "}") // "weird"
+ "<a></a>".between("<a>", "</a>") // nil
+ "<a>foo</a>".between("<a>", "<a>") // nil
+ camelize()
+ 
+ "os version".camelize() // "osVersion"
+ "HelloWorld".camelize() // "helloWorld"
+ "someword With Characters".camelize() // "somewordWithCharacters"
+ "data_rate".camelize() // "dataRate"
+ "background-color".camelize() // "backgroundColor"
+ capitalize()
+ 
+ "hello world".capitalize() // "Hello World"
+ chompLeft(string)
+ 
+ "foobar".chompLeft("foo") // "bar"
+ "foobar".chompLeft("bar") // "foo"
+ chompRight(string)
+ 
+ "foobar".chompRight("bar") // "foo"
+ "foobar".chompRight("foo") // "bar"
+ collapseWhitespace()
+ 
+ "  String   \t libraries are   \n\n\t fun\n!  ".collapseWhitespace() // "String libraries are fun !")
+ contains(substring)
+ 
+ "foobar".contains("foo") // true
+ "foobar".contains("bar") // true
+ "foobar".contains("something") // false
+ count(string)
+ 
+ "hi hi ho hey hihey".count("hi") // 3
+ decodeHTML()
+ 
+ "The Weekend &#8216;King Of The Fall&#8217;".decodeHTML() // "The Weekend ‘King Of The Fall’"
+ "<strong> 4 &lt; 5 &amp; 3 &gt; 2 .</strong> Price: 12 &#x20ac;.  &#64; ".decodeHTML() // "<strong> 4 < 5 & 3 > 2 .</strong> Price: 12 €.  @ "
+ "this is so &quot;good&quot;".decodeHTML() // "this is so \"good\""
+ endsWith(suffix)
+ 
+ "hello world".endsWith("world") // true
+ "hello world".endsWith("foo") // false
+ ensureLeft(prefix)
+ 
+ "/subdir".ensureLeft("/") // "/subdir"
+ "subdir".ensureLeft("/") // "/subdir"
+ ensureRight(suffix)
+ 
+ "subdir/".ensureRight("/") // "subdir/"
+ "subdir".ensureRight("/") // "subdir/"
+ indexOf(substring)
+ 
+ "hello".indexOf("hell"), // 0
+ "hello".indexOf("lo"), // 3
+ "hello".indexOf("world") // nil
+ initials()
+ 
+ "First".initials(), // "F"
+ "First Last".initials(), // "FL"
+ "First Middle1 Middle2 Middle3 Last".initials() // "FMMML"
+ initialsFirstAndLast()
+ 
+ "First Last".initialsFirstAndLast(), // "FL"
+ "First Middle1 Middle2 Middle3 Last".initialsFirstAndLast() // "FL"
+ isAlpha()
+ 
+ "fdafaf3".isAlpha() // false
+ "afaf".isAlpha() // true
+ "dfdf--dfd".isAlpha() // false
+ isAlphaNumeric()
+ 
+ "afaf35353afaf".isAlphaNumeric() // true
+ "FFFF99fff".isAlphaNumeric() // true
+ "99".isAlphaNumeric() // true
+ "afff".isAlphaNumeric() // true
+ "-33".isAlphaNumeric() // false
+ "aaff..".isAlphaNumeric() // false
+ isEmpty()
+ 
+ " ".isEmpty() // true
+ "\t\t\t ".isEmpty() // true
+ "\n\n".isEmpty() // true
+ "helo".isEmpty() // false
+ isNumeric()
+ 
+ "abc".isNumeric() // false
+ "123a".isNumeric() // false
+ "1".isNumeric() // true
+ "22".isNumeric() // true
+ "33.0".isNumeric() // true
+ "-63.0".isNumeric() // true
+ join(sequence)
+ 
+ ",".join([1,2,3]) // "1,2,3"
+ ",".join([]) // ""
+ ",".join(["a","b","c"]) // "a,b,c"
+ "! ".join(["hey","who are you?"]) // "hey! who are you?"
+ latinize()
+ 
+ "šÜįéïöç".latinize() // "sUieioc"
+ "crème brûlée".latinize() // "creme brulee"
+ lines()
+ 
+ "test".lines() // ["test"]
+ "test\nsentence".lines() // ["test", "sentence"]
+ "test \nsentence".lines() // ["test ", "sentence"]
+ pad(n, string)
+ 
+ "hello".pad(2) // "  hello  "
+ "hello".pad(1, "\t") // "\thello\t"
+ padLeft(n, string)
+ 
+ "hello".padLeft(10) // "          hello"
+ "what?".padLeft(2, "!") // "!!what?"
+ padRight(n, string)
+ 
+ "hello".padRight(10) // "hello          "
+ "hello".padRight(2, "!") // "hello!!"
+ startsWith(prefix)
+ 
+ "hello world".startsWith("hello") // true
+ "hello world".startsWith("foo") // false
+ split(separator)
+ 
+ "hello world".split(" ")[0] // "hello"
+ "hello world".split(" ")[1] // "world"
+ "helloworld".split(" ")[0] // "helloworld"
+ times(n)
+ 
+ "hi".times(3) // "hihihi"
+ " ".times(10) // "          "
+ toBool()
+ 
+ "asdwads".toBool() // nil
+ "true".toBool() // true
+ "false".toBool() // false
+ toFloat()
+ 
+ "asdwads".toFloat() // nil
+ "2.00".toFloat() // 2.0
+ "2".toFloat() // 2.0
+ toInt()
+ 
+ "asdwads".toInt() // nil
+ "2.00".toInt() // 2
+ "2".toInt() // 2
+ toDate()
+ 
+ "asdwads".toDate() // nil
+ "2014-06-03".toDate() // NSDate
+ toDateTime()
+ 
+ "asdwads".toDateTime() // nil
+ "2014-06-03 13:15:01".toDateTime() // NSDate
+ toDouble()
+ 
+ "asdwads".toDouble() // nil
+ "2.00".toDouble() // 2.0
+ "2".toDouble() // 2.0
+ trimmedLeft()
+ 
+ "        How are you? ".trimmedLeft() // "How are you? "
+ trimmedRight()
+ 
+ " How are you?   ".trimmedRight() // " How are you?"
+ trimmed()
+ 
+ "    How are you?   ".trimmed() // "How are you?"
+ slugify()
+ 
+ "Global Thermonuclear Warfare".slugify() // "global-thermonuclear-warfare"
+ "Crème brûlée".slugify() // "creme-brulee"
+ stripPunctuation()
+ 
+ "My, st[ring] *full* of %punct)".stripPunctuation() // "My string full of punct"
+ substring(startIndex, length)
+ 
+ "hello world".substring(0, length: 1) // "h"
+ "hello world".substring(0, length: 11) // "hello world"
+ [subscript]
+ 
+ "hello world"[0...1] // "he"
+ "hello world"[0..<1] // "h"
+ "hello world"[0] // "h"
+ "hello world"[0...10] // "hello world"
+ 
+ isAlpha("a")
+ isAlpha("B")
+ isAlpha(" ")
+ */

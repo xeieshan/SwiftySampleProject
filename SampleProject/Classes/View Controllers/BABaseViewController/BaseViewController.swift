@@ -55,12 +55,12 @@ class BaseViewController: UIViewController {
         self.leftbtnType = leftButtonType
         self.rightbtnType = rightButtonType
         if showRightButton {
-            self.rightButton = UIButton.init(type: UIButtonType.custom)
+            self.rightButton = UIButton.init(type: UIButton.ButtonType.custom)
             if rightButtonType == .addfriends {
                 self.rightButton!.frame = CGRect(x: 0, y: 0, width: 100, height: 24)
                 UtilityFunctions .setViewBorder(self.rightButton!, withWidth: 5, andColor: UIColor.white)
                 self.rightButton?.cornerRadius =  3.0
-                self.rightButton!.setTitle(rightButtonType == .addfriends ? "ADD FRIENDS" : "", for: UIControlState())
+                self.rightButton!.setTitle(rightButtonType == .addfriends ? "ADD FRIENDS" : "", for: UIControl.State())
                 self.rightButton!.titleLabel!.font = UIConfiguration.getUIFONTBOLD(sizeFont: 12)
             }
             else if rightButtonType == .none {
@@ -70,7 +70,7 @@ class BaseViewController: UIViewController {
             {
                 let optionsImage: UIImage! = ((rightButtonType == .tick) ? UIImage(named: "tick_thin"): (rightButtonType == .add) ? UIImage(named: "add-icon") :(rightButtonType == .search) ? UIImage(named: "search-white") : (rightButtonType == .share) ? UIImage(named: "share-white-icon") : nil )
                 self.rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-                self.rightButton?.setImage(optionsImage, for: UIControlState())
+                self.rightButton?.setImage(optionsImage, for: UIControl.State())
             }
             self.rightButton!.addTarget(self, action: #selector(BaseViewController.rightNavigationButtonClicked(_:)), for: .touchUpInside)
             self.rightButton?.contentMode = .scaleAspectFit
@@ -89,12 +89,12 @@ class BaseViewController: UIViewController {
             self.navigationItem.leftBarButtonItem = nil
             //            self.navigationItem.setLeftBarButtonItems([], animated: false)
         }else{
-            self.leftButton = UIButton.init(type: UIButtonType.custom)
+            self.leftButton = UIButton.init(type: UIButton.ButtonType.custom)
             let menuImage: UIImage? = ((leftButtonType == .menu) ? UIImage(named: "check-sign") : (leftButtonType == .back) ? UIImage(named: "back-icon") : (leftButtonType == .cross) ? UIImage(named: "cross_thin"): nil)
             //Get Images from UIConfiguration
             self.leftButton!.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
             self.leftButton!.addTarget(self, action: #selector(BaseViewController.leftNavigationButtonClicked(_:)), for: .touchUpInside)
-            self.leftButton!.setImage(menuImage, for: UIControlState())
+            self.leftButton!.setImage(menuImage, for: UIControl.State())
             self.leftbtnItem = UIBarButtonItem(customView: self.leftButton!)
             let negativeSpacer: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
             negativeSpacer.width = ConstantDevices.IS_IOS_6 ? -6 : -16
@@ -181,7 +181,7 @@ class BaseViewController: UIViewController {
             let backBarImage: UIImage = (self.navigationController!.viewControllers.count > 1 ? UIConfiguration.NavBarBackImage : UIConfiguration.NavBarMenuImage)!
             self.leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: backBarImage.size.width, height: backBarImage.size.height))
             self.leftButton!.addTarget(self, action: #selector(BaseViewController.leftNavigationButtonClicked(_:)), for: .touchUpInside)
-            self.leftButton!.setImage(backBarImage, for: UIControlState())
+            self.leftButton!.setImage(backBarImage, for: UIControl.State())
             let backbtnItem: UIBarButtonItem = UIBarButtonItem(customView: self.leftButton!)
             self.navigationItem.leftBarButtonItem = backbtnItem
         }

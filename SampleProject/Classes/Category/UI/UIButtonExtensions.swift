@@ -152,7 +152,7 @@ public extension UIButton {
 // MARK: - Methods
 public extension UIButton {
     
-    private var states: [UIControlState] {
+    private var states: [UIControl.State] {
         return [.normal, .selected, .highlighted, .disabled]
     }
 	
@@ -183,7 +183,7 @@ public extension UIButton {
     //    Add additionalSpacing between the button image & title as required
     //    For titlePosition, the function only respects UIViewContentModeTop, UIViewContentModeBottom, UIViewContentModeLeft and UIViewContentModeRight
     //    All other titlePositions are ignored
-    @objc func set(image anImage: UIImage?, title: NSString!, titlePosition: UIViewContentMode, additionalSpacing: CGFloat, state: UIControlState){
+    @objc func set(image anImage: UIImage?, title: NSString!, titlePosition: UIView.ContentMode, additionalSpacing: CGFloat, state: UIControl.State){
         self.imageView?.contentMode = .center
         self.setImage(anImage, for: state)
         
@@ -193,10 +193,10 @@ public extension UIButton {
         self.setTitle(title! as String, for: state)
     }
     
-    private func positionLabelRespectToImage(title: NSString, position: UIViewContentMode, spacing: CGFloat) {
+    private func positionLabelRespectToImage(title: NSString, position: UIView.ContentMode, spacing: CGFloat) {
         let imageSize = self.imageRect(forContentRect: self.frame)
         let titleFont = self.titleLabel?.font!
-        let titleSize = title.size(withAttributes: [NSAttributedStringKey.font: titleFont!])
+        let titleSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont!])
         
         var titleInsets: UIEdgeInsets
         var imageInsets: UIEdgeInsets

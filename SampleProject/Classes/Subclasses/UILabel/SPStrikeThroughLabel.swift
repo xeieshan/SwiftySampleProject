@@ -32,10 +32,10 @@ class SPStrikeThroughLabel: UILabel {
         self.font = self.font
         self.layer.display()
 
-        let attribute = [NSAttributedStringKey.strikethroughStyle: ""]
+        let attribute = [NSAttributedString.Key.strikethroughStyle: ""]
 
         let attributedString = NSMutableAttributedString(string: self.text!, attributes: attribute)
-        attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, (self.text?.characters.count)!))
+        attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, (self.text?.count)!))
         self.attributedText = attributedString
     }
 }

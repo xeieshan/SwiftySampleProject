@@ -158,9 +158,9 @@ public extension UIColor {
 //			string = hexString
 //		}
 //		
-//		if string.characters.count == 3 { // convert hex to 6 digit format if in short format
+//		if string.count == 3 { // convert hex to 6 digit format if in short format
 //			var str = ""
-//			string.characters.forEach({ str.append($0 * 2) })
+//			string.forEach({ str.append($0 * 2) })
 //			string = str
 //		}
 //		var hexValue: UInt64 = 0

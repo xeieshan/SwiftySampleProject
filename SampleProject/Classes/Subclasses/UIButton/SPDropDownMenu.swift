@@ -305,11 +305,11 @@ class SPDropDownMenu: UIView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: SPDropDownMenu.kCellIdentifier)
         let item: SPDropDownMenuItem? = menuItems?[indexPath.row]
-        let hasSubtitle: Bool? = ((item?.subtitle?.characters.count)! > 0)
+        let hasSubtitle: Bool? = ((item?.subtitle?.count)! > 0)
         let hasImage: Bool? = (item?.image != nil)
         
         if cell == nil {
-            let style: UITableViewCellStyle = hasSubtitle! ? .subtitle : .default
+            let style: UITableViewCell.CellStyle = hasSubtitle! ? .subtitle : .default
             cell = UITableViewCell(style: style, reuseIdentifier: SPDropDownMenu.kCellIdentifier)
         }
         cell?.textLabel?.textColor = itemColor

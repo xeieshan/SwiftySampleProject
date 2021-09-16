@@ -18,7 +18,7 @@ public extension UITextField {
 	/// Check if text field is empty.
 	public var isEmpty: Bool {
 		if let text = self.text {
-			return text.characters.isEmpty
+			return text.isEmpty
 		}
 		return true
 	}
@@ -73,7 +73,7 @@ public extension UITextField {
 	///
 	/// - Parameter color: placeholder text color.
 	public func setPlaceHolderTextColor(_ color: UIColor) {
-        self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: color])
+        self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: color])
 	}
 	
 }

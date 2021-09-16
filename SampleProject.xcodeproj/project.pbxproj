@@ -389,7 +389,6 @@
 				7785037D1BA986380068185E /* Helper */,
 				8EBD2C8D1B566A6B00741E4B /* App Delegate */,
 				8EBD2CB21B566A6B00741E4B /* Constants */,
-				8EBD2CBA1B566A6B00741E4B /* Models */,
 				8EBD2CBB1B566A6B00741E4B /* NetworkManager */,
 				8EBD2CC11B566A6B00741E4B /* SharedManager */,
 				8EBD2CC41B566A6B00741E4B /* UtilityFunctions */,
@@ -419,13 +418,6 @@
 				8EBD2CB91B566A6B00741E4B /* UIConfiguration.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		8EBD2CBA1B566A6B00741E4B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		8EBD2CBB1B566A6B00741E4B /* NetworkManager */ = {
@@ -956,7 +948,6 @@
 				8EBD2C601B5667F200741E4B /* Frameworks */,
 				8EBD2C611B5667F200741E4B /* Resources */,
 				1ABD48E442CFF2B64DCE3058 /* [CP] Embed Pods Frameworks */,
-				EBC00EAF228A9E1B7AA6072D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -990,6 +981,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1026,7 +1018,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1035,7 +1027,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9B581FD395CF96AF12A9194 /* [CP] Check Pods Manifest.lock */ = {
@@ -1054,21 +1046,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EBC00EAF228A9E1B7AA6072D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1350,8 +1327,9 @@
 					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1360,7 +1338,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1391,8 +1369,9 @@
 					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1400,7 +1379,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -39,7 +39,7 @@ extension UIButton {
     /// removes other title attributes
     var titleSize: CGFloat {
         get {
-            let titleFont = attributedTitle(for: .normal)?.attribute(NSAttributedStringKey.font, at: 0, effectiveRange: nil) as? UIFont
+            let titleFont = attributedTitle(for: .normal)?.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
             return titleFont?.pointSize ?? UIFont.buttonFontSize
         }
         set {
@@ -49,7 +49,7 @@ extension UIButton {
             }
             else {
                 let attrTitle = NSAttributedString(string: currentTitle ?? "", attributes:
-                    [NSAttributedStringKey.font: UIFont.systemFont(ofSize: newValue), NSAttributedStringKey.foregroundColor: currentTitleColor]
+                                                    [NSAttributedString.Key.font: UIFont.systemFont(ofSize: newValue), NSAttributedString.Key.foregroundColor: currentTitleColor]
                 )
                 setAttributedTitle(attrTitle, for: .normal)
             }
