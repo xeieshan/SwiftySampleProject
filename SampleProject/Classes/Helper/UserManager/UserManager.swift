@@ -23,14 +23,14 @@ public class UserManager {
             return UserDefaults.standard.string(forKey: UserManager.UserManagerUserToken)!
         }
         set {
-            UserManager.setToken(token: token)
+            UserManager.setToken(token: newValue)
         }
     }
     
     
     class public var currentUser: MOProfile? {
         set {
-            UserManager.setCurrentUser(currentUser)
+            UserManager.setCurrentUser(newValue)
         }
         get {
             if (_currentUser != nil) {

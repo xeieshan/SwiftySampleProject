@@ -57,7 +57,7 @@ class UtilityHelper
     }
     
     class func getTopMostViewController() -> UIViewController {
-        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+        if var topController = UIApplication.shared.keyWindows?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }
@@ -917,16 +917,26 @@ class UtilityHelper
     #endif
     
     #if os(iOS)
-    /// Current status bar style (if applicable).
-    public static var statusBarStyle: UIStatusBarStyle? {
-        get {
-            return UIApplication.shared.statusBarStyle
+    /// Status bar style management
+    public struct StatusBarManager {
+        /// Get current status bar style
+        public static var currentStyle: UIStatusBarStyle? {
+            guard let scene = UIApplication.shared.connectedScenes.first(where: {
+                $0.activationState == .foregroundActive
+            }) as? UIWindowScene else { return nil }
+            
+            return scene.statusBarManager?.statusBarStyle
         }
-        set {
-            if let style = newValue {
-                UIApplication.shared.statusBarStyle = style
-            }
+        
+        /// Set status bar style for a specific view controller
+        public static func setStyle(_ style: UIStatusBarStyle, for viewController: UIViewController) {
+            viewController.setNeedsStatusBarAppearanceUpdate()
+            (viewController as? StatusBarStyleConfigurable)?.preferredStatusBarStyle = style
         }
+    }
+    
+    protocol StatusBarStyleConfigurable: UIViewController {
+        var preferredStatusBarStyle: UIStatusBarStyle { get set }
     }
     #endif
     

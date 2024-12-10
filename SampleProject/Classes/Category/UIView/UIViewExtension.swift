@@ -23,30 +23,24 @@ extension UIView {
     }
     
     //ANIMATION
-    func fadeOut(_ vc:UIViewController,delay:TimeInterval,duration:TimeInterval){
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(duration)
-        UIView.setAnimationDelay(delay)
-        UIView.setAnimationDelegate(vc)
-        self.alpha = 0
+    func fadeOut(_ vc: UIViewController, delay: TimeInterval, duration: TimeInterval){
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
+                vc.view.alpha = 0
+            }, completion: nil)
         UIView.commitAnimations()
     }
     
-    func fadeOut(_ vc:UIViewController,delay:TimeInterval,duration:TimeInterval,completionHandler:(()->Void)?){
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(duration)
-        UIView.setAnimationDelay(delay)
-        UIView.setAnimationDelegate(vc)
-        self.alpha = 0
+    func fadeOut(_ vc:UIViewController, delay: TimeInterval, duration: TimeInterval, completionHandler:(()->Void)?){
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
+                vc.view.alpha = 0
+            }, completion: nil)
         UIView.commitAnimations()
     }
     
     func fadeIn(_ vc:UIViewController,delay:TimeInterval,duration:TimeInterval){
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(duration)
-        UIView.setAnimationDelay(delay)
-        UIView.setAnimationDelegate(vc)
-        self.alpha = 1
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
+                vc.view.alpha = 1
+            }, completion: nil)
         UIView.commitAnimations()
     }
     
@@ -452,7 +446,7 @@ extension UIView {
             return UIColor(cgColor: layer.shadowColor!)
         }
         set {
-            layer.shadowColor = shadowColor.cgColor
+            layer.shadowColor = newValue.cgColor
         }
     }
     
@@ -461,7 +455,7 @@ extension UIView {
             return layer.shouldRasterize
         }
         set {
-            layer.shouldRasterize = shouldRasterize;
+            layer.shouldRasterize = newValue;
             if shouldRasterize{
                 layer.rasterizationScale = UIScreen.main.scale
             }
@@ -473,7 +467,7 @@ extension UIView {
             return layer.shadowOpacity
         }
         set {
-            layer.shadowOpacity = shadowOpacity
+            layer.shadowOpacity = newValue
         }
     }
     
@@ -482,7 +476,7 @@ extension UIView {
             return layer.shadowRadius
         }
         set {
-            layer.shadowRadius = shadowRadius
+            layer.shadowRadius = newValue
         }
     }
     
@@ -491,7 +485,7 @@ extension UIView {
             return layer.shadowOffset
         }
         set {
-            layer.shadowOffset = shadowOffset
+            layer.shadowOffset = newValue
         }
     }
     
@@ -500,7 +494,7 @@ extension UIView {
             return layer.masksToBounds
         }
         set {
-            layer.masksToBounds = masksToBounds;
+            layer.masksToBounds = newValue;
         }
     }
     

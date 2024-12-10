@@ -21,7 +21,7 @@ public extension UITabBar {
 	///   - selectedBackground: background color for selected tab.
 	///   - item: icon tint color for items.
 	///   - selectedItem: icon tint color for item.
-	public func setColors(background: UIColor? = nil,
+	func setColors(background: UIColor? = nil,
 	               selectedBackground: UIColor? = nil,
 	               item: UIColor? = nil,
 	               selectedItem: UIColor? = nil) {

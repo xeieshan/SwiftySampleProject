@@ -812,16 +812,17 @@ public extension String {
     //     decode("&#x20ac;") --> "€"
     //     decode("&lt;")     --> "<"
     //     decode("&foo;")    --> nil
-    fileprivate func decode(_ entity : String) -> Character? {
-        if entity.hasPrefix("&#x") || entity.hasPrefix("&#X"){
-            return decodeNumeric(entity.substring(from: entity.index(entity.startIndex, offsetBy: 3)), base: 16)
+    fileprivate func decode(_ entity: String) -> Character? {
+        if entity.hasPrefix("&#x") || entity.hasPrefix("&#X") {
+            guard entity.count >= 4 else { return nil }
+            return decodeNumeric(String(entity.dropFirst(3)), base: 16)
         } else if entity.hasPrefix("&#") {
-            return decodeNumeric(entity.substring(from: entity.index(entity.startIndex, offsetBy: 2)), base: 10)
+            guard entity.count >= 3 else { return nil }
+            return decodeNumeric(String(entity.dropFirst(2)), base: 10)
         } else {
             return HTMLEntities.characterEntities[entity]
         }
     }
-    
     
     /// Returns a new string made by replacing in the `String`
     /// all HTML character entity references with the corresponding

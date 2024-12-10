@@ -25,7 +25,7 @@ let APPLICATION = UIApplication.shared
 let CURRENT_DEVICE = UIDevice.current
 let MAIN_RUN_LOOP = RunLoop.main
 let GENERAL_PASTEBOARD = UIPasteboard.general
-let CURRENT_LANGUAGE = NSLocale.current.languageCode
+let CURRENT_LANGUAGE = NSLocale.current.language.languageCode?.identifier
 
 // Network
 let NETWORK_ACTIVITY = APPLICATION.isNetworkActivityIndicatorVisible
