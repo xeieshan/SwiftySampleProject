@@ -16,7 +16,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Image of disabled state for button; also inspectable from Storyboard.
-	var imageForDisabled: UIImage? {
+	public var imageForDisabled: UIImage? {
 		get {
 			return image(for: .disabled)
 		}
@@ -27,7 +27,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Image of highlighted state for button; also inspectable from Storyboard.
-	var imageForHighlighted: UIImage? {
+	public var imageForHighlighted: UIImage? {
 		get {
 			return image(for: .highlighted)
 		}
@@ -38,7 +38,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Image of normal state for button; also inspectable from Storyboard.
-	var imageForNormal: UIImage? {
+	public var imageForNormal: UIImage? {
 		get {
 			return image(for: .normal)
 		}
@@ -49,7 +49,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Image of selected state for button; also inspectable from Storyboard.
-	var imageForSelected: UIImage? {
+	public var imageForSelected: UIImage? {
 		get {
 			return image(for: .selected)
 		}
@@ -60,7 +60,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title color of disabled state for button; also inspectable from Storyboard.
-	var titleColorForDisabled: UIColor? {
+	public var titleColorForDisabled: UIColor? {
 		get {
 			return titleColor(for: .highlighted)
 		}
@@ -71,7 +71,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title color of highlighted state for button; also inspectable from Storyboard.
-	var titleColorForHighlighted: UIColor? {
+	public var titleColorForHighlighted: UIColor? {
 		get {
 			return titleColor(for: .highlighted)
 		}
@@ -82,7 +82,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title color of normal state for button; also inspectable from Storyboard.
-	var titleColorForNormal: UIColor? {
+	public var titleColorForNormal: UIColor? {
 		get {
 			return titleColor(for: .normal)
 		}
@@ -93,7 +93,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title color of selected state for button; also inspectable from Storyboard.
-	var titleColorForSelected: UIColor? {
+	public var titleColorForSelected: UIColor? {
 		get {
 			return titleColor(for: .selected)
 		}
@@ -104,7 +104,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title of disabled state for button; also inspectable from Storyboard.
-	var titleForDisabled: String? {
+	public var titleForDisabled: String? {
 		get {
 			return title(for: .disabled)
 		}
@@ -115,7 +115,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title of highlighted state for button; also inspectable from Storyboard.
-	var titleForHighlighted: String? {
+	public var titleForHighlighted: String? {
 		get {
 			return title(for: .highlighted)
 		}
@@ -126,7 +126,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title of normal state for button; also inspectable from Storyboard.
-	var titleForNormal: String? {
+	public var titleForNormal: String? {
 		get {
 			return title(for: .normal)
 		}
@@ -137,7 +137,7 @@ public extension UIButton {
 	
 	@IBInspectable
 	/// Title of selected state for button; also inspectable from Storyboard.
-	var titleForSelected: String? {
+	public var titleForSelected: String? {
 		get {
 			return title(for: .selected)
 		}
@@ -159,21 +159,21 @@ public extension UIButton {
 	/// Set image for all states.
 	///
 	/// - Parameter image: UIImage.
-	func setImageForAllStates(_ image: UIImage) {
+	public func setImageForAllStates(_ image: UIImage) {
 		states.forEach { self.setImage(image, for:  $0) }
 	}
 	
 	/// Set title color for all states.
 	///
 	/// - Parameter color: UIColor.
-	func setTitleColorForAllStates(_ color: UIColor) {
+	public func setTitleColorForAllStates(_ color: UIColor) {
 		states.forEach { self.setTitleColor(color, for: $0) }
 	}
 	
 	/// Set title for all states.
 	///
 	/// - Parameter title: title string.
-	func setTitleForAllStates(_ title: String) {
+	public func setTitleForAllStates(_ title: String) {
 		states.forEach { self.setTitle(title, for: $0) }
 	}
     
@@ -194,45 +194,35 @@ public extension UIButton {
     }
     
     private func positionLabelRespectToImage(title: NSString, position: UIView.ContentMode, spacing: CGFloat) {
-        // 1. Configuration setup
-        var configuration = self.configuration ?? UIButton.Configuration.plain()
+        let imageSize = self.imageRect(forContentRect: self.frame)
+        let titleFont = self.titleLabel?.font!
+        let titleSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont!])
         
-        // 2. Safe image handling
-        let currentImage = self.image(for: .normal)
+        var titleInsets: UIEdgeInsets
+        var imageInsets: UIEdgeInsets
         
-        // 3. Position mapping
-        switch position {
+        switch (position){
         case .top:
-            configuration.imagePlacement = .top
+            titleInsets = UIEdgeInsets(top: -(imageSize.height + titleSize.height + spacing), left: -(imageSize.width), bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
         case .bottom:
-            configuration.imagePlacement = .bottom
+            titleInsets = UIEdgeInsets(top: (imageSize.height + titleSize.height + spacing), left: -(imageSize.width), bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
         case .left:
-            configuration.imagePlacement = .leading
+            titleInsets = UIEdgeInsets(top: 0, left: -(imageSize.width * 2), bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -(titleSize.width * 2 + spacing))
         case .right:
-            configuration.imagePlacement = .trailing
+            titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -spacing)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         default:
-            configuration.imagePlacement = .leading  // Better default for most cases
+            titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         
-        // 4. Consistent spacing
-        configuration.imagePadding = spacing
-        
-        self.setTitle(title as String, for: .normal)
-        
-        // 5. Safe title preservation
-        let currentTitle = self.title(for: .normal) ?? ""
-        
-        // 6. Proper configuration update
-        configuration.title = currentTitle
-        configuration.image = currentImage
-        
-        // 7. Apply configuration
-        self.configuration = configuration
-        
-        // 8. Layout handling
-        self.setNeedsLayout()
-        self.layoutIfNeeded()
+        self.titleEdgeInsets = titleInsets
+        self.imageEdgeInsets = imageInsets
     }
+	
 }
 
 #endif

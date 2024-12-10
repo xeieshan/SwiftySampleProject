@@ -15,7 +15,7 @@ import UIKit
 public extension UIViewController {
 	
 	/// Check if ViewController is onscreen and not hidden.
-	var isVisible: Bool {
+	public var isVisible: Bool {
 		// http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
 		return self.isViewLoaded && view.window != nil
 	}
@@ -35,21 +35,22 @@ public extension UIViewController {
 	/// - Parameters:
 	///   - name: notification name.
 	///   - selector: selector to run with notified.
-	func addNotificationObserver(name: Notification.Name, selector: Selector) {
+	public func addNotificationObserver(name: Notification.Name, selector: Selector) {
 		NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
 	}
 	
 	/// Unassign as listener to notification.
 	///
 	/// - Parameter name: notification name.
-	func removeNotificationObserver(name: Notification.Name) {
+	public func removeNotificationObserver(name: Notification.Name) {
 		NotificationCenter.default.removeObserver(self, name: name, object: nil)
 	}
 	
 	/// Unassign as listener from all notifications.
-	func removeNotificationsObserver() {
+	public func removeNotificationsObserver() {
 		NotificationCenter.default.removeObserver(self)
 	}
+	
 }
 
 #endif

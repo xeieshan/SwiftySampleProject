@@ -19,7 +19,7 @@ public extension UIBarButtonItem {
 	/// - Parameters:
 	///   - target: target.
 	///   - action: selector to run when button is tapped.
-	func addTargetForAction(target: AnyObject, action: Selector) {
+	public func addTargetForAction(target: AnyObject, action: Selector) {
 		self.target = target
 		self.action = action
 	}

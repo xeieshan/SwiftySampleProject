@@ -15,7 +15,7 @@ import UIKit
 public extension UISearchBar {
 	
 	/// Text field inside search bar (if applicable).
-	var textField: UITextField? {
+	public var textField: UITextField? {
 		let subViews = subviews.flatMap { $0.subviews }
 		guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else {
 			return nil
@@ -24,7 +24,7 @@ public extension UISearchBar {
 	}
 	
 	/// Text with no spaces or new lines in beginning and end (if applicable).
-	var trimmedText: String? {
+	public var trimmedText: String? {
 		return text?.trimmed
 	}
 	

@@ -14,7 +14,7 @@ public extension NSAttributedString {
 	
 	#if os(iOS)
 	/// Bold string
-	var bold: NSAttributedString {
+	public var bold: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
 			return self
 		}
@@ -25,7 +25,7 @@ public extension NSAttributedString {
 	#endif
 	
 	/// Underlined string
-	var underline: NSAttributedString {
+	public var underline: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
 			return self
 		}
@@ -36,7 +36,7 @@ public extension NSAttributedString {
 	
 	#if os(iOS)
 	/// Italic string
-	var italic: NSAttributedString {
+	public var italic: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
 			return self
 		}
@@ -47,7 +47,7 @@ public extension NSAttributedString {
 	#endif
 	
 	/// Strikethrough string
-	var strikethrough: NSAttributedString {
+	public var strikethrough: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
 			return self
 		}
@@ -68,7 +68,7 @@ public extension NSAttributedString {
 	///
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString colored with given color.
-	func colored(with color: UIColor) -> NSAttributedString {
+	public func colored(with color: UIColor) -> NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
 			return self
 		}
@@ -88,7 +88,7 @@ public extension NSAttributedString {
 	/// - Parameters:
 	///   - lhs: NSAttributedString to add to.
 	///   - rhs: NSAttributedString to add.
-	static func += (lhs: inout NSAttributedString, rhs: NSAttributedString) {
+	public static func += (lhs: inout NSAttributedString, rhs: NSAttributedString) {
 		let ns = NSMutableAttributedString(attributedString: lhs)
 		ns.append(rhs)
 		lhs = ns
