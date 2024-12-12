@@ -22,8 +22,17 @@ extension UIColor {
     }
     
     public convenience init(colorString: String) {
-        var colorInt: UInt32 = 0
-        Scanner(string: colorString).scanHexInt32(&colorInt)
-        self.init(rgb: (Int) (colorInt ))
+        var colorInt: UInt64 = 0
+        let scanner = Scanner(string: colorString)
+        
+        if colorString.hasPrefix("#") {
+            scanner.currentIndex = colorString.index(after: colorString.startIndex)
+        }
+        
+        if scanner.scanHexInt64(&colorInt) {
+            self.init(rgb: Int(colorInt))
+        } else {
+            self.init(rgb: 0)
+        }
     }
 }

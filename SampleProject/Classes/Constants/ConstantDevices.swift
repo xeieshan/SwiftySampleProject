@@ -12,8 +12,8 @@ import Foundation
     //#define ConstantDevices_h
     // Screen type
     //#define IS_RETINA_SCREEN()                          (MAIN_SCREEN.scale > 1.0)
-    static let SCREEN_WIDTH = (((UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.portrait) || (UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.portraitUpsideDown)) ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height)
-    static let SCREEN_HEIGHT = (((UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.portrait) || (UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.portraitUpsideDown)) ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width)
+    static let SCREEN_WIDTH = UIScreen.screenWidth
+    static let SCREEN_HEIGHT = UIScreen.screenHeight
     static let SCREEN_MAX_LENGTH = (max(SCREEN_WIDTH, SCREEN_HEIGHT))
     static let SCREEN_MIN_LENGTH = (min(SCREEN_WIDTH, SCREEN_HEIGHT))
     static let IS_IPHONE_4_OR_LESS = (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)

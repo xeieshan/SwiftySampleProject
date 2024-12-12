@@ -33,12 +33,12 @@ extension String {
 	var camelCased: String {
 		let source = lowercased()
 		if source.contains(" ") {
-			let first = source.substring(to: source.index(after: source.startIndex))
+            let first = String(source[..<source.index(after: source.startIndex)])
 			let camel = source.capitalized.replacing(" ", with: "").replacing("\n", with: "")
 			let rest = String(camel.dropFirst())
 			return "\(first)\(rest)"
 		} else {
-			let first = source.lowercased().substring(to: source.index(after: source.startIndex))
+			let first = String(source.lowercased()[..<source.index(after: source.startIndex)])
 			let rest = String(source.dropFirst())
 			return "\(first)\(rest)"
 			
@@ -365,7 +365,7 @@ extension String {
 	/// - Parameter string: substring to search for.
 	/// - Returns: first index of substring in string (if applicable).
 	func firstIndex(of string: String) -> Int? {
-		return Array(self).map({String($0)}).index(of: string)
+        return Array(self).map({String($0)}).firstIndex(of: string)
 	}
 	
 	/// Latinize string.
@@ -377,18 +377,21 @@ extension String {
 	///
 	/// - Parameter ofLength: number of characters in string.
 	/// - Returns: random string of given length.
-	static func random(ofLength: Int) -> String {
-		var string = ""
-		guard ofLength > 0 else {
-			return string
-		}
-		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-		for _ in 0..<ofLength {
-			let randomIndex = arc4random_uniform(UInt32(base.count))
-			string += "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
-		}
-		return string
-	}
+    static func random(ofLength length: Int) -> String {
+        guard length > 0 else { return "" }
+        
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let characters = Array(base)
+        var result = ""
+        result.reserveCapacity(length)
+        
+        for _ in 0..<length {
+            let randomIndex = Int.random(in: 0..<characters.count)
+            result.append(characters[randomIndex])
+        }
+        
+        return result
+    }
 	
 	/// String by replacing part of string with another string.
 	///
@@ -520,14 +523,15 @@ extension String {
 	/// - Parameters:
 	///   - toLength: maximum number of charachters before cutting.
 	///   - trailing: string to add at the end of truncated string.
-	mutating func truncate(toLength: Int, trailing: String? = "...") {
-		guard toLength > 0 else {
-			return
-		}
-		if self.count > toLength {
-			self = self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
-		}
-	}
+    mutating func truncate(toLength: Int, trailing: String? = "...") {
+        guard toLength > 0 else { return }
+        
+        if count > toLength {
+            let effectiveLength = toLength - (trailing?.count ?? 0)
+            let truncated = String(prefix(effectiveLength >= 0 ? effectiveLength : toLength))
+            self = truncated + (trailing ?? "")
+        }
+    }
 	
 	/// Truncated string (limited to a given number of characters).
 	/// Truncated string (cut to a given number of characters).
@@ -536,12 +540,15 @@ extension String {
 	///   - toLength: maximum number of charachters before cutting.
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an exa...).
-	func truncated(toLength: Int, trailing: String? = "...") -> String {
-		guard self.count > toLength, toLength > 0 else {
-			return self
-		}
-		return self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
-	}
+    func truncated(toLength: Int, trailing: String? = "...") -> String {
+        guard self.count > toLength, toLength > 0 else {
+            return self
+        }
+        
+        let effectiveLength = max(toLength - (trailing?.count ?? 0), 0)
+        let truncated = String(self.prefix(effectiveLength)).trimmingCharacters(in: .whitespacesAndNewlines)
+        return truncated + (trailing ?? "")
+    }
 	
 	/// Convert URL string to readable string.
 	mutating func urlDecode() {

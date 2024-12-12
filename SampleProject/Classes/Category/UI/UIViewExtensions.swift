@@ -51,7 +51,7 @@ public extension UIView {
 	
 	
 	/// First responder.
-	public var firstResponder: UIView? {
+	var firstResponder: UIView? {
 		guard !self.isFirstResponder else {
 			return self
 		}
@@ -64,7 +64,7 @@ public extension UIView {
 	}
 	
 	// Height of view.
-	public var height: CGFloat {
+	var height: CGFloat {
 		get {
 			return self.frame.size.height
 		}
@@ -74,7 +74,7 @@ public extension UIView {
 	}
 	
 	/// Check if view is in RTL format.
-	public var isRightToLeft: Bool {
+	var isRightToLeft: Bool {
 		if #available(iOS 10.0, *, tvOS 10.0, *) {
 			return effectiveUserInterfaceLayoutDirection == .rightToLeft
 		} else {
@@ -83,7 +83,7 @@ public extension UIView {
 	}
 	
 	/// Take screenshot of view (if applicable).
-	public var screenshot: UIImage? {
+	var screenshot: UIImage? {
 		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
 		defer {
 			UIGraphicsEndImageContext()
@@ -97,7 +97,7 @@ public extension UIView {
 	
 		
 	/// Size of view.
-	public var size: CGSize {
+	var size: CGSize {
 		get {
 			return self.frame.size
 		}
@@ -108,7 +108,7 @@ public extension UIView {
 	}
 	
 	/// Get view's parent view controller
-	public var parentViewController: UIViewController? {
+	var parentViewController: UIViewController? {
 		weak var parentResponder: UIResponder? = self
 		while parentResponder != nil {
 			parentResponder = parentResponder!.next
@@ -120,7 +120,7 @@ public extension UIView {
 	}
 	
 	/// Width of view.
-	public var width: CGFloat {
+	var width: CGFloat {
 		get {
 			return self.frame.size.width
 		}
@@ -140,7 +140,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
 	///   - radius: radius for selected corners.
-	public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+	func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
 		let maskPath = UIBezierPath(roundedRect: bounds,
 		                            byRoundingCorners: corners,
 		                            cornerRadii: CGSize(width: radius, height: radius))
@@ -156,7 +156,7 @@ public extension UIView {
 	///   - radius: shadow radius (default is 3).
 	///   - offset: shadow offset (default is .zero).
 	///   - opacity: shadow opacity (default is 0.5).
-	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992),
+	func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992),
 	                      radius: CGFloat = 3,
 	                      offset: CGSize = CGSize.zero,
 	                      opacity: Float = 0.5) {
@@ -170,7 +170,7 @@ public extension UIView {
 	/// Add array of subviews to view.
 	///
 	/// - Parameter subViews: array of subviews to add to self.
-	public func add(subViews: [UIView]) {
+	func add(subViews: [UIView]) {
 		subViews.forEach({self.addSubview($0)})
 	}
 	
@@ -179,7 +179,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil)
-	public func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		if self.isHidden {
 			self.isHidden = false
 		}
@@ -193,7 +193,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil)
-	public func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		if self.isHidden {
 			self.isHidden = false
 		}
@@ -213,12 +213,12 @@ public extension UIView {
 	}
 	
 	/// Remove all subviews in view.
-	public func removeSubViews() {
+	func removeSubViews() {
 		self.subviews.forEach({$0.removeFromSuperview()})
 	}
 	
 	/// Remove all gesture recognizers from view.
-	public func removeGestureRecognizers() {
+	func removeGestureRecognizers() {
 		gestureRecognizers?.forEach(removeGestureRecognizer)
 	}
 	
@@ -230,7 +230,7 @@ public extension UIView {
 	///   - animated: set true to animate rotation (default is true).
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		let angleWithType = (type == .degrees) ? CGFloat(Double.pi) * angle / 180.0 : angle
 		let aDuration = animated ? duration : 0
 		UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -246,7 +246,7 @@ public extension UIView {
 	///   - animated: set true to animate rotation (default is false).
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		let angleWithType = (type == .degrees) ? CGFloat(Double.pi) * angle / 180.0 : angle
 		let aDuration = animated ? duration : 0
 		UIView.animate(withDuration: aDuration, animations: {
@@ -261,7 +261,7 @@ public extension UIView {
 	///   - animated: set true to animate scaling (default is false).
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		if animated {
 			UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
 				self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
@@ -279,7 +279,7 @@ public extension UIView {
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - animationType: shake animation type (default is .easeOut).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
+	func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
 		
 		CATransaction.begin()
 		let animation: CAKeyframeAnimation
@@ -311,7 +311,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - withFormat: visual Format language
 	///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
-	@available(iOS 9, *) public func addConstraints(withFormat: String, views: UIView...) {
+	@available(iOS 9, *) func addConstraints(withFormat: String, views: UIView...) {
 		// https://videos.letsbuildthatapp.com/
 		var viewsDictionary: [String: UIView] = [:]
 		for (index, view) in views.enumerated() {
@@ -323,7 +323,7 @@ public extension UIView {
 	}
 	
 	/// Anchor all sides of the view into it's superview.
-	@available(iOS 9, *) public func fillToSuperview() {
+	@available(iOS 9, *) func fillToSuperview() {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let superview = superview {
@@ -348,7 +348,7 @@ public extension UIView {
 	///   - widthConstant: current view's width
 	///   - heightConstant: current view's height
 	/// - Returns: array of newly added constraints (if applicable).
-	@available(iOS 9, *) @discardableResult public func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
+	@available(iOS 9, *) @discardableResult func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		
@@ -386,7 +386,7 @@ public extension UIView {
 	/// Anchor center X into current view's superview with a constant margin value.
 	///
 	/// - Parameter withConstant: constant of the anchor constraint.
-	@available(iOS 9, *) public func anchorCenterXToSuperview(withConstant: CGFloat = 0) {
+	@available(iOS 9, *) func anchorCenterXToSuperview(withConstant: CGFloat = 0) {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let anchor = superview?.centerXAnchor {
@@ -397,7 +397,7 @@ public extension UIView {
 	/// Anchor center Y into current view's superview with a constant margin value.
 	///
 	/// - Parameter withConstant: constant of the anchor constraint.
-	@available(iOS 9, *) public func anchorCenterYToSuperview(constant: CGFloat = 0) {
+	@available(iOS 9, *) func anchorCenterYToSuperview(constant: CGFloat = 0) {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let anchor = superview?.centerYAnchor {
@@ -406,7 +406,7 @@ public extension UIView {
 	}
 	
 	/// Anchor center X and Y into current view's superview
-	@available(iOS 9, *) public func anchorCenterSuperview() {
+	@available(iOS 9, *) func anchorCenterSuperview() {
 		// https://videos.letsbuildthatapp.com/
 		anchorCenterXToSuperview()
 		anchorCenterYToSuperview()
