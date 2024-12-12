@@ -28,17 +28,17 @@ public extension UITableView {
     }
     
 	/// Index path of last row in tableView.
-	var indexPathForLastRow: IndexPath? {
+	public var indexPathForLastRow: IndexPath? {
 		return indexPathForLastRow(inSection: lastSection)
 	}
 	
 	/// Index of last section in tableView.
-	var lastSection: Int {
+	public var lastSection: Int {
 		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
 	/// Number of all rows in all sections of tableView.
-	var numberOfRows: Int {
+	public var numberOfRows: Int {
 		var section = 0
 		var rowCount = 0
 		while section < numberOfSections {
@@ -58,7 +58,7 @@ public extension UITableView {
 	///
 	/// - Parameter section: section to get last row in.
 	/// - Returns: optional last indexPath for last row in section (if applicable).
-	func indexPathForLastRow(inSection section: Int) -> IndexPath? {
+	public func indexPathForLastRow(inSection section: Int) -> IndexPath? {
 		guard section >= 0 else {
 			return nil
 		}
@@ -80,12 +80,12 @@ public extension UITableView {
 	}
 	
 	/// Remove TableFooterView.
-	func removeTableFooterView() {
+	public func removeTableFooterView() {
 		tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 	}
 	
 	/// Remove TableHeaderView.
-	func removeTableHeaderView() {
+	public func removeTableHeaderView() {
 		tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 	}
 	
@@ -93,7 +93,7 @@ public extension UITableView {
 	/// Scroll to bottom of TableView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
-	func scrollToBottom(animated: Bool = true) {
+	public func scrollToBottom(animated: Bool = true) {
 		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
 		setContentOffset(bottomOffset, animated: animated)
 	}
@@ -101,7 +101,7 @@ public extension UITableView {
 	/// Scroll to top of TableView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
-	func scrollToTop(animated: Bool = true) {
+	public func scrollToTop(animated: Bool = true) {
 		setContentOffset(CGPoint.zero, animated: animated)
 	}
 	

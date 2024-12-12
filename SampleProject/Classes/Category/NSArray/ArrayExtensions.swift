@@ -13,13 +13,13 @@ import Foundation
 public extension Array {
 	
 	/// Random item from array.
-	var randomItem: Element {
+	public var randomItem: Element {
 		let index = Int(arc4random_uniform(UInt32(self.count)))
 		return self[index]
 	}
 	
 	/// Shuffled version of array.
-	var shuffled: [Element] {
+	public var shuffled: [Element] {
 		var arr = self
 		for _ in 0..<10 {
 			arr.sort { (_,_) in arc4random() < arc4random() }
@@ -34,7 +34,7 @@ public extension Array {
 public extension Collection where Iterator.Element == Int, Index == Int {
 	
 	/// Average of all elements in array.
-	var average: Double {
+	public var average: Double {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
 	}
@@ -58,13 +58,13 @@ public extension Collection where Iterator.Element == Int, Index == Int {
 public extension Array where Element: FloatingPoint {
 	
 	/// Average of all elements in array.
-	var average: Element {
+	public var average: Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : reduce(0, +) / Element(count)
 	}
 	
 	/// Sum of all elements in array.
-	var sum: Element {
+	public var sum: Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
@@ -76,7 +76,7 @@ public extension Array where Element: FloatingPoint {
 public extension Array where Element: Equatable {
 	
 	/// Array with all duplicates removed from it.
-	var withoutDuplicates: [Element] {
+	public var withoutDuplicates: [Element] {
 		// Thanks to https://github.com/sairamkotha for improving the preperty
 		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
 	}
@@ -91,7 +91,7 @@ public extension Array {
 	///
 	/// - Parameter index: index of element.
 	/// - Returns: optional element (if exists).
-    func item(at index: Int) -> Element? {
+	public func item(at index: Int) -> Element? {
 		guard index >= 0 && index < count else { return nil }
 		return self[index]
 	}
@@ -100,7 +100,7 @@ public extension Array {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: first index of item in array (if exists).
-	func firstIndex <Item: Equatable> (of item: Item) -> Int? {
+	public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
 		if item is Element {
 			for (index, value) in self.lazy.enumerated() {
 				if value as! Item == item {
@@ -116,7 +116,7 @@ public extension Array {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: last index of item in array (if exists).
-	func lastIndex <Item: Equatable> (of item: Item) -> Int? {
+	public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
 		if item is Element {
 			for (index, value) in self.reversed().lazy.enumerated() {
 				if value as! Item == item {
@@ -131,7 +131,7 @@ public extension Array {
 	/// Remove last element from array and return it.
 	///
 	/// - Returns: last elemets in array (if applicable).
-	@discardableResult mutating func pop() -> Element? {
+	@discardableResult public mutating func pop() -> Element? {
 		guard self.count > 0 else {
 			return nil
 		}
@@ -141,19 +141,19 @@ public extension Array {
 	/// Insert an element at the beginning of array.
 	///
 	/// - Parameter newElement: element to insert.
-	mutating func prepend(_ newElement: Element) {
+	public mutating func prepend(_ newElement: Element) {
 		self.insert(newElement, at: 0)
 	}
 	
 	/// Insert an element to the end of array.
 	///
 	/// - Parameter newElement: element to insert.
-	mutating func push(_ newElement: Element) {
+	public mutating func push(_ newElement: Element) {
 		return append(newElement)
 	}
 	
 	/// Shuffle array.
-	mutating func shuffle() {
+	public mutating func shuffle() {
 		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
 		for _ in 0..<10 {
 			sort { (_,_) in arc4random() < arc4random() }
@@ -170,7 +170,7 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter elements: array of elements to check.
 	/// - Returns: true if array contains all given items.
-	func contains(_ elements: [Element]) -> Bool {
+	public func contains(_ elements: [Element]) -> Bool {
 		guard !elements.isEmpty else { // elements array is empty
 			return false
 		}
@@ -187,7 +187,7 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: an array with all indexes of the given item.
-	func indexes(of item: Element) -> [Int] {
+	public func indexes(of item: Element) -> [Int] {
 		var indexes: [Int] = []
 		for index in 0..<self.count {
 			if self[index] == item {
@@ -200,12 +200,12 @@ public extension Array where Element: Equatable {
 	/// Remove all instances of an item from array.
 	///
 	/// - Parameter item: item to remove.
-	mutating func removeAll(_ item: Element) {
+	public mutating func removeAll(_ item: Element) {
 		self = self.filter { $0 != item }
 	}
 	
 	/// Remove all duplicates from array.
-	mutating func removeDuplicates() {
+	public mutating func removeDuplicates() {
 		// Thanks to https://github.com/sairamkotha for improving the method
 		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
 	}

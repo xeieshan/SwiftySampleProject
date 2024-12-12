@@ -23,34 +23,29 @@ public class UserManager {
             return UserDefaults.standard.string(forKey: UserManager.UserManagerUserToken)!
         }
         set {
-            UserManager.setToken(token: newValue)
+            UserManager.setToken(token: token)
         }
     }
     
+    
     class public var currentUser: MOProfile? {
         set {
-            UserManager.setCurrentUser(newValue)
+            UserManager.setCurrentUser(currentUser)
         }
         get {
             if (_currentUser != nil) {
-                return _currentUser
+                return _currentUser!
+            }
+            let dataCurentUser: NSData! = NSData(contentsOfFile: UserManager.pathWithObjectType(objectType: UserManager.kUserType))
+            if (dataCurentUser != nil) {
+                _currentUser = NSKeyedUnarchiver.unarchiveObject(with: dataCurentUser as Data) as? MOProfile
+                return _currentUser!
             }
             
-            let filePath = UserManager.pathWithObjectType(objectType: UserManager.kUserType)
-            
-            guard let dataCurrentUser = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
-                return nil
-            }
-            
-            do {
-                _currentUser = try NSKeyedUnarchiver.unarchivedObject(ofClass: MOProfile.self, from: dataCurrentUser)
-                return _currentUser
-            } catch {
-                print("Failed to unarchive user: \(error.localizedDescription)")
-                return nil
-            }
+            return nil
         }
     }
+    
     
     init() {
         
@@ -68,11 +63,10 @@ public class UserManager {
     }
     
     class func saveCurrentUser() {
-        guard let currentUser = _currentUser else {
-            assertionFailure("Error! Save current user: _currentUser == nil!!")
+        if _currentUser == nil {
+            assert(_currentUser != nil, "Error! Save current user: currentUser == nil!!")
             return
         }
-        
         let path: String = UserManager.pathWithObjectType(objectType: UserManager.kUserType)
         let filemgr : FileManager = FileManager.default
         
@@ -87,8 +81,9 @@ public class UserManager {
             print ("Failed to Delete logged user")
         }
         
+        let userData: Data = NSKeyedArchiver.archivedData(withRootObject: _currentUser!) as Data
+        
         do{
-            let userData = try NSKeyedArchiver.archivedData(withRootObject: currentUser, requiringSecureCoding: false)
             try userData.write(to: URL(fileURLWithPath: path), options: .atomic)
         }catch _ {
             debugPrint("Failed to write")

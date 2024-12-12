@@ -15,17 +15,17 @@ import UIKit
 public extension UICollectionView {
 	
 	/// Index path of last item in collectionView.
-	var indexPathForLastItem: IndexPath? {
+	public var indexPathForLastItem: IndexPath? {
 		return indexPathForLastItem(inSection: lastSection)
 	}
 	
 	/// Index of last section in collectionView.
-	var lastSection: Int {
+	public var lastSection: Int {
 		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
 	/// Number of all items in all sections of collectionView.
-	var numberOfItems: Int {
+	public var numberOfItems: Int {
 		var section = 0
 		var itemsCount = 0
 		while section < self.numberOfSections {
@@ -45,7 +45,7 @@ public extension UICollectionView {
 	///
 	/// - Parameter section: section to get last item in.
 	/// - Returns: optional last indexPath for last item in section (if applicable).
-	func indexPathForLastItem(inSection section: Int) -> IndexPath? {
+	public func indexPathForLastItem(inSection section: Int) -> IndexPath? {
 		guard section >= 0 else {
 			return nil
 		}

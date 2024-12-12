@@ -13,12 +13,12 @@ import UIKit
 public extension UIImage {
 
 	/// Size in bytes of UIImage
-	var bytesSize: Int {
+	public var bytesSize: Int {
 		return self.jpegData(compressionQuality: 1)?.count ?? 0
 	}
 
 	/// Size in kilo bytes of UIImage
-	var kilobytesSize: Int {
+	public var kilobytesSize: Int {
 		return bytesSize / 1024
 	}
 
@@ -32,7 +32,7 @@ public extension UIImage {
 	///
 	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
 	/// - Returns: optional UIImage (if applicable).
-	func compressed(quality: CGFloat = 0.5) -> UIImage? {
+	public func compressed(quality: CGFloat = 0.5) -> UIImage? {
 		guard let data = compressedData(quality: quality) else {
 			return nil
 		}
@@ -43,7 +43,7 @@ public extension UIImage {
 	///
 	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
 	/// - Returns: optional Data (if applicable).
-	func compressedData(quality: CGFloat = 0.5) -> Data? {
+	public func compressedData(quality: CGFloat = 0.5) -> Data? {
         return self.jpegData(compressionQuality: quality)
 	}
 
@@ -51,7 +51,7 @@ public extension UIImage {
 	///
 	/// - Parameter rect: CGRect to crop UIImage to.
 	/// - Returns: cropped UIImage
-	func cropped(to rect: CGRect) -> UIImage {
+	public func cropped(to rect: CGRect) -> UIImage {
 		guard rect.size.height < self.size.height && rect.size.height < self.size.height else {
 			return self
 		}
@@ -67,7 +67,7 @@ public extension UIImage {
 	///   - toHeight: new height.
 	///   - orientation: optional UIImage orientation (default is nil).
 	/// - Returns: optional scaled UIImage (if applicable).
-    func scaled(toHeight: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
+    public func scaled(toHeight: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
 		let scale = toHeight / self.size.height
 		let newWidth = self.size.width * scale
 		UIGraphicsBeginImageContext(CGSize(width: newWidth, height: toHeight))
@@ -83,7 +83,7 @@ public extension UIImage {
 	///   - toWidth: new width.
 	///   - orientation: optional UIImage orientation (default is nil).
 	/// - Returns: optional scaled UIImage (if applicable).
-    func scaled(toWidth: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
+    public func scaled(toWidth: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
 		let scale = toWidth / self.size.width
 		let newHeight = self.size.height * scale
 		UIGraphicsBeginImageContext(CGSize(width: toWidth, height: newHeight))
@@ -97,7 +97,7 @@ public extension UIImage {
 	///
 	/// - Parameter color: color to fill image with.
 	/// - Returns: UIImage filled with given color.
-	func filled(withColor color: UIColor) -> UIImage {
+	public func filled(withColor color: UIColor) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
 		color.setFill()
 		guard let context = UIGraphicsGetCurrentContext() else {
@@ -132,7 +132,7 @@ public extension UIImage {
 	/// - Parameters:
 	///   - color: image fill color.
 	///   - size: image size.
-	convenience init(color: UIColor, size: CGSize) {
+	public convenience init(color: UIColor, size: CGSize) {
 		UIGraphicsBeginImageContextWithOptions(size, false, 1)
 		color.setFill()
 		UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))

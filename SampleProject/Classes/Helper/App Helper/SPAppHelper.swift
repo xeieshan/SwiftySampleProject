@@ -8,27 +8,27 @@
 
 import Foundation
 #if os(iOS)
-import UIKit
+    import UIKit
 #endif
 
 // MARK: - Global variables
 
 #if os(iOS)
-/// Get AppDelegate. To use it, cast to AppDelegate with "as! AppDelegate".
-let appDelegate: UIApplicationDelegate? = UIApplication.shared.delegate
+    /// Get AppDelegate. To use it, cast to AppDelegate with "as! AppDelegate".
+    public let appDelegate: UIApplicationDelegate? = UIApplication.shared.delegate
 
-// MARK: - Global functions
+    // MARK: - Global functions
 
-/// NSLocalizedString without comment parameter.
-///
-/// - Parameter key: The key of the localized string.
-/// - Returns: Returns a localized string.
-func NSLocalizedString(_ key: String) -> String {
-    return NSLocalizedString(key, comment: "")
-}
+    /// NSLocalizedString without comment parameter.
+    ///
+    /// - Parameter key: The key of the localized string.
+    /// - Returns: Returns a localized string.
+    public func NSLocalizedString(_ key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
 #endif
 
-enum SPAppHelperError: Error {
+public enum SPAppHelperError: Error {
     case jsonSerialization
     case errorLoadingSound
     case pathNotExist
@@ -39,7 +39,7 @@ enum SPAppHelperError: Error {
 // MARK: - SPAppHelper struct
 
 /// This class adds some useful functions for the App.
-struct SPAppHelper {
+public struct SPAppHelper {
     // MARK: - Variables
     
     /// Used to store the BFHasBeenOpened in defaults.
@@ -52,21 +52,21 @@ struct SPAppHelper {
     /// More info on how to use it [here](http://stackoverflow.com/questions/26890537/disabling-nslog-for-production-in-swift-project/26891797#26891797).
     ///
     /// - Parameter block: The block to be executed.
-    static func debug(_ block: () -> Void) {
-#if DEBUG
-        block()
-#endif
+    public static func debug(_ block: () -> Void) {
+        #if DEBUG
+            block()
+        #endif
     }
-    
+
     /// Executes a block only if NOT in DEBUG mode.
     ///
     /// More info on how to use it [here](http://stackoverflow.com/questions/26890537/disabling-nslog-for-production-in-swift-project/26891797#26891797).
     ///
     /// - Parameter block: The block to be executed.
-    static func release(_ block: () -> Void) {
-#if !DEBUG
-        block()
-#endif
+    public static func release(_ block: () -> Void) {
+        #if !DEBUG
+            block()
+        #endif
     }
     
     /// If version is set returns if is first start for that version,
@@ -74,7 +74,7 @@ struct SPAppHelper {
     ///
     /// - Parameter version: Version to be checked, you can use the variable SPAppHelper.version to pass the current App version.
     /// - Returns: Returns if is first start of the App or for custom version.
-    static func isFirstStart(version: String = "") -> Bool {
+    public static func isFirstStart(version: String = "") -> Bool {
         let key: String
         if version == "" {
             key = SPAppHelperHasBeenOpened
@@ -95,7 +95,7 @@ struct SPAppHelper {
     /// - Parameters:
     ///   - version: Version to be checked, you can use the variable SPAppHelper.version to pass the current App version.
     ///   - block: The block to execute, returns isFirstStart.
-    static func onFirstStart(version: String = "", block: (_ isFirstStart: Bool) -> Void) {
+    public static func onFirstStart(version: String = "", block: (_ isFirstStart: Bool) -> Void) {
         let key: String
         if version == "" {
             key = SPAppHelperHasBeenOpened
@@ -112,56 +112,56 @@ struct SPAppHelper {
         block(!hasBeenOpened)
     }
     
-#if os(iOS)
-    /// Set the App setting for a given object and key. The file will be saved in the Library directory.
-    ///
-    /// - Parameters:
-    ///   - object: Object to set.
-    ///   - objectKey: Key to set the object.
-    /// - Returns: Returns true if the operation was successful, otherwise false.
-    @discardableResult
-    static func setAppSetting(object: Any, forKey objectKey: String) -> Bool {
-        return FileManager.default.setSettings(filename: SPAppHelper.name, object: object, forKey: objectKey)
-    }
-    
-    /// Get the App setting for a given key.
-    ///
-    /// - Parameter objectKey: Key to get the object.
-    /// - Returns: Returns the object for the given key.
-    static func getAppSetting(objectKey: String) -> Any? {
-        return FileManager.default.getSettings(filename: SPAppHelper.name, forKey: objectKey)
-    }
-#endif
+    #if os(iOS)
+        /// Set the App setting for a given object and key. The file will be saved in the Library directory.
+        ///
+        /// - Parameters:
+        ///   - object: Object to set.
+        ///   - objectKey: Key to set the object.
+        /// - Returns: Returns true if the operation was successful, otherwise false.
+        @discardableResult
+        public static func setAppSetting(object: Any, forKey objectKey: String) -> Bool {
+            return FileManager.default.setSettings(filename: SPAppHelper.name, object: object, forKey: objectKey)
+        }
+        
+        /// Get the App setting for a given key.
+        ///
+        /// - Parameter objectKey: Key to get the object.
+        /// - Returns: Returns the object for the given key.
+        public static func getAppSetting(objectKey: String) -> Any? {
+            return FileManager.default.getSettings(filename: SPAppHelper.name, forKey: objectKey)
+        }
+    #endif
 }
 
 // MARK: - SPAppHelper extension
 
 /// Extends SPAppHelper with project infos.
-extension SPAppHelper {
+public extension SPAppHelper {
     // MARK: - Variables
     
     /// Return the App name.
-    static var name: String = {
+    public static var name: String = {
         return SPAppHelper.stringFromInfoDictionary(forKey: "CFBundleDisplayName")
     }()
     
     /// Returns the App version.
-    static var version: String = {
+    public static var version: String = {
         return SPAppHelper.stringFromInfoDictionary(forKey: "CFBundleShortVersionString")
     }()
     
     /// Returns the App build.
-    static var build: String = {
+    public static var build: String = {
         return SPAppHelper.stringFromInfoDictionary(forKey: "CFBundleVersion")
     }()
     
     /// Returns the App executable.
-    static var executable: String = {
+    public static var executable: String = {
         return SPAppHelper.stringFromInfoDictionary(forKey: "CFBundleExecutable")
     }()
     
     /// Returns the App bundle.
-    static var bundle: String = {
+    public static var bundle: String = {
         return SPAppHelper.stringFromInfoDictionary(forKey: "CFBundleIdentifier")
     }()
     
@@ -188,7 +188,7 @@ extension FileManager {
     /// - library: Library path.
     /// - documents: Documents path.
     /// - cache: Cache path.
-    enum PathType: Int {
+    public enum PathType: Int {
         case mainBundle
         case library
         case documents
@@ -202,7 +202,7 @@ extension FileManager {
     ///
     /// - Parameter path: Path type.
     /// - Returns: Returns the path type String.
-    func pathFor(_ path: PathType) -> String? {
+    public func pathFor(_ path: PathType) -> String? {
         var pathString: String?
         
         switch path {
@@ -225,7 +225,7 @@ extension FileManager {
     ///
     /// - Parameter file: Filename
     /// - Returns: Returns the path as a String.
-    func mainBundlePath(file: String = "") -> String? {
+    public func mainBundlePath(file: String = "") -> String? {
         return Bundle.main.path(forResource: file.deletingPathExtension, ofType: file.pathExtension)
     }
     
@@ -233,7 +233,7 @@ extension FileManager {
     ///
     /// - Parameter file: Filename
     /// - Returns: Returns the path as a String.
-    func documentsPath(file: String = "") -> String? {
+    public func documentsPath(file: String = "") -> String? {
         guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return nil
         }
@@ -244,7 +244,7 @@ extension FileManager {
     ///
     /// - Parameter file: Filename
     /// - Returns: Returns the path as a String.
-    func libraryPath(file: String = "") -> String? {
+    public func libraryPath(file: String = "") -> String? {
         guard let libraryURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first else {
             return nil
         }
@@ -255,7 +255,7 @@ extension FileManager {
     ///
     /// - Parameter file: Filename
     /// - Returns: Returns the path as a String.
-    func cachePath(file: String = "") -> String? {
+    public func cachePath(file: String = "") -> String? {
         guard let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {
             return nil
         }
@@ -266,7 +266,7 @@ extension FileManager {
     ///
     /// - Parameter file: Filename
     /// - Returns: Returns the path as a String.
-    func applicationSupportPath(file: String = "") -> String? {
+    public func applicationSupportPath(file: String = "") -> String? {
         guard let applicationSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
             return nil
         }
@@ -283,7 +283,7 @@ extension FileManager {
     /// - Returns: Returns true if the operation was successful, otherwise false.
     /// - Throws: Throws SPAppHelperError errors.
     @discardableResult
-    func setSettings(filename: String, object: Any, forKey objKey: String) -> Bool {
+    public func setSettings(filename: String, object: Any, forKey objKey: String) -> Bool {
         guard var path = FileManager.default.pathFor(.applicationSupport) else {
             return false
         }
@@ -306,7 +306,7 @@ extension FileManager {
     ///   - filename: Settings filename. "-Settings" will be automatically added.
     ///   - forKey: Object key.
     /// - Returns: Returns the object for the given key.
-    func getSettings(filename: String, forKey: String) -> Any? {
+    public func getSettings(filename: String, forKey: String) -> Any? {
         guard var path = FileManager.default.pathFor(.applicationSupport) else {
             return nil
         }
@@ -323,7 +323,7 @@ extension FileManager {
     }
 }
 /*
- Usage
+ Usage 
  
  SPAppHelper.onFirstStart { isFirstStart in
  if isFirstStart {

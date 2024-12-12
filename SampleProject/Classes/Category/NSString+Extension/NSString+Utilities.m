@@ -378,7 +378,7 @@
     }
     
     if (wantSeconds)
-        secondsString = [self stringWithFormat:NSLocalizedString(@"%ld %@", @"Seconds remaining"), (long)seconds,
+        secondsString = [self stringWithFormat:NSLocalizedString(@"%d %@", @"Seconds remaining"), seconds,
                          [self utilities_stringWithIntegerValue:seconds zero:nil singluar:secondSingular plural:secondsPlural]];
     
     if (minutes && seconds && wantSeconds && wantMinutes)
@@ -439,7 +439,7 @@
     else if (bytes >= kilobyte)
         temp = [self stringWithFormat:NSLocalizedStringFromTable(@"%.1f KB", @"ExtensionOpen", @"Kilobytes"), bytes / kilobyte];
     else
-        temp = [self stringWithFormat:NSLocalizedStringFromTable(@"%ld bytes", @"ExtensionOpen", @"Bytes"), (long)bytes];
+        temp = [self stringWithFormat:NSLocalizedStringFromTable(@"%d bytes", @"ExtensionOpen", @"Bytes"), bytes];
     
     return temp;
 }

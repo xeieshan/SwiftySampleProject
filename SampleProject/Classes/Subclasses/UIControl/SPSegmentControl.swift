@@ -212,8 +212,8 @@ public class SPSegmentControl: UIControl {
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         scrollView = UIScrollView()
-        guard let scrollView = scrollView else { return }
         self.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))

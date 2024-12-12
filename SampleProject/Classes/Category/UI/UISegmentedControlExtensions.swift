@@ -15,7 +15,7 @@ import UIKit
 public extension UISegmentedControl {
 	
 	/// Segments titles.
-	var segmentTitles: [String?] {
+	public var segmentTitles: [String?] {
 		get {
 			var titles: [String?] = []
 			var i = 0
@@ -34,7 +34,7 @@ public extension UISegmentedControl {
 	}
 	
 	/// Segments images.
-	var segmentImages: [UIImage?] {
+	public var segmentImages: [UIImage?] {
 		get {
 			var images: [UIImage?] = []
 			var i = 0

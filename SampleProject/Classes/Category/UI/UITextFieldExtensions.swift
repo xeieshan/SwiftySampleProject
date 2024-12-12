@@ -16,7 +16,7 @@ public extension UITextField {
 
 
 	/// Check if text field is empty.
-	var isEmpty: Bool {
+	public var isEmpty: Bool {
 		if let text = self.text {
 			return text.isEmpty
 		}
@@ -24,13 +24,13 @@ public extension UITextField {
 	}
 	
 	/// Return text with no spaces or new lines in beginning and end.
-	var trimmedText: String? {
+	public var trimmedText: String? {
 		return text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 	}
 	
 	@IBInspectable
 	/// Left view tint color.
-	var leftViewTintColor: UIColor? {
+	public var leftViewTintColor: UIColor? {
 		get {
 			guard let iconView = self.leftView as? UIImageView else {
 				return nil
@@ -48,7 +48,7 @@ public extension UITextField {
 	
 	@IBInspectable
 	/// Right view tint color.
-	var rightViewTintColor: UIColor? {
+	public var rightViewTintColor: UIColor? {
 		get {
 			guard let iconView = self.rightView as? UIImageView else {
 				return nil
@@ -72,7 +72,7 @@ public extension UITextField {
 	/// Set placeholder text color.
 	///
 	/// - Parameter color: placeholder text color.
-	func setPlaceHolderTextColor(_ color: UIColor) {
+	public func setPlaceHolderTextColor(_ color: UIColor) {
         self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: color])
 	}
 	

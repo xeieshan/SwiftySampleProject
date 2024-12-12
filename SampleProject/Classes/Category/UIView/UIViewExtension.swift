@@ -23,20 +23,43 @@ extension UIView {
     }
     
     //ANIMATION
-    func fadeOut(_ vc: UIViewController, delay: TimeInterval, duration: TimeInterval){
-        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { vc.view.alpha = 0 }, completion: nil)
+    func fadeOut(_ vc:UIViewController,delay:TimeInterval,duration:TimeInterval){
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(duration)
+        UIView.setAnimationDelay(delay)
+        UIView.setAnimationDelegate(vc)
+        self.alpha = 0
+        UIView.commitAnimations()
     }
     
-    func fadeOut(_ vc:UIViewController, delay: TimeInterval, duration: TimeInterval, completionHandler:(()->Void)?){
-        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { vc.view.alpha = 0 }, completion: nil)
+    func fadeOut(_ vc:UIViewController,delay:TimeInterval,duration:TimeInterval,completionHandler:(()->Void)?){
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(duration)
+        UIView.setAnimationDelay(delay)
+        UIView.setAnimationDelegate(vc)
+        self.alpha = 0
+        UIView.commitAnimations()
     }
     
     func fadeIn(_ vc:UIViewController,delay:TimeInterval,duration:TimeInterval){
-        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { vc.view.alpha = 1 }, completion: nil)
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(duration)
+        UIView.setAnimationDelay(delay)
+        UIView.setAnimationDelegate(vc)
+        self.alpha = 1
+        UIView.commitAnimations()
     }
     
     func moveView(_ duration:TimeInterval,x:CGFloat,y:CGFloat){
-        UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseOut, .beginFromCurrentState], animations: { self.transform = CGAffineTransform(translationX: x, y: y) }, completion: nil)
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(duration)
+        UIView.setAnimationCurve(UIView.AnimationCurve.easeOut)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        let transform = CGAffineTransform(translationX: x, y: y)
+        self.transform = transform
+        self.transform = transform
+        self.transform = transform
+        UIView.commitAnimations()
     }
     
     //UI
@@ -429,7 +452,7 @@ extension UIView {
             return UIColor(cgColor: layer.shadowColor!)
         }
         set {
-            layer.shadowColor = newValue.cgColor
+            layer.shadowColor = shadowColor.cgColor
         }
     }
     
@@ -438,7 +461,7 @@ extension UIView {
             return layer.shouldRasterize
         }
         set {
-            layer.shouldRasterize = newValue;
+            layer.shouldRasterize = shouldRasterize;
             if shouldRasterize{
                 layer.rasterizationScale = UIScreen.main.scale
             }
@@ -450,7 +473,7 @@ extension UIView {
             return layer.shadowOpacity
         }
         set {
-            layer.shadowOpacity = newValue
+            layer.shadowOpacity = shadowOpacity
         }
     }
     
@@ -459,7 +482,7 @@ extension UIView {
             return layer.shadowRadius
         }
         set {
-            layer.shadowRadius = newValue
+            layer.shadowRadius = shadowRadius
         }
     }
     
@@ -468,7 +491,7 @@ extension UIView {
             return layer.shadowOffset
         }
         set {
-            layer.shadowOffset = newValue
+            layer.shadowOffset = shadowOffset
         }
     }
     
@@ -477,7 +500,7 @@ extension UIView {
             return layer.masksToBounds
         }
         set {
-            layer.masksToBounds = newValue;
+            layer.masksToBounds = masksToBounds;
         }
     }
     

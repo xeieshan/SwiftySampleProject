@@ -13,27 +13,27 @@ import UIKit
 public extension CGFloat {
 	
 	/// Absolute of CGFloat value.
-    var abs: CGFloat {
+	public var abs: CGFloat {
 		return Swift.abs(self)
 	}
 	
 	/// Ceil of CGFloat value.
-    var ceil: CGFloat {
+	public var ceil: CGFloat {
 		return Foundation.ceil(self)
 	}
 	
 	/// Radian value of degree input.
-    var degreesToRadians: CGFloat {
+	public var degreesToRadians: CGFloat {
 		return CGFloat(Double.pi) * self / 180.0
 	}
 	
 	/// Floor of CGFloat value.
-    var floor: CGFloat {
+	public var floor: CGFloat {
 		return Foundation.floor(self)
 	}
 	
 	/// Degree value of radian input.
-    var radiansToDegrees: CGFloat {
+	public var radiansToDegrees: CGFloat {
 		return self * 180 / CGFloat(Double.pi)
 	}
 	
@@ -49,7 +49,7 @@ public extension CGFloat {
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
 	/// - Returns: random CGFloat between two CGFloat values.
-    static func randomBetween(min: CGFloat, max: CGFloat) -> CGFloat {
+	public static func randomBetween(min: CGFloat, max: CGFloat) -> CGFloat {
 		let delta = max - min
 		return min + CGFloat(arc4random_uniform(UInt32(delta)))
 	}

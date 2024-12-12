@@ -12,7 +12,6 @@ import Foundation
 import SystemConfiguration
 import AVFoundation
 import MobileCoreServices
-import Network
 
 #if os(iOS) || os(tvOS)
     import UIKit
@@ -58,7 +57,7 @@ class UtilityHelper
     }
     
     class func getTopMostViewController() -> UIViewController {
-        if var topController = UIApplication.shared.keyWindows?.rootViewController {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }
@@ -68,20 +67,25 @@ class UtilityHelper
         }
         return UIViewController()
     }
-    
-    class func isInternetAvailable(completion: @escaping (Bool) -> Void) {
-        let monitor = NWPathMonitor()
-        let queue = DispatchQueue(label: "NetworkMonitorQueue")
+    class func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
         
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                completion(true)
-            } else {
-                completion(false)
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
-            monitor.cancel()
         }
-        monitor.start(queue: queue)
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
     }
     
     // MARK: - UIAlertViewController (called from UIViewController)
@@ -455,13 +459,19 @@ class UtilityHelper
             handler(exportSession!)
         }
     }
-
+    
     static func MIMEType(fileExtension: String) -> String? {
         if !fileExtension.isEmpty {
-            // Get the UTType for the file extension
-            if let uti = UTType(filenameExtension: fileExtension) {
-                // Get the MIME type
-                return uti.preferredMIMEType
+            let UTIRef = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension as CFString, nil)
+            let UTI = UTIRef?.takeUnretainedValue()
+            UTIRef?.release()
+            
+            let MIMETypeRef = UTTypeCopyPreferredTagWithClass(UTI!, kUTTagClassMIMEType)
+            if MIMETypeRef != nil
+            {
+                let MIMEType = MIMETypeRef?.takeUnretainedValue()
+                MIMETypeRef?.release()
+                return MIMEType as String?
             }
         }
         return nil
@@ -528,14 +538,14 @@ class UtilityHelper
     class func saveSessionToDisk(_ Session: NSDictionary) {
         let dictionary: NSMutableDictionary = NSMutableDictionary(dictionary: Session)
         let archiveData: Data = NSKeyedArchiver.archivedData(withRootObject: dictionary)
-        let paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [AnyObject]
+        var paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [AnyObject]
         let documentsDir: NSString = paths[0] as! String as NSString
         let fullPath: NSString = documentsDir.appendingPathComponent("SavedSession.plist") as NSString
         try? archiveData.write(to: URL(fileURLWithPath: fullPath as String), options: [.atomic])
     }
     
     class func loadSessionFromDisk() -> NSDictionary? {
-        let paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [AnyObject]
+        var paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [AnyObject]
         let documentsDir: NSString = paths[0] as! NSString
         let fullPath: String = documentsDir.appendingPathComponent("SavedSession.plist")
         print("\(fullPath)")
@@ -883,7 +893,7 @@ class UtilityHelper
     #if os(iOS) || os(tvOS)
     /// Key window (read only, if applicable).
     public static var keyWindow: UIView? {
-        return UIApplication.shared.keyWindows
+        return UIApplication.shared.keyWindow
     }
     #endif
     
@@ -891,10 +901,10 @@ class UtilityHelper
     /// Most top view controller (if applicable).
     public static var mostTopViewController: UIViewController? {
         get {
-            return UIApplication.shared.keyWindows?.rootViewController
+            return UIApplication.shared.keyWindow?.rootViewController
         }
         set {
-            UIApplication.shared.keyWindows?.rootViewController = newValue
+            UIApplication.shared.keyWindow?.rootViewController = newValue
         }
     }
     #endif
@@ -907,26 +917,16 @@ class UtilityHelper
     #endif
     
     #if os(iOS)
-    /// Status bar style management
-    public struct StatusBarManager {
-        /// Get current status bar style
-        public static var currentStyle: UIStatusBarStyle? {
-            guard let scene = UIApplication.shared.connectedScenes.first(where: {
-                $0.activationState == .foregroundActive
-            }) as? UIWindowScene else { return nil }
-            
-            return scene.statusBarManager?.statusBarStyle
+    /// Current status bar style (if applicable).
+    public static var statusBarStyle: UIStatusBarStyle? {
+        get {
+            return UIApplication.shared.statusBarStyle
         }
-        
-        /// Set status bar style for a specific view controller
-        public static func setStyle(_ style: UIStatusBarStyle, for viewController: UIViewController) {
-            viewController.setNeedsStatusBarAppearanceUpdate()
-            (viewController as? StatusBarStyleConfigurable)?.preferredStatusBarStyle = style
+        set {
+            if let style = newValue {
+                UIApplication.shared.statusBarStyle = style
+            }
         }
-    }
-    
-    protocol StatusBarStyleConfigurable: UIViewController {
-        var preferredStatusBarStyle: UIStatusBarStyle { get set }
     }
     #endif
     
