@@ -28,7 +28,7 @@ let GENERAL_PASTEBOARD = UIPasteboard.general
 let CURRENT_LANGUAGE = NSLocale.current.language.languageCode?.identifier
 
 // Network
-let NETWORK_ACTIVITY = APPLICATION.isNetworkActivityIndicatorVisible
+let NETWORK_ACTIVITY = NetworkActivityIndicatorManager.shared.isNetworkActivityIndicatorVisible
 // Color consts
 let CLEAR_COLOR = UIColor.clear
 // Application informations

@@ -19,4 +19,10 @@ extension UIApplication {
             .first?.windows
             .first(where: \.isKeyWindow)
     }
+    
+    var windowScene: UIWindowScene? {
+        return UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .first as? UIWindowScene
+    }
 }

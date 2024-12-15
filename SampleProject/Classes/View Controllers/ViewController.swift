@@ -67,9 +67,6 @@ class ViewController: UIViewController {//,UITableViewDelegate,UITableViewDataSo
             
         }
         
-        if UtilityFunctions.isValidateAlphabet("adnalsn") {
-            
-        }
         if UtilityHelper.isValidateAlphabet("adnalsn") {
             
         }

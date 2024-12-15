@@ -513,45 +513,76 @@ class UtilityHelper
     // MARK: - Application Badge
     
     class func setApplicationBadgeNumber(_ number: Int) {
-        UIApplication.shared.applicationIconBadgeNumber = number
+        UNUserNotificationCenter.current().setBadgeCount(number) { error in
+            if let error = error {
+                print("Failed to set badge count: \(error.localizedDescription)")
+            }
+        }
     }
     
     class func increaseApplicationBadgeNumberByOne() {
         let count: Int = UIApplication.shared.applicationIconBadgeNumber
-        UIApplication.shared.applicationIconBadgeNumber = count+1
+        UNUserNotificationCenter.current().setBadgeCount(count + 1) { error in
+            if let error = error {
+                print("Failed to set badge count: \(error.localizedDescription)")
+            }
+        }
     }
     
     // MARK: -
     // MARK: Session Save
     // MARK: -
     
-    class func saveSessionToDisk(_ Session: NSDictionary) {
-        let dictionary: NSMutableDictionary = NSMutableDictionary(dictionary: Session)
-        let archiveData: Data = NSKeyedArchiver.archivedData(withRootObject: dictionary)
-        let paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [AnyObject]
-        let documentsDir: NSString = paths[0] as! String as NSString
-        let fullPath: NSString = documentsDir.appendingPathComponent("SavedSession.plist") as NSString
-        try? archiveData.write(to: URL(fileURLWithPath: fullPath as String), options: [.atomic])
+    class func saveSessionToDisk(_ session: NSDictionary) {
+        let dictionary: NSMutableDictionary = NSMutableDictionary(dictionary: session)
+        do {
+            let archiveData = try NSKeyedArchiver.archivedData(withRootObject: dictionary, requiringSecureCoding: true)
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            guard let documentsDir = paths.first as? NSString else {
+                print("Failed to get documents directory")
+                return
+            }
+            let fullPath = documentsDir.appendingPathComponent("SavedSession.plist")
+            try archiveData.write(to: URL(fileURLWithPath: fullPath), options: [.atomic])
+            print("Session saved successfully at: \(fullPath)")
+        } catch {
+            print("Failed to save session: \(error.localizedDescription)")
+        }
     }
     
     class func loadSessionFromDisk() -> NSDictionary? {
-        let paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [AnyObject]
-        let documentsDir: NSString = paths[0] as! NSString
-        let fullPath: String = documentsDir.appendingPathComponent("SavedSession.plist")
-        print("\(fullPath)")
-        let fileManager: FileManager = FileManager.default
-        if fileManager.fileExists(atPath: fullPath) {
-            var dict: NSDictionary? = nil
-            let archiveData: Data = try! Data(contentsOf: URL(fileURLWithPath: fullPath))
-            dict = (NSKeyedUnarchiver.unarchiveObject(with: archiveData) as? NSMutableDictionary)
-            return dict
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        guard let documentsDir = paths.first as? NSString else {
+            print("Failed to get documents directory")
+            return nil
         }
-        return nil
+        
+        let fullPath = documentsDir.appendingPathComponent("SavedSession.plist")
+        print("Loading session from: \(fullPath)")
+        
+        let fileManager = FileManager.default
+        guard fileManager.fileExists(atPath: fullPath) else {
+            print("File does not exist at path: \(fullPath)")
+            return nil
+        }
+        
+        do {
+            let archiveData = try Data(contentsOf: URL(fileURLWithPath: fullPath))
+            if let dictionary = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSDictionary.self, from: archiveData) {
+                return dictionary
+            } else {
+                print("Failed to unarchive data")
+                return nil
+            }
+        } catch {
+            print("Failed to load session: \(error.localizedDescription)")
+            return nil
+        }
     }
     
     // MARK: - Key Window
     class func getKeyWindow() -> UIWindow? {
-        return UIApplication.shared.keyWindow
+        return UIApplication.shared.keyWindows
     }
     
     class func getAppWindow() -> UIWindow? {
@@ -719,7 +750,7 @@ class UtilityHelper
     #if os(iOS)
     /// StatusBar height
     public static var statusBarHeight: CGFloat {
-        return UIApplication.shared.statusBarFrame.height
+        return UIApplication.shared.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
     }
     #endif
     
@@ -731,12 +762,7 @@ class UtilityHelper
     #if os(iOS) || os(tvOS)
     /// Application icon badge current number.
     public static var applicationIconBadgeNumber: Int {
-        get {
             return UIApplication.shared.applicationIconBadgeNumber
-        }
-        set {
-            UIApplication.shared.applicationIconBadgeNumber = newValue
-        }
     }
     #endif
     
@@ -826,18 +852,6 @@ class UtilityHelper
     #endif
     
     #if os(iOS)
-    /// Current status bar network activity indicator state.
-    public static var isNetworkActivityIndicatorVisible: Bool {
-        get {
-            return UIApplication.shared.isNetworkActivityIndicatorVisible
-        }
-        set {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
-        }
-    }
-    #endif
-    
-    #if os(iOS)
     /// Check if device is iPad.
     public static var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
@@ -861,7 +875,7 @@ class UtilityHelper
     /// Check if application is running on simulator (read-only).
     public static var isRunningOnSimulator: Bool {
         // http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+        #if targetEnvironment(simulator)        
             return true
         #else
             return false
@@ -872,10 +886,11 @@ class UtilityHelper
     /// Status bar visibility state.
     public static var isStatusBarHidden: Bool {
         get {
-            return UIApplication.shared.isStatusBarHidden
+            return UIApplication.shared.windowScene?.statusBarManager?.isStatusBarHidden ?? false
         }
         set {
-            UIApplication.shared.isStatusBarHidden = newValue
+            guard let rootViewController = UIApplication.shared.windowScene?.windows.first?.rootViewController else { return }
+            rootViewController.setNeedsStatusBarAppearanceUpdate()
         }
     }
     #endif

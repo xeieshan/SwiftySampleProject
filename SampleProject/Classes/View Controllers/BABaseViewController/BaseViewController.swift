@@ -58,7 +58,7 @@ class BaseViewController: UIViewController {
             self.rightButton = UIButton.init(type: UIButton.ButtonType.custom)
             if rightButtonType == .addfriends {
                 self.rightButton!.frame = CGRect(x: 0, y: 0, width: 100, height: 24)
-                UtilityFunctions .setViewBorder(self.rightButton!, withWidth: 5, andColor: UIColor.white)
+                UtilityHelper.setViewBorder(self.rightButton!, withWidth: 5, andColor: UIColor.white)
                 self.rightButton?.cornerRadius =  3.0
                 self.rightButton!.setTitle(rightButtonType == .addfriends ? "ADD FRIENDS" : "", for: UIControl.State())
                 self.rightButton!.titleLabel!.font = UIConfiguration.getUIFONTBOLD(sizeFont: 12)
