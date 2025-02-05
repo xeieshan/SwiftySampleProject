@@ -73,7 +73,7 @@ extension UIViewController {
 
     }
     private func alertTextFieldDidChange(textField:UITextField) -> Void {
-        let presentedAlertController:UIAlertController! = self.presentedViewController! as! UIAlertController
+        let presentedAlertController:UIAlertController! = self.presentedViewController! as? UIAlertController
         let textField:UITextField! = presentedAlertController.textFields?.first
         let okAction:UIAlertAction! = presentedAlertController.actions.last
         okAction.isEnabled = (textField.text?.length)!>2

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		38CC69EA8536F32A2BE660C8 /* SPStrikeThroughLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC659ADF264EDC06566BBF /* SPStrikeThroughLabel.swift */; };
 		38CC6EE8333FAD8BCE350578 /* UIImage+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC6F498E4E728A595D36E4 /* UIImage+helper.m */; };
 		38CC6F5AD87DF0CC99E8EAD9 /* SPAllowedCharsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC64AF2FF35A5F60B44301 /* SPAllowedCharsTextField.swift */; };
+		4F0B82642D4BDFFA00710FEA /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B82632D4BDFFA00710FEA /* UIApplicationExtensions.swift */; };
+		4F0B82662D4BEC2A00710FEA /* UIScreenExtesnions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B82652D4BEC2A00710FEA /* UIScreenExtesnions.swift */; };
 		77024DC31E37B4E9008565FF /* SPImageCollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77024DC21E37B4E9008565FF /* SPImageCollageView.swift */; };
 		778503851BA987290068185E /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 778503841BA987290068185E /* Icons.xcassets */; };
 		8EBD2CDB1B566A6B00741E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD2C8F1B566A6B00741E4B /* AppDelegate.swift */; };
@@ -143,6 +145,8 @@
 		38CC6F498E4E728A595D36E4 /* UIImage+helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+helper.m"; sourceTree = "<group>"; };
 		38CC6FD97C19746843590E83 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		39B8D0D5CFCC0E104C53620D /* Pods_SampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F0B82632D4BDFFA00710FEA /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		4F0B82652D4BEC2A00710FEA /* UIScreenExtesnions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtesnions.swift; sourceTree = "<group>"; };
 		6F9BA21B009844E2FCC63D0A /* Pods-SampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleProject/Pods-SampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		77024DC21E37B4E9008565FF /* SPImageCollageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPImageCollageView.swift; sourceTree = "<group>"; };
 		778503841BA987290068185E /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -876,6 +880,7 @@
 			isa = PBXGroup;
 			children = (
 				95A8BB351E2657C600A0F461 /* CGFloatExtensions.swift */,
+				4F0B82652D4BEC2A00710FEA /* UIScreenExtesnions.swift */,
 				95A8BB361E2657C600A0F461 /* CGPointExtensions.swift */,
 				95A8BB371E2657C600A0F461 /* CGSizeExtensions.swift */,
 				95A8BB381E2657C600A0F461 /* NSAttributedStringExtensions.swift */,
@@ -899,6 +904,7 @@
 				95A8BB4B1E2657C600A0F461 /* UITextViewExtensions.swift */,
 				95A8BB4C1E2657C600A0F461 /* UIViewControllerExtensions.swift */,
 				95A8BB4D1E2657C600A0F461 /* UIViewExtensions.swift */,
+				4F0B82632D4BDFFA00710FEA /* UIApplicationExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -964,8 +970,9 @@
 		8EBD2C5B1B5667F200741E4B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftMigration = 0720;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1620;
 				ORGANIZATIONNAME = XYZco.;
 				TargetAttributes = {
 					8EBD2C621B5667F200741E4B = {
@@ -977,15 +984,14 @@
 				};
 			};
 			buildConfigurationList = 8EBD2C5E1B5667F200741E4B /* Build configuration list for PBXProject "SampleProject" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
 			mainGroup = 8EBD2C5A1B5667F200741E4B;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 8EBD2C641B5667F200741E4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1017,13 +1023,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleProject/Pods-SampleProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1057,6 +1062,7 @@
 			files = (
 				95D0E5331E4457CC007160C5 /* SPSegments.swift in Sources */,
 				95A8BB661E2657C600A0F461 /* UIViewExtensions.swift in Sources */,
+				4F0B82642D4BDFFA00710FEA /* UIApplicationExtensions.swift in Sources */,
 				951E11F61C899D9000DA6A41 /* Badge.swift in Sources */,
 				953E5CF81EB84A7700CAC08A /* MOSteps.swift in Sources */,
 				952CF3771C857A9D00CB80F6 /* UIColor.swift in Sources */,
@@ -1135,6 +1141,7 @@
 				952CF3881C8597C000CB80F6 /* SampleStorageHelper.m in Sources */,
 				95A8BB5D1E2657C600A0F461 /* UISearchBarExtensions.swift in Sources */,
 				95A8BB641E2657C600A0F461 /* UITextViewExtensions.swift in Sources */,
+				4F0B82662D4BEC2A00710FEA /* UIScreenExtesnions.swift in Sources */,
 				953E5D001EB84A7700CAC08A /* MOViewport.swift in Sources */,
 				959FCA641C7F1384009114C8 /* UIConfiguration.swift in Sources */,
 				95A8BB561E2657C600A0F461 /* UIColorExtensions.swift in Sources */,
@@ -1202,6 +1209,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1232,6 +1240,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1259,6 +1268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1289,6 +1299,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1310,7 +1321,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F9BA21B009844E2FCC63D0A /* Pods-SampleProject.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1321,6 +1331,8 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V3DD866277;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)/**",
@@ -1331,9 +1343,13 @@
 					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1351,7 +1367,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C265AF381BF2FABF75FF8500 /* Pods-SampleProject.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1362,6 +1377,8 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V3DD866277;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)/**",
@@ -1373,16 +1390,21 @@
 					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleProject/Supporting Files/SampleProject-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

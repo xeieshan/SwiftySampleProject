@@ -26,7 +26,7 @@ class APIResponse: NSObject {
     class func handleResponse(dictResponse: [String : AnyObject], error networkError: NSError) -> APIResponse {
         let response: APIResponse = APIResponse()
         if networkError != NSNull() {
-            var result: [String : AnyObject] = dictResponse 
+            let result: [String : AnyObject] = dictResponse 
             if CInt((result["status"] as! Int)) == 0 {
                 response.error = SPError(dictResult: result as [NSObject : AnyObject])
                 response.data = nil
