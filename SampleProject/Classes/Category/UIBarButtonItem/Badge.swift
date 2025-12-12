@@ -64,8 +64,9 @@ extension UIButton {
         let padding = size / 4
         layer.cornerRadius = padding + size * 1.2 / 2
         let sidePadding = padding * 1.5
-        contentEdgeInsets = UIEdgeInsets(top: padding, left: sidePadding, bottom: padding, right: sidePadding)
-
+        var config = self.configuration ?? UIButton.Configuration.filled()
+                    config.contentInsets = NSDirectionalEdgeInsets(top: padding, leading: sidePadding, bottom: padding, trailing: sidePadding)
+        
         if size.isZero {
             backgroundColor = UIColor.clear
             setTitleColor(tintColor, for: .normal)

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^ActionBlock)();
+typedef void (^ActionBlock)(void);
 
 @interface UIButton (Helpers)
 
